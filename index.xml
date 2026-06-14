@@ -1,0 +1,5239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+<head>
+  <meta charset='utf-8'/>
+  <meta content='width=device-width,initial-scale=1.0' name='viewport'/>
+  <b:include data='blog' name='all-head-content'/>
+  <!-- Favicon managed from Blogger Settings -->
+<!-- GA4 -->
+  <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-H5GXKCS04S'/>
+  <script type='text/javascript'>
+  //<![CDATA[
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H5GXKCS04S');
+  //]]>
+  </script>
+
+  <!-- ============================================================
+       FIX 1: COMPLETE SEO &#8212; title + meta description on ALL views
+       FIX 7: og:type + og:description added
+       FIX 8: og:image uses post featured image on single posts
+       ============================================================ -->
+  <b:if cond='data:view.isHomepage'>
+    <title>Decode With Jai &#8212; AI, SEO, Ads &amp; Web Development</title>
+    <meta content='Practical tech guides on AI, SEO, Google Ads, Meta Ads, Web Development, tools and digital growth by Jai Jain.' name='description'/>
+    <meta content='index, follow' name='robots'/>
+    <meta content='website' property='og:type'/>
+    <meta content='Practical tech guides on AI, SEO, Google Ads, Meta Ads, Web Development, tools and digital growth by Jai Jain.' property='og:description'/>
+    <meta content='https://jaijain.in/og-image.jpg' property='og:image'/>
+  <b:elseif cond='data:view.isSingleItem'/>
+    <b:loop values='data:posts' var='post'>
+      <title><data:post.title.escape/> &#8212; Decode With Jai</title>
+      <meta expr:content='data:post.snippet' name='description'/>
+      <meta content='index, follow' name='robots'/>
+      <meta content='article' property='og:type'/>
+      <meta expr:content='data:post.snippet' property='og:description'/>
+      <!-- FIX 8: Use post featured image for og:image, fallback to default -->
+      <b:if cond='data:post.featuredImage'>
+        <meta expr:content='data:post.featuredImage' property='og:image'/>
+      <b:else/>
+        <meta content='https://jaijain.in/og-image.jpg' property='og:image'/>
+      </b:if>
+    </b:loop>
+  <b:else/>
+    <title><data:view.title.escape/> &#8212; Decode With Jai</title>
+    <meta expr:content='data:view.title.escape + &quot; — Decode With Jai: AI, SEO, Ads &amp; Web Development.&quot;' name='description'/>
+    <meta content='index, follow' name='robots'/>
+    <meta content='website' property='og:type'/>
+    <meta expr:content='data:view.title.escape + &quot; — Decode With Jai: AI, SEO, Ads &amp; Web Development.&quot;' property='og:description'/>
+    <meta content='https://jaijain.in/og-image.jpg' property='og:image'/>
+  </b:if>
+
+  <!-- OPEN GRAPH + TWITTER (shared tags) -->
+  <meta expr:content='data:view.title.escape' property='og:title'/>
+  <meta content='Decode With Jai' property='og:site_name'/>
+  <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+  <meta content='summary_large_image' name='twitter:card'/>
+  <meta content='@Jai_Jain_' name='twitter:site'/>
+  <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
+
+  <!-- SCHEMA.ORG WebSite -->
+  <script type='application/ld+json'>
+  //<![CDATA[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Decode With Jai",
+    "url": "https://www.decodewithjai.in",
+    "description": "Practical tech guides on AI, SEO, Google Ads, Meta Ads, Web Development, tools and digital growth by Jai Jain.",
+    "author": {
+      "@type": "Person",
+      "name": "Jai Jain",
+      "url": "https://jaijain.in"
+    }
+  }
+  //]]>
+  </script>
+
+  <!-- GOOGLE FONTS -->
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;family=Space+Mono:wght@400;700&amp;display=swap' rel='stylesheet'/>
+
+  <b:skin><![CDATA[
+  :root {
+    --white:    #ffffff;
+    --off:      #f8f8f6;
+    --ink:      #0a0a0a;
+    --mid:      #525250;
+    --muted:    #888884;
+    --border:   #e6e6e3;
+    --accent:   #1a1aff;
+    --red:      #ff3a2d;
+    --green:    #00c48c;
+    --radius:   6px;
+    --shadow:   0 2px 20px rgba(0,0,0,0.06);
+    --shadow-h: 0 8px 40px rgba(0,0,0,0.11);
+    --nav-h:    60px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; height: auto; display: block; }
+  button { font-family: inherit; cursor: pointer; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--off); }
+  ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
+
+  .dwj-wrap {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* NAVBAR */
+  .dwj-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    height: var(--nav-h);
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 20px;
+  }
+  .dwj-nav-inner {
+    width: 100%; max-width: 1160px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .dwj-logo {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: 1.1rem; color: var(--ink);
+    display: flex; align-items: center; gap: 8px;
+    letter-spacing: -.02em; flex-shrink: 0;
+  }
+  .dwj-logo-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--red); display: inline-block; flex-shrink: 0;
+    animation: dotpulse 2s ease-in-out infinite;
+  }
+  @keyframes dotpulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  .dwj-nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+  .dwj-nav-links a {
+    font-size: .83rem; font-weight: 500; color: var(--mid);
+    transition: color .2s; white-space: nowrap;
+  }
+  .dwj-nav-links a:hover { color: var(--ink); }
+  .dwj-nav-cta {
+    background: var(--ink) !important; color: #fff !important;
+    padding: 7px 16px; border-radius: 99px;
+    font-size: .8rem !important; font-weight: 600 !important;
+    transition: background .2s !important;
+  }
+  .dwj-nav-cta:hover { background: var(--accent) !important; }
+
+  .dwj-ham {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; padding: 4px; flex-shrink: 0;
+  }
+  .dwj-ham span {
+    display: block; width: 22px; height: 2px;
+    background: var(--ink); border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+  }
+  .dwj-ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .dwj-ham.open span:nth-child(2) { opacity: 0; }
+  .dwj-ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .dwj-mob {
+    display: none; position: fixed;
+    top: var(--nav-h); left: 0; right: 0;
+    background: var(--white); border-bottom: 1px solid var(--border);
+    z-index: 9998; padding: 12px 20px 18px;
+    flex-direction: column; gap: 2px;
+    box-shadow: 0 8px 28px rgba(0,0,0,.08);
+  }
+  .dwj-mob.open { display: flex; }
+  .dwj-mob a {
+    display: block; padding: 11px 0;
+    font-size: .9rem; font-weight: 500; color: var(--mid);
+    border-bottom: 1px solid var(--border); transition: color .2s;
+  }
+  .dwj-mob a:last-child { border-bottom: none; color: var(--accent); font-weight: 600; }
+  .dwj-mob a:hover { color: var(--ink); }
+
+  /* HERO */
+  .dwj-hero {
+    min-height: 100vh;
+    padding: calc(var(--nav-h) + 64px) 20px 64px;
+    display: flex; align-items: center;
+    background: var(--white);
+    position: relative; overflow: hidden;
+  }
+  .dwj-hero::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 52px 52px; opacity: .28;
+  }
+  .dwj-hero::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 65% at 100% 30%, rgba(26,26,255,.05) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 0% 90%, rgba(255,58,45,.04) 0%, transparent 60%);
+  }
+  .dwj-hero-inner {
+    width: 100%; max-width: 1160px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .dwj-hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--off); border: 1px solid var(--border);
+    padding: 5px 12px; border-radius: 99px;
+    font-family: 'Space Mono', monospace; font-size: .67rem;
+    color: var(--muted); letter-spacing: .07em; text-transform: uppercase;
+    margin-bottom: 22px; animation: fadeUp .5s .1s both;
+  }
+  .gdot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); flex-shrink: 0;
+    animation: dotpulse 2s ease-in-out infinite;
+  }
+  .dwj-hero-title {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    line-height: 1.02; letter-spacing: -.03em; color: var(--ink);
+    animation: fadeUp .5s .2s both;
+  }
+  .dwj-hero-title em { font-style: italic; color: var(--accent); }
+  .dwj-hero-title .t-red { color: var(--red); font-style: normal; }
+  .dwj-hero-desc {
+    margin-top: 18px; font-size: 1rem; color: var(--mid);
+    max-width: 480px; line-height: 1.75;
+    animation: fadeUp .5s .35s both;
+  }
+  .dwj-hero-chips {
+    display: flex; flex-wrap: wrap; gap: 7px; margin-top: 24px;
+    animation: fadeUp .5s .5s both;
+  }
+  .dwj-chip {
+    font-family: 'Space Mono', monospace; font-size: .66rem;
+    padding: 4px 11px; border-radius: 4px; border: 1px solid var(--border);
+    color: var(--mid); letter-spacing: .03em;
+    transition: border-color .2s, color .2s;
+  }
+  .dwj-chip:hover { border-color: var(--ink); color: var(--ink); }
+  .dwj-hero-btns {
+    display: flex; align-items: center; gap: 12px; margin-top: 32px; flex-wrap: wrap;
+    animation: fadeUp .5s .65s both;
+  }
+
+  .dwj-btn {
+    display: inline-block; padding: 12px 26px; border-radius: var(--radius);
+    font-weight: 600; font-size: .88rem; transition: all .2s; text-align: center;
+    border: none;
+  }
+  .dwj-btn-primary { background: var(--ink); color: #fff; }
+  .dwj-btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+  .dwj-btn-outline { border: 1.5px solid var(--border); color: var(--mid); background: transparent; }
+  .dwj-btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+
+  /* Profile Card */
+  .dwj-profile {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 14px; padding: 28px; box-shadow: var(--shadow);
+    animation: fadeUp .5s .3s both;
+  }
+  .dwj-profile-top { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .dwj-avatar {
+    width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent), var(--red));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.3rem; color: #fff;
+  }
+  .dwj-pname { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; }
+  .dwj-prole { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+  .dwj-pbio {
+    font-size: .86rem; color: var(--mid); line-height: 1.65;
+    padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 16px;
+  }
+  .dwj-pstats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
+  }
+  .dwj-pstat { background: var(--off); border-radius: var(--radius); padding: 11px 13px; }
+  .dwj-pstat-n { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; }
+  .dwj-pstat-l { font-family: 'Space Mono', monospace; font-size: .65rem; color: var(--muted); margin-top: 1px; }
+  .dwj-plinks { display: flex; flex-direction: column; gap: 7px; }
+  .dwj-plink {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 13px; border-radius: var(--radius); border: 1px solid var(--border);
+    font-size: .82rem; font-weight: 500; color: var(--ink);
+    transition: border-color .2s, background .2s;
+  }
+  .dwj-plink:hover { border-color: var(--ink); background: var(--off); }
+  .dwj-plink-label { flex: 1; }
+  .dwj-plink-arr { color: var(--muted); font-size: .72rem; }
+
+  /* STATS BAR */
+  .dwj-statsbar {
+    background: var(--ink); color: #fff;
+    padding: 16px 20px;
+    display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+  }
+  .dwj-statsbar-item {
+    text-align: center; padding: 8px 36px;
+    border-right: 1px solid rgba(255,255,255,.1);
+  }
+  .dwj-statsbar-item:last-child { border-right: none; }
+  .dwj-sn {
+    font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.5rem; line-height: 1;
+  }
+  .dwj-sl {
+    font-family: 'Space Mono', monospace; font-size: .63rem;
+    color: rgba(255,255,255,.45); margin-top: 4px;
+    letter-spacing: .07em; text-transform: uppercase;
+  }
+
+  /* ADSENSE BANNER */
+  .dwj-ad-banner {
+    background: var(--off); border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px; text-align: center; overflow: hidden;
+    min-height: 90px; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* SECTIONS */
+  .dwj-section { padding: 72px 0; }
+  .dwj-section-off {
+    background: var(--off);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .dwj-kicker {
+    font-family: 'Space Mono', monospace; font-size: .68rem;
+    text-transform: uppercase; letter-spacing: .12em;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .dwj-title {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    letter-spacing: -.02em; color: var(--ink); line-height: 1.1;
+  }
+  .dwj-desc { margin-top: 10px; color: var(--mid); font-size: .94rem; }
+  .dwj-section-hrow {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 36px;
+  }
+  .dwj-viewall {
+    font-family: 'Space Mono', monospace; font-size: .72rem;
+    color: var(--mid); border-bottom: 1px solid var(--border);
+    padding-bottom: 2px; white-space: nowrap;
+    transition: color .2s, border-color .2s;
+  }
+  .dwj-viewall:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* TOPICS GRID */
+  .dwj-topics-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .dwj-topic {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 12px;
+    text-align: center; display: block;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .dwj-topic:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .dwj-topic-icon { font-size: 1.4rem; margin-bottom: 7px; }
+  .dwj-topic-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: .84rem; color: var(--ink); }
+
+  /* BLOG CARDS */
+  .dwj-posts-grid, .dwj-allposts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .dwj-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .25s, box-shadow .25s;
+    color: var(--ink);
+  }
+  .dwj-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-h); }
+  .dwj-card-thumb {
+    width: 100%; aspect-ratio: 16/9; overflow: hidden;
+    background: var(--off); flex-shrink: 0;
+  }
+  .dwj-card-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .4s ease; display: block;
+  }
+  .dwj-card:hover .dwj-card-thumb img { transform: scale(1.04); }
+  .dwj-card-ph {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #f0efed, #e4e3e0);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+  }
+  .dwj-card-body { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+  .dwj-card-cat {
+    font-family: 'Space Mono', monospace; font-size: .64rem;
+    text-transform: uppercase; letter-spacing: .08em;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .dwj-card-title {
+    font-family: 'Fraunces', serif; font-weight: 700;
+    font-size: 1.05rem; line-height: 1.35; color: var(--ink); margin-bottom: 9px;
+  }
+  .dwj-card-snip {
+    font-size: .84rem; color: var(--mid); line-height: 1.6;
+    display: -webkit-box; -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+    margin-bottom: 14px; flex-grow: 1;
+  }
+  .dwj-card-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 12px; border-top: 1px solid var(--border); margin-top: auto;
+  }
+  .dwj-card-date { font-family: 'Space Mono', monospace; font-size: .64rem; color: var(--muted); }
+  .dwj-card-read {
+    font-family: 'Space Mono', monospace; font-size: .67rem; font-weight: 700;
+    color: var(--accent); letter-spacing: .04em; transition: letter-spacing .2s;
+  }
+  .dwj-card:hover .dwj-card-read { letter-spacing: .1em; }
+
+  /* ABOUT + SOCIAL */
+  .dwj-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .dwj-about-desc { margin-top: 14px; color: var(--mid); font-size: .96rem; line-height: 1.78; }
+  .dwj-about-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+  .dwj-atag {
+    font-family: 'Space Mono', monospace; font-size: .66rem;
+    padding: 4px 11px; border-radius: 4px; border: 1px solid var(--border);
+    color: var(--mid); background: var(--white);
+  }
+  .dwj-about-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .dwj-info-list { display: flex; flex-direction: column; gap: 10px; }
+  .dwj-info-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 13px 16px;
+  }
+  .dwj-info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  .dwj-info-lbl { font-family: 'Space Mono', monospace; font-size: .65rem; color: var(--muted); margin-bottom: 2px; }
+  .dwj-info-val { font-size: .88rem; font-weight: 600; color: var(--ink); }
+
+  .dwj-social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .dwj-social {
+    border: 1.5px solid var(--border); border-radius: 12px;
+    padding: 22px 18px; display: flex; flex-direction: column; gap: 10px;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    position: relative; overflow: hidden;
+  }
+  .dwj-social:hover { transform: translateY(-4px); box-shadow: var(--shadow-h); border-color: transparent; }
+  .dwj-social::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--sc, var(--ink));
+    transform: scaleX(0); transform-origin: left; transition: transform .3s;
+  }
+  .dwj-social:hover::after { transform: scaleX(1); }
+  .dwj-social-icon { font-size: 1.5rem; }
+  .dwj-social-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: .96rem; }
+  .dwj-social-handle { font-family: 'Space Mono', monospace; font-size: .67rem; color: var(--muted); }
+  .dwj-social-act { font-family: 'Space Mono', monospace; font-size: .67rem; color: var(--mid); margin-top: auto; transition: color .2s; }
+  .dwj-social:hover .dwj-social-act { color: var(--ink); }
+
+  /* NEWSLETTER */
+  .dwj-nl {
+    background: var(--ink); color: #fff;
+    padding: 72px 20px; text-align: center; position: relative; overflow: hidden;
+  }
+  .dwj-nl::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 50% 80% at 20% 50%, rgba(26,26,255,.22) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 50%, rgba(255,58,45,.15) 0%, transparent 60%);
+  }
+  .dwj-nl-inner { position: relative; z-index: 1; max-width: 500px; margin: 0 auto; }
+  .dwj-nl .dwj-kicker { color: rgba(255,255,255,.3); }
+  .dwj-nl .dwj-title { color: #fff; }
+  .dwj-nl .dwj-desc { color: rgba(255,255,255,.5); margin: 10px auto 28px; max-width: 380px; }
+  .dwj-nl-form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .dwj-nl-input {
+    flex: 1; min-width: 200px; padding: 12px 18px; border-radius: var(--radius);
+    background: rgba(255,255,255,.08); border: 1.5px solid rgba(255,255,255,.12);
+    color: #fff; font-size: .9rem; font-family: 'DM Sans', sans-serif; outline: none;
+    transition: border-color .2s;
+  }
+  .dwj-nl-input::placeholder { color: rgba(255,255,255,.3); }
+  .dwj-nl-input:focus { border-color: var(--accent); }
+  .dwj-nl-btn {
+    background: #fff; color: var(--ink);
+    padding: 12px 22px; border-radius: var(--radius);
+    font-weight: 700; font-size: .86rem; border: none;
+    transition: background .2s, transform .2s; white-space: nowrap;
+  }
+  .dwj-nl-btn:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+  .dwj-nl-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+  .dwj-nl-note { margin-top: 12px; font-size: .73rem; color: rgba(255,255,255,.28); }
+
+  /* ALL POSTS PAGE */
+  .dwj-ap-header { text-align: center; padding: calc(var(--nav-h) + 56px) 20px 48px; }
+  .dwj-search-wrap { position: relative; max-width: 400px; margin: 24px auto 0; }
+  .dwj-search-ico {
+    position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+    color: var(--muted); font-size: .85rem; pointer-events: none;
+  }
+  .dwj-search {
+    width: 100%; padding: 11px 14px 11px 38px;
+    border: 1.5px solid var(--border); border-radius: var(--radius);
+    font-size: .88rem; font-family: 'DM Sans', sans-serif;
+    background: var(--white); color: var(--ink); outline: none; transition: border-color .2s;
+  }
+  .dwj-search:focus { border-color: var(--accent); }
+  .dwj-search::placeholder { color: var(--muted); }
+
+  .dwj-spinner {
+    width: 28px; height: 28px; border: 3px solid var(--border);
+    border-top-color: var(--accent); border-radius: 50%;
+    animation: spin .8s linear infinite; margin: 0 auto 14px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* SINGLE POST */
+  .dwj-post-wrap { max-width: 720px; margin: calc(var(--nav-h) + 48px) auto 80px; padding: 0 20px; }
+  .dwj-post-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Space Mono', monospace; font-size: .72rem;
+    color: var(--mid); margin-bottom: 28px;
+    border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
+  }
+  .dwj-post-back:hover { color: var(--ink); border-color: var(--ink); }
+  .dwj-post-cat {
+    font-family: 'Space Mono', monospace; font-size: .7rem;
+    text-transform: uppercase; letter-spacing: .1em; color: var(--accent);
+    display: block; margin-bottom: 14px;
+  }
+  .dwj-post-title {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: clamp(1.9rem, 4.5vw, 3rem); line-height: 1.12;
+    letter-spacing: -.025em; color: var(--ink); margin-bottom: 16px;
+  }
+  .dwj-post-meta {
+    font-family: 'Space Mono', monospace; font-size: .76rem; color: var(--muted);
+    padding-bottom: 22px; border-bottom: 1px solid var(--border); margin-bottom: 32px;
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  }
+  .dwj-ad-inarticle {
+    background: var(--off); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px; margin: 36px 0;
+    text-align: center; min-height: 280px;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .dwj-post-body { font-size: 1.08rem; line-height: 1.85; color: #1a1a18; }
+  .dwj-post-body p { margin-bottom: 24px; }
+  .dwj-post-body h2 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.55rem; margin: 38px 0 14px; letter-spacing: -.01em; }
+  .dwj-post-body h3 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; margin: 30px 0 12px; }
+  .dwj-post-body img { border-radius: var(--radius); margin: 28px 0; width: 100%; }
+  .dwj-post-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .dwj-post-body ul, .dwj-post-body ol { padding-left: 22px; margin-bottom: 24px; }
+  .dwj-post-body li { margin-bottom: 7px; }
+  .dwj-post-body blockquote {
+    border-left: 3px solid var(--accent); padding: 14px 18px;
+    background: var(--off); margin: 28px 0; border-radius: 0 4px 4px 0;
+    font-style: italic; color: var(--mid);
+  }
+  .dwj-post-body pre {
+    background: var(--ink); color: #fff; padding: 22px;
+    border-radius: var(--radius); overflow-x: auto;
+    font-family: 'Space Mono', monospace; font-size: .82rem; margin: 28px 0;
+  }
+  .dwj-post-body code {
+    background: var(--off); color: var(--red); padding: 2px 6px;
+    border-radius: 3px; font-family: 'Space Mono', monospace; font-size: .82em;
+  }
+  .dwj-post-body pre code { background: none; color: inherit; padding: 0; }
+  .dwj-post-body table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: .92rem; }
+  .dwj-post-body th, .dwj-post-body td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+  .dwj-post-body th { background: var(--off); font-weight: 600; }
+
+  .dwj-post-share {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+  }
+  .dwj-share-lbl { font-family: 'Space Mono', monospace; font-size: .7rem; color: var(--muted); margin-right: 4px; }
+  .dwj-share-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 99px; border: 1px solid var(--border);
+    font-family: 'Space Mono', monospace; font-size: .68rem; font-weight: 700;
+    color: var(--mid); transition: border-color .2s, color .2s, background .2s;
+  }
+  .dwj-share-btn:hover { border-color: var(--ink); color: var(--ink); background: var(--off); }
+
+  /* PAGINATION */
+  .dwj-pagination {
+    display: flex; justify-content: center; align-items: center;
+    gap: 10px; padding: 40px 0; flex-wrap: wrap;
+  }
+  .dwj-pagination a {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 18px; border-radius: var(--radius);
+    border: 1.5px solid var(--border); font-family: 'Space Mono', monospace;
+    font-size: .72rem; font-weight: 700; color: var(--mid);
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .dwj-pagination a:hover { border-color: var(--ink); color: var(--ink); background: var(--off); }
+
+  /* FOOTER */
+  .dwj-footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 52px 20px 28px; }
+  .dwj-footer-grid {
+    width: 100%; max-width: 1160px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px;
+    padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 24px;
+  }
+  .dwj-footer-brand {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: 1.15rem; color: #fff; display: block; margin-bottom: 10px;
+  }
+  .dwj-footer-desc { font-size: .83rem; line-height: 1.7; max-width: 230px; }
+  .dwj-footer-head { font-family: 'Fraunces', serif; font-weight: 700; color: #fff; font-size: .88rem; margin-bottom: 12px; }
+  .dwj-footer-ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .dwj-footer-ul a { font-size: .82rem; color: rgba(255,255,255,.4); transition: color .2s; }
+  .dwj-footer-ul a:hover { color: #fff; }
+  .dwj-footer-bottom {
+    width: 100%; max-width: 1160px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .76rem; flex-wrap: wrap; gap: 10px;
+  }
+
+  #dwj-btt {
+    position: fixed; bottom: 24px; right: 24px; z-index: 900;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--ink); color: #fff; border: none;
+    font-size: .9rem; box-shadow: 0 4px 16px rgba(0,0,0,.18);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .3s, transform .2s;
+  }
+  #dwj-btt.show { opacity: 1; pointer-events: all; }
+  #dwj-btt:hover { transform: translateY(-3px); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:none;} }
+
+  @media (max-width:1024px) {
+    .dwj-hero-inner    { grid-template-columns: 1fr; gap: 40px; }
+    .dwj-hero          { min-height: auto; padding-bottom: 52px; }
+    .dwj-profile       { max-width: 520px; }
+    .dwj-posts-grid    { grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .dwj-allposts-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .dwj-social-grid   { grid-template-columns: repeat(2,1fr); }
+    .dwj-topics-grid   { grid-template-columns: repeat(3,1fr); }
+    .dwj-about-grid    { grid-template-columns: 1fr; gap: 36px; }
+    .dwj-footer-grid   { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .dwj-statsbar-item { padding: 8px 24px; }
+  }
+
+  @media (max-width:768px) {
+    .dwj-nav-links     { display: none; }
+    .dwj-ham           { display: flex; }
+    .dwj-hero          { padding-top: calc(var(--nav-h) + 36px); padding-bottom: 40px; }
+    .dwj-hero-title    { font-size: clamp(2.2rem,8vw,3.2rem); }
+    .dwj-posts-grid    { grid-template-columns: 1fr; gap: 16px; }
+    .dwj-allposts-grid { grid-template-columns: 1fr; gap: 16px; }
+    .dwj-social-grid   { grid-template-columns: 1fr 1fr; }
+    .dwj-topics-grid   { grid-template-columns: repeat(3,1fr); gap: 8px; }
+    .dwj-section       { padding: 52px 0; }
+    .dwj-section-hrow  { flex-direction: column; align-items: flex-start; }
+    .dwj-statsbar-item { padding: 10px 16px; flex: 1 0 50%; }
+    .dwj-statsbar-item:nth-child(2) { border-right: none; }
+    .dwj-footer-grid   { grid-template-columns: 1fr; gap: 24px; }
+    .dwj-footer-desc   { max-width: 100%; }
+    .dwj-footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width:480px) {
+    .dwj-hero-title    { font-size: 2.1rem; }
+    .dwj-social-grid   { grid-template-columns: 1fr; }
+    .dwj-topics-grid   { grid-template-columns: repeat(2,1fr); }
+    .dwj-hero-btns     { flex-direction: column; align-items: stretch; }
+    .dwj-btn           { width: 100%; }
+    .dwj-nl-form       { flex-direction: column; }
+    .dwj-nl-input, .dwj-nl-btn { width: 100%; }
+    .dwj-about-btns    { flex-direction: column; }
+    .dwj-about-btns .dwj-btn { width: 100%; }
+    .dwj-profile       { padding: 20px; }
+    .dwj-post-title    { font-size: 1.7rem; }
+    .dwj-posts-grid    { grid-template-columns: 1fr; }
+  }
+
+  body#layout .dwj-nav, body#layout .dwj-mob, body#layout .dwj-hero,
+  body#layout .dwj-statsbar, body#layout .dwj-ad-banner, body#layout #dwj-topics,
+  body#layout #dwj-about, body#layout #dwj-connect, body#layout .dwj-nl,
+  body#layout .dwj-footer, body#layout #dwj-btt { display: none !important; }
+  body#layout .dwj-posts-grid, body#layout .dwj-allposts-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  body#layout .dwj-section { padding: 12px 0 !important; }
+  body#layout .dwj-wrap { padding: 0 !important; max-width: 100% !important; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+
+  /* TECH BLOG REFRESH + DARK MODE */
+  :root {
+    --white:#ffffff;
+    --off:#f3f6fb;
+    --ink:#0f172a;
+    --mid:#475569;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --accent:#2563eb;
+    --red:#7c3aed;
+    --green:#10b981;
+    --radius:12px;
+    --shadow:0 8px 28px rgba(15,23,42,.07);
+    --shadow-h:0 18px 50px rgba(15,23,42,.12);
+  }
+  body.dwj-dark {
+    --white:#07111f;
+    --off:#0f172a;
+    --ink:#f8fafc;
+    --mid:#cbd5e1;
+    --muted:#94a3b8;
+    --border:#1e293b;
+    --accent:#38bdf8;
+    --red:#a78bfa;
+    --green:#34d399;
+    background:#07111f;
+    color:#f8fafc;
+  }
+  body.dwj-dark .dwj-nav,
+  body.dwj-dark .dwj-mob,
+  body.dwj-dark .dwj-profile,
+  body.dwj-dark .dwj-card,
+  body.dwj-dark .dwj-topic,
+  body.dwj-dark .dwj-info-row,
+  body.dwj-dark .dwj-social,
+  body.dwj-dark .dwj-post-body,
+  body.dwj-dark .dwj-search { background:#0f172a; }
+  body.dwj-dark .dwj-card-ph { background:linear-gradient(135deg,#0f172a,#1e293b); }
+  body.dwj-dark .dwj-hero { background:#07111f; }
+  body.dwj-dark .dwj-section-off { background:#0b1220; }
+  body.dwj-dark .dwj-pstat { background:#111c33; }
+  body.dwj-dark .dwj-footer { background:#020617; }
+  .dwj-theme-toggle {
+    width:38px;height:38px;border-radius:999px;border:1px solid var(--border);
+    background:var(--white);color:var(--ink);font-weight:800;font-size:.9rem;
+    display:flex;align-items:center;justify-content:center;margin-left:4px;
+    transition:transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .dwj-theme-toggle:hover { transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--accent); }
+  .dwj-hero-title em { color:var(--accent); }
+  .dwj-hero-title .t-red { color:var(--red); }
+  .dwj-card-cat, .dwj-card-read, .dwj-post-cat, .dwj-post-body a { color:var(--accent); }
+
+  
+/* ==========================
+   DARK MODE TEXT FIX
+   Light mode stays default.
+   Dark mode text/background fixed.
+========================== */
+
+body.dark-mode{
+  --white:#0f172a;
+  --off:#111827;
+  --ink:#f8fafc;
+  --mid:#cbd5e1;
+  --muted:#94a3b8;
+  --border:#334155;
+  --card:#111827;
+  --soft:#0f172a;
+  background:#0f172a !important;
+  color:#f8fafc !important;
+}
+
+body.dark-mode,
+body.dark-mode *{
+  color:var(--ink) !important;
+}
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode small,
+body.dark-mode li,
+body.dark-mode .dwj-desc,
+body.dark-mode .dwj-hero-desc,
+body.dark-mode .dwj-card-snip,
+body.dark-mode .dwj-card-date,
+body.dark-mode .dwj-post-meta,
+body.dark-mode .dwj-pbio,
+body.dark-mode .dwj-prole,
+body.dark-mode .dwj-pstat-l,
+body.dark-mode .dwj-info-lbl,
+body.dark-mode .dwj-social-handle,
+body.dark-mode .dwj-social-act,
+body.dark-mode .dwj-footer-desc,
+body.dark-mode .dwj-footer-bottom{
+  color:var(--muted) !important;
+}
+
+body.dark-mode a,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .dwj-logo,
+body.dark-mode .dwj-title,
+body.dark-mode .dwj-hero-title,
+body.dark-mode .dwj-card-title,
+body.dark-mode .dwj-post-title,
+body.dark-mode .dwj-pname,
+body.dark-mode .dwj-pstat-n,
+body.dark-mode .dwj-info-val,
+body.dark-mode .dwj-topic-name,
+body.dark-mode .dwj-social-name{
+  color:var(--ink) !important;
+}
+
+body.dark-mode .dwj-nav,
+body.dark-mode .dwj-mob,
+body.dark-mode .dwj-profile,
+body.dark-mode .dwj-card,
+body.dark-mode .dwj-topic,
+body.dark-mode .dwj-info-row,
+body.dark-mode .dwj-social,
+body.dark-mode .dwj-post-body,
+body.dark-mode .dwj-search,
+body.dark-mode .dwj-pstat{
+  background:#111827 !important;
+  border-color:#334155 !important;
+}
+
+body.dark-mode .dwj-hero,
+body.dark-mode .dwj-section-off,
+body.dark-mode .dwj-ad-banner,
+body.dark-mode .dwj-card-ph,
+body.dark-mode .dwj-search{
+  background:#0f172a !important;
+}
+
+body.dark-mode .dwj-btn-outline,
+body.dark-mode .dwj-chip,
+body.dark-mode .dwj-atag,
+body.dark-mode .dwj-share-btn,
+body.dark-mode .dwj-viewall{
+  color:#f8fafc !important;
+  border-color:#334155 !important;
+}
+
+body.dark-mode .dwj-btn-primary,
+body.dark-mode .dwj-nav-cta{
+  background:#3157ff !important;
+  color:#ffffff !important;
+}
+
+body.dark-mode .dwj-footer,
+body.dark-mode .dwj-nl{
+  background:#050816 !important;
+}
+
+body.dark-mode .dwj-footer *,
+body.dark-mode .dwj-nl *{
+  color:rgba(255,255,255,.78) !important;
+}
+
+body.dark-mode .dwj-footer h3,
+body.dark-mode .dwj-footer h4,
+body.dark-mode .dwj-footer-brand,
+body.dark-mode .dwj-nl .dwj-title{
+  color:#ffffff !important;
+}
+
+  
+/* ==========================
+   DARK MODE PATCH V2
+   Fixes:
+   - White newsletter/open section
+   - Blog post body dark text
+   - Buttons becoming white/invisible
+   - Post content container colors
+========================== */
+
+body.dark-mode .dwj-nl,
+body.dark-mode .dwj-newsletter,
+body.dark-mode .newsletter,
+body.dark-mode section.dwj-nl,
+body.dark-mode .dwj-section.dwj-nl,
+body.dark-mode .dwj-section-off,
+body.dark-mode .dwj-hero,
+body.dark-mode .dwj-ap-header{
+  background:#050b18 !important;
+  color:#f8fafc !important;
+}
+
+body.dark-mode .dwj-nl::before,
+body.dark-mode .dwj-hero::before,
+body.dark-mode .dwj-hero::after{
+  opacity:.35 !important;
+}
+
+body.dark-mode .dwj-nl *,
+body.dark-mode .dwj-newsletter *,
+body.dark-mode .newsletter *{
+  color:#f8fafc !important;
+}
+
+body.dark-mode .dwj-nl p,
+body.dark-mode .dwj-newsletter p,
+body.dark-mode .newsletter p,
+body.dark-mode .dwj-nl-note{
+  color:#cbd5e1 !important;
+}
+
+body.dark-mode .dwj-nl-input,
+body.dark-mode .newsletter input,
+body.dark-mode input[type="email"]{
+  background:#111827 !important;
+  border-color:#334155 !important;
+  color:#f8fafc !important;
+}
+
+body.dark-mode .dwj-nl-input::placeholder,
+body.dark-mode .newsletter input::placeholder{
+  color:#94a3b8 !important;
+}
+
+body.dark-mode .dwj-btn-primary,
+body.dark-mode .dwj-nl-btn,
+body.dark-mode button.dwj-nl-btn,
+body.dark-mode .dwj-hero-btns .dwj-btn-primary{
+  background:#3157ff !important;
+  color:#ffffff !important;
+  border-color:#3157ff !important;
+}
+
+body.dark-mode .dwj-btn-outline,
+body.dark-mode .dwj-hero-btns .dwj-btn-outline{
+  background:#111827 !important;
+  color:#f8fafc !important;
+  border-color:#334155 !important;
+}
+
+body.dark-mode .dwj-btn-outline:hover,
+body.dark-mode .dwj-hero-btns .dwj-btn-outline:hover{
+  background:#1e293b !important;
+  color:#ffffff !important;
+}
+
+/* Single post page exact fixes */
+body.dark-mode .dwj-post-wrap,
+body.dark-mode article.dwj-post-wrap{
+  background:#111827 !important;
+  color:#f8fafc !important;
+}
+
+body.dark-mode .dwj-post-body,
+body.dark-mode .post-body,
+body.dark-mode .entry-content,
+body.dark-mode .post {
+  background:#111827 !important;
+  color:#e5e7eb !important;
+}
+
+body.dark-mode .dwj-post-body *,
+body.dark-mode .post-body *,
+body.dark-mode .entry-content *,
+body.dark-mode .post *{
+  color:#e5e7eb !important;
+}
+
+body.dark-mode .dwj-post-body p,
+body.dark-mode .post-body p,
+body.dark-mode .entry-content p,
+body.dark-mode .post p,
+body.dark-mode .dwj-post-body li,
+body.dark-mode .post-body li{
+  color:#d1d5db !important;
+}
+
+body.dark-mode .dwj-post-body h1,
+body.dark-mode .dwj-post-body h2,
+body.dark-mode .dwj-post-body h3,
+body.dark-mode .dwj-post-body h4,
+body.dark-mode .post-body h1,
+body.dark-mode .post-body h2,
+body.dark-mode .post-body h3,
+body.dark-mode .post-body h4,
+body.dark-mode .entry-content h1,
+body.dark-mode .entry-content h2,
+body.dark-mode .entry-content h3,
+body.dark-mode .entry-content h4{
+  color:#ffffff !important;
+}
+
+body.dark-mode .dwj-post-body a,
+body.dark-mode .post-body a,
+body.dark-mode .entry-content a{
+  color:#7dd3fc !important;
+}
+
+body.dark-mode .dwj-post-body blockquote,
+body.dark-mode .post-body blockquote{
+  background:#0f172a !important;
+  border-left-color:#38bdf8 !important;
+  color:#cbd5e1 !important;
+}
+
+body.dark-mode .dwj-post-body code,
+body.dark-mode .post-body code{
+  background:#0f172a !important;
+  color:#fca5a5 !important;
+}
+
+body.dark-mode .dwj-post-body pre,
+body.dark-mode .post-body pre{
+  background:#020617 !important;
+  color:#f8fafc !important;
+}
+
+body.dark-mode .dwj-post-meta,
+body.dark-mode .dwj-post-meta *,
+body.dark-mode .dwj-post-cat{
+  color:#94a3b8 !important;
+}
+
+body.dark-mode .dwj-post-title{
+  color:#ffffff !important;
+}
+
+/* Fix accidental white panels in dark mode */
+body.dark-mode [style*="background:#fff"],
+body.dark-mode [style*="background: #fff"],
+body.dark-mode [style*="background:white"],
+body.dark-mode [style*="background: white"],
+body.dark-mode [style*="background-color:#fff"],
+body.dark-mode [style*="background-color: #fff"],
+body.dark-mode [style*="background-color:white"],
+body.dark-mode [style*="background-color: white"]{
+  background:#111827 !important;
+}
+
+/* Back to top button visible */
+body.dark-mode #dwj-btt{
+  background:#3157ff !important;
+  color:#ffffff !important;
+}
+
+  
+/* ==========================
+   PHASE 2 HOMEPAGE SECTIONS
+   Featured Article + Topic Hubs + Newsletter
+========================== */
+
+.dwj-phase2-section{
+  padding:72px 20px;
+  background:#fff;
+}
+.dwj-phase2-section.off{
+  background:#f8f8f6;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.dwj-phase2-wrap{
+  width:100%;
+  max-width:1160px;
+  margin:0 auto;
+}
+.dwj-phase2-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:32px;
+  flex-wrap:wrap;
+}
+.dwj-phase2-kicker{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.dwj-phase2-title{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:clamp(1.8rem,3.4vw,2.8rem);
+  line-height:1.05;
+  letter-spacing:-.03em;
+  color:var(--ink);
+}
+.dwj-phase2-desc{
+  color:var(--mid);
+  font-size:.95rem;
+  margin-top:10px;
+  max-width:520px;
+}
+.dwj-phase2-link{
+  font-family:'Space Mono',monospace;
+  font-size:.75rem;
+  font-weight:700;
+  color:var(--accent);
+  border-bottom:1px solid var(--accent);
+}
+
+/* Featured */
+.dwj-featured-box{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:28px;
+  align-items:stretch;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 16px 50px rgba(0,0,0,.08);
+}
+.dwj-featured-media{
+  min-height:360px;
+  background:linear-gradient(135deg,#eef2ff,#f8f8f6);
+  overflow:hidden;
+}
+.dwj-featured-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.dwj-featured-placeholder{
+  width:100%;
+  height:100%;
+  min-height:360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:4rem;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(26,26,255,.15),transparent 35%),
+    radial-gradient(circle at 80% 60%,rgba(255,58,45,.10),transparent 35%),
+    #f8f8f6;
+}
+.dwj-featured-content{
+  padding:38px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.dwj-featured-badge{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  gap:7px;
+  font-family:'Space Mono',monospace;
+  font-size:.66rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  background:#0a0a0a;
+  color:#fff;
+  padding:6px 12px;
+  border-radius:999px;
+  margin-bottom:16px;
+}
+.dwj-featured-cat{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+}
+.dwj-featured-title{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:clamp(1.9rem,3.5vw,3rem);
+  line-height:1.08;
+  letter-spacing:-.03em;
+  margin-bottom:16px;
+}
+.dwj-featured-title a{color:var(--ink);}
+.dwj-featured-snip{
+  color:var(--mid);
+  font-size:1rem;
+  line-height:1.75;
+  margin-bottom:24px;
+}
+.dwj-featured-btn{
+  display:inline-flex;
+  width:max-content;
+  padding:12px 22px;
+  border-radius:8px;
+  background:var(--ink);
+  color:#fff!important;
+  font-size:.88rem;
+  font-weight:700;
+  transition:.2s;
+}
+.dwj-featured-btn:hover{
+  background:var(--accent);
+  transform:translateY(-2px);
+}
+.dwj-featured-loading,
+.dwj-featured-empty{
+  padding:48px 24px;
+  text-align:center;
+  color:var(--muted);
+  border:1px dashed var(--border);
+  border-radius:18px;
+  background:#fff;
+  font-family:'Space Mono',monospace;
+  font-size:.78rem;
+}
+
+/* Topic hubs */
+.dwj-topic-hubs-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:14px;
+}
+.dwj-hub-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:22px 16px;
+  min-height:170px;
+  transition:.22s;
+  display:flex;
+  flex-direction:column;
+}
+.dwj-hub-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-h);
+  border-color:#d7d7d3;
+}
+.dwj-hub-icon{
+  font-size:1.75rem;
+  margin-bottom:12px;
+}
+.dwj-hub-name{
+  font-family:'Fraunces',serif;
+  font-weight:800;
+  font-size:1rem;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.dwj-hub-desc{
+  color:var(--mid);
+  font-size:.82rem;
+  line-height:1.5;
+  margin-bottom:14px;
+}
+.dwj-hub-link{
+  margin-top:auto;
+  font-family:'Space Mono',monospace;
+  font-size:.66rem;
+  color:var(--accent);
+  font-weight:700;
+}
+
+/* Newsletter */
+.dwj-phase2-newsletter{
+  background:var(--ink);
+  color:#fff;
+  border-radius:24px;
+  padding:56px 32px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.dwj-phase2-newsletter::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(26,26,255,.25),transparent 35%),
+    radial-gradient(circle at 80% 70%,rgba(255,58,45,.16),transparent 35%);
+  pointer-events:none;
+}
+.dwj-phase2-newsletter > *{
+  position:relative;
+  z-index:1;
+}
+.dwj-phase2-newsletter h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.9rem,4vw,3.2rem);
+  line-height:1.05;
+  letter-spacing:-.03em;
+  color:#fff;
+  margin-bottom:12px;
+}
+.dwj-phase2-newsletter p{
+  max-width:560px;
+  margin:0 auto 28px;
+  color:rgba(255,255,255,.62);
+}
+.dwj-phase2-form{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.dwj-phase2-form input{
+  width:min(360px,100%);
+  padding:13px 16px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  outline:none;
+}
+.dwj-phase2-form input::placeholder{
+  color:rgba(255,255,255,.38);
+}
+.dwj-phase2-form button{
+  padding:13px 22px;
+  border:0;
+  border-radius:8px;
+  background:#fff;
+  color:var(--ink);
+  font-weight:800;
+  cursor:pointer;
+}
+.dwj-phase2-note{
+  margin-top:12px!important;
+  font-size:.76rem;
+  color:rgba(255,255,255,.35)!important;
+}
+
+@media(max-width:1024px){
+  .dwj-featured-box{grid-template-columns:1fr;}
+  .dwj-featured-media,.dwj-featured-placeholder{min-height:280px;}
+  .dwj-topic-hubs-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:768px){
+  .dwj-phase2-section{padding:52px 20px;}
+  .dwj-featured-content{padding:26px;}
+  .dwj-topic-hubs-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:480px){
+  .dwj-topic-hubs-grid{grid-template-columns:1fr;}
+  .dwj-phase2-form{flex-direction:column;}
+  .dwj-phase2-form input,.dwj-phase2-form button{width:100%;}
+}
+
+  
+/* ==========================
+   PHASE 3 ARTICLE PAGE UPGRADE
+   Reading progress + read time + author box + related posts
+========================== */
+
+#dwjReadingProgress{
+  position:fixed;
+  top:0;
+  left:0;
+  width:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--red));
+  z-index:10000;
+  transition:width .08s linear;
+}
+
+.dwj-read-time{
+  font-family:'Space Mono',monospace;
+  font-size:.76rem;
+  color:var(--muted);
+}
+
+.dwj-author-box{
+  margin:44px 0 0;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:var(--off);
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:18px;
+  align-items:start;
+}
+
+.dwj-author-avatar{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--accent),var(--red));
+  color:#fff;
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:1.45rem;
+  flex-shrink:0;
+}
+
+.dwj-author-name{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:1.2rem;
+  color:var(--ink);
+  margin-bottom:4px;
+}
+
+.dwj-author-role{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+}
+
+.dwj-author-bio{
+  color:var(--mid);
+  font-size:.92rem;
+  line-height:1.7;
+  margin-bottom:14px;
+}
+
+.dwj-author-tags{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.dwj-author-tags span{
+  font-family:'Space Mono',monospace;
+  font-size:.64rem;
+  color:var(--mid);
+  border:1px solid var(--border);
+  background:#fff;
+  padding:4px 9px;
+  border-radius:999px;
+}
+
+.dwj-article-tools{
+  margin-top:28px;
+  padding-top:24px;
+  border-top:1px solid var(--border);
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.dwj-article-tools-label{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-right:4px;
+}
+
+.dwj-copy-link,
+.dwj-mini-share{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--mid);
+  border-radius:999px;
+  padding:8px 13px;
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.dwj-copy-link:hover,
+.dwj-mini-share:hover{
+  border-color:var(--ink);
+  color:var(--ink);
+  background:var(--off);
+}
+
+.dwj-related-box{
+  margin-top:44px;
+  padding-top:36px;
+  border-top:1px solid var(--border);
+}
+
+.dwj-related-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.dwj-related-title{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:1.6rem;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+
+.dwj-related-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.dwj-related-card{
+  display:block;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fff;
+  overflow:hidden;
+  transition:.22s;
+}
+
+.dwj-related-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+}
+
+.dwj-related-thumb{
+  aspect-ratio:16/9;
+  background:var(--off);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+}
+
+.dwj-related-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  margin:0!important;
+  border-radius:0!important;
+}
+
+.dwj-related-body{
+  padding:14px;
+}
+
+.dwj-related-cat{
+  font-family:'Space Mono',monospace;
+  font-size:.62rem;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:6px;
+}
+
+.dwj-related-card h3{
+  font-family:'Fraunces',serif;
+  font-size:1rem;
+  line-height:1.35;
+  margin:0;
+  color:var(--ink);
+}
+
+.dwj-related-empty{
+  border:1px dashed var(--border);
+  border-radius:14px;
+  padding:24px;
+  color:var(--muted);
+  font-family:'Space Mono',monospace;
+  font-size:.72rem;
+  text-align:center;
+}
+
+@media(max-width:768px){
+  .dwj-author-box{
+    grid-template-columns:1fr;
+  }
+  .dwj-related-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+  
+/* ==========================
+   PHASE 4 SIDEBAR + MONETIZATION
+   Sticky sidebar, quick search, resources, CTA boxes
+========================== */
+
+.dwj-layout-wrap{
+  max-width:1160px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+.dwj-content-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  gap:28px;
+  align-items:start;
+}
+
+.dwj-sidebar{
+  position:sticky;
+  top:84px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.dwj-side-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 8px 28px rgba(0,0,0,.05);
+}
+
+.dwj-side-kicker{
+  font-family:'Space Mono',monospace;
+  font-size:.62rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:8px;
+}
+
+.dwj-side-title{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:1.1rem;
+  color:var(--ink);
+  margin-bottom:12px;
+}
+
+.dwj-side-search{
+  display:flex;
+  gap:8px;
+}
+
+.dwj-side-search input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px 12px;
+  font-size:.86rem;
+  outline:none;
+}
+
+.dwj-side-search button{
+  border:0;
+  background:var(--ink);
+  color:#fff;
+  border-radius:8px;
+  padding:10px 12px;
+  cursor:pointer;
+  font-weight:800;
+}
+
+.dwj-side-links{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.dwj-side-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:.86rem;
+  color:var(--mid);
+  transition:.2s;
+}
+
+.dwj-side-link:hover{
+  border-color:var(--ink);
+  color:var(--ink);
+  background:var(--off);
+}
+
+.dwj-side-link span:first-child{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.dwj-side-newsletter{
+  background:var(--ink);
+  color:#fff;
+  border-radius:16px;
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+
+.dwj-side-newsletter::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(26,26,255,.25),transparent 35%),
+    radial-gradient(circle at 80% 80%,rgba(255,58,45,.16),transparent 35%);
+  pointer-events:none;
+}
+
+.dwj-side-newsletter > *{
+  position:relative;
+  z-index:1;
+}
+
+.dwj-side-newsletter h3{
+  color:#fff;
+  font-family:'Fraunces',serif;
+  font-size:1.25rem;
+  line-height:1.15;
+  margin-bottom:8px;
+}
+
+.dwj-side-newsletter p{
+  color:rgba(255,255,255,.58);
+  font-size:.84rem;
+  line-height:1.6;
+  margin-bottom:14px;
+}
+
+.dwj-side-newsletter input{
+  width:100%;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border-radius:8px;
+  padding:10px 12px;
+  margin-bottom:8px;
+  outline:none;
+}
+
+.dwj-side-newsletter input::placeholder{
+  color:rgba(255,255,255,.38);
+}
+
+.dwj-side-newsletter button{
+  width:100%;
+  border:0;
+  background:#fff;
+  color:var(--ink);
+  border-radius:8px;
+  padding:10px 12px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.dwj-ad-box{
+  min-height:250px;
+  border:1px dashed var(--border);
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--muted);
+  font-family:'Space Mono',monospace;
+  font-size:.72rem;
+  background:var(--off);
+  padding:18px;
+}
+
+.dwj-resource-section{
+  padding:72px 20px;
+  background:#fff;
+}
+
+.dwj-resource-grid{
+  max-width:1160px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.dwj-resource-card{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fff;
+  padding:22px;
+  transition:.22s;
+  box-shadow:0 8px 28px rgba(0,0,0,.04);
+}
+
+.dwj-resource-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-h);
+}
+
+.dwj-resource-icon{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--off);
+  font-size:1.4rem;
+  margin-bottom:14px;
+}
+
+.dwj-resource-card h3{
+  font-family:'Fraunces',serif;
+  font-size:1.08rem;
+  color:var(--ink);
+  margin-bottom:7px;
+}
+
+.dwj-resource-card p{
+  color:var(--mid);
+  font-size:.84rem;
+  line-height:1.55;
+  margin-bottom:12px;
+}
+
+.dwj-resource-card span{
+  font-family:'Space Mono',monospace;
+  color:var(--accent);
+  font-size:.68rem;
+  font-weight:800;
+}
+
+.dwj-inpost-cta{
+  margin:36px 0;
+  padding:22px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(26,26,255,.06),transparent 35%),
+    radial-gradient(circle at 85% 70%,rgba(255,58,45,.05),transparent 35%),
+    var(--off);
+}
+
+.dwj-inpost-cta h3{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:1.35rem;
+  margin:0 0 8px;
+  color:var(--ink);
+}
+
+.dwj-inpost-cta p{
+  margin:0 0 14px;
+  color:var(--mid);
+  font-size:.94rem;
+}
+
+.dwj-inpost-cta a{
+  display:inline-flex;
+  padding:10px 16px;
+  background:var(--ink);
+  color:#fff!important;
+  border-radius:8px;
+  font-weight:800;
+  font-size:.84rem;
+  text-decoration:none!important;
+}
+
+@media(max-width:1024px){
+  .dwj-content-layout{
+    grid-template-columns:1fr;
+  }
+  .dwj-sidebar{
+    position:static;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+  }
+  .dwj-resource-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:680px){
+  .dwj-sidebar,
+  .dwj-resource-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+  
+/* ==========================
+   PHASE 4 VISIBLE FIX
+   Makes sidebar/resource blocks visible on homepage
+========================== */
+
+.dwj-phase4-visible{
+  padding:72px 20px;
+  background:#f8f8f6;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.dwj-phase4-layout{
+  width:100%;
+  max-width:1160px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  gap:28px;
+  align-items:start;
+}
+
+.dwj-phase4-main{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.dwj-phase4-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 10px 32px rgba(0,0,0,.05);
+  transition:.22s;
+}
+
+.dwj-phase4-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-h);
+}
+
+.dwj-phase4-icon{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  background:var(--off);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.55rem;
+  margin-bottom:14px;
+}
+
+.dwj-phase4-card h3{
+  font-family:'Fraunces',serif;
+  font-size:1.18rem;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+
+.dwj-phase4-card p{
+  color:var(--mid);
+  font-size:.9rem;
+  line-height:1.6;
+  margin-bottom:14px;
+}
+
+.dwj-phase4-card a{
+  font-family:'Space Mono',monospace;
+  color:var(--accent);
+  font-size:.7rem;
+  font-weight:800;
+}
+
+.dwj-phase4-sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  position:sticky;
+  top:84px;
+}
+
+.dwj-phase4-sidebox{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 10px 32px rgba(0,0,0,.05);
+}
+
+.dwj-phase4-sidebox h3{
+  font-family:'Fraunces',serif;
+  font-size:1.18rem;
+  color:var(--ink);
+  margin-bottom:12px;
+}
+
+.dwj-phase4-sidebox p{
+  color:var(--mid);
+  font-size:.88rem;
+  line-height:1.6;
+  margin-bottom:14px;
+}
+
+.dwj-phase4-search{
+  display:flex;
+  gap:8px;
+}
+
+.dwj-phase4-search input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px 12px;
+  outline:none;
+}
+
+.dwj-phase4-search button{
+  border:0;
+  background:var(--ink);
+  color:#fff;
+  border-radius:8px;
+  padding:10px 12px;
+  font-weight:800;
+}
+
+.dwj-phase4-links{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.dwj-phase4-links a{
+  display:flex;
+  justify-content:space-between;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 12px;
+  color:var(--mid);
+  font-size:.86rem;
+  transition:.2s;
+}
+
+.dwj-phase4-links a:hover{
+  background:var(--off);
+  color:var(--ink);
+  border-color:var(--ink);
+}
+
+.dwj-phase4-newsletter{
+  background:var(--ink);
+  color:#fff;
+  border-radius:18px;
+  padding:22px;
+}
+
+.dwj-phase4-newsletter h3{
+  color:#fff;
+  font-family:'Fraunces',serif;
+  font-size:1.25rem;
+  margin-bottom:8px;
+}
+
+.dwj-phase4-newsletter p{
+  color:rgba(255,255,255,.65);
+  font-size:.86rem;
+  margin-bottom:14px;
+}
+
+.dwj-phase4-newsletter input{
+  width:100%;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border-radius:8px;
+  padding:10px 12px;
+  margin-bottom:8px;
+}
+
+.dwj-phase4-newsletter button{
+  width:100%;
+  border:0;
+  background:#fff;
+  color:var(--ink);
+  border-radius:8px;
+  padding:10px 12px;
+  font-weight:900;
+}
+
+.dwj-phase4-ad{
+  min-height:250px;
+  border:1px dashed var(--border);
+  border-radius:18px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--muted);
+  font-family:'Space Mono',monospace;
+  font-size:.72rem;
+  padding:18px;
+}
+
+@media(max-width:1024px){
+  .dwj-phase4-layout{
+    grid-template-columns:1fr;
+  }
+  .dwj-phase4-sidebar{
+    position:static;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:680px){
+  .dwj-phase4-main,
+  .dwj-phase4-sidebar{
+    grid-template-columns:1fr;
+  }
+}
+
+  
+/* ==========================
+   SAFE LAYOUT EDITABLE ZONES
+   Outside Blog1 only
+========================== */
+
+.layout-edit-zone{
+  width:100%;
+  max-width:1160px;
+  margin:24px auto;
+  padding:0 20px;
+}
+
+.layout-edit-zone .widget{
+  margin:0 0 18px;
+}
+
+.layout-banner-box{
+  min-height:96px;
+  border:1.5px dashed var(--border);
+  border-radius:16px;
+  background:var(--off);
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:18px;
+  font-family:'Space Mono',monospace;
+  font-size:.72rem;
+  line-height:1.6;
+}
+
+.layout-banner-box img,
+.layout-edit-zone img{
+  max-width:100%;
+  height:auto;
+  border-radius:14px;
+}
+
+body#layout .layout-edit-zone{
+  display:block!important;
+  max-width:100%!important;
+  padding:10px!important;
+  border:2px dashed #4f46e5!important;
+  margin:10px!important;
+  background:#f8fafc!important;
+}
+
+  
+/* ==========================
+   READY-MADE LAYOUT WIDGETS
+   Default OFF widgets. Turn ON from Layout when needed.
+========================== */
+.dwj-layout-banner{
+  width:100%;
+}
+.dwj-layout-banner a{
+  display:block;
+}
+.dwj-layout-banner img{
+  width:100%;
+  height:auto;
+  border-radius:16px;
+  display:block;
+}
+.dwj-banner-wide img{
+  max-height:320px;
+  object-fit:cover;
+}
+.dwj-layout-cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(26,26,255,.08),transparent 35%),
+    radial-gradient(circle at 85% 70%,rgba(255,58,45,.07),transparent 35%),
+    #ffffff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 12px 40px rgba(0,0,0,.06);
+}
+.dwj-layout-badge{
+  display:inline-flex;
+  font-family:'Space Mono',monospace;
+  font-size:.65rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+.dwj-layout-cta h3{
+  font-family:'Fraunces',serif;
+  font-size:1.6rem;
+  line-height:1.15;
+  color:var(--ink);
+  margin:0 0 8px;
+}
+.dwj-layout-cta p{
+  color:var(--mid);
+  margin:0;
+}
+.dwj-layout-cta a{
+  white-space:nowrap;
+  background:var(--ink);
+  color:#fff!important;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:800;
+}
+@media(max-width:700px){
+  .dwj-layout-cta{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .dwj-layout-cta a{
+    width:100%;
+    text-align:center;
+  }
+}
+
+  
+/* ==========================
+   PHASE 6 PUBLISHING FEATURES
+   Breadcrumbs + TOC + Popular Articles + Meta Polish
+========================== */
+
+.dwj-breadcrumbs{
+  max-width:720px;
+  margin:calc(var(--nav-h) + 28px) auto -24px;
+  padding:0 20px;
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.dwj-breadcrumbs a{
+  color:var(--mid);
+  transition:.2s;
+}
+
+.dwj-breadcrumbs a:hover{
+  color:var(--accent);
+}
+
+.dwj-breadcrumbs span{
+  color:var(--muted);
+}
+
+.dwj-toc-box{
+  border:1px solid var(--border);
+  background:var(--off);
+  border-radius:16px;
+  padding:18px;
+  margin:28px 0;
+}
+
+.dwj-toc-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  cursor:pointer;
+}
+
+.dwj-toc-title{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:1.15rem;
+  color:var(--ink);
+}
+
+.dwj-toc-toggle{
+  border:0;
+  background:#fff;
+  color:var(--ink);
+  border-radius:999px;
+  width:32px;
+  height:32px;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.dwj-toc-list{
+  margin-top:14px;
+  padding-left:0!important;
+  list-style:none!important;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.dwj-toc-list.hidden{
+  display:none;
+}
+
+.dwj-toc-list a{
+  display:block;
+  color:var(--mid)!important;
+  text-decoration:none!important;
+  font-size:.9rem;
+  line-height:1.5;
+  border-left:2px solid var(--border);
+  padding-left:10px;
+  transition:.2s;
+}
+
+.dwj-toc-list a:hover{
+  color:var(--accent)!important;
+  border-left-color:var(--accent);
+}
+
+.dwj-toc-list .level-3{
+  margin-left:18px;
+  font-size:.84rem;
+}
+
+.dwj-toc-list .level-4{
+  margin-left:34px;
+  font-size:.8rem;
+}
+
+.dwj-floating-share{
+  position:fixed;
+  left:18px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:600;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.dwj-floating-share a,
+.dwj-floating-share button{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--mid);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.dwj-floating-share a:hover,
+.dwj-floating-share button:hover{
+  background:var(--ink);
+  color:#fff;
+  border-color:var(--ink);
+}
+
+.dwj-popular-section{
+  padding:72px 20px;
+  background:#fff;
+}
+
+.dwj-popular-wrap{
+  max-width:1160px;
+  margin:0 auto;
+}
+
+.dwj-popular-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.dwj-popular-card{
+  display:block;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fff;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  transition:.22s;
+}
+
+.dwj-popular-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-h);
+}
+
+.dwj-popular-thumb{
+  aspect-ratio:16/9;
+  background:var(--off);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  font-size:2rem;
+}
+
+.dwj-popular-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.dwj-popular-body{
+  padding:16px;
+}
+
+.dwj-popular-cat{
+  font-family:'Space Mono',monospace;
+  font-size:.62rem;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:7px;
+}
+
+.dwj-popular-card h3{
+  font-family:'Fraunces',serif;
+  font-size:1.08rem;
+  line-height:1.35;
+  color:var(--ink);
+  margin:0 0 10px;
+}
+
+.dwj-popular-meta{
+  font-family:'Space Mono',monospace;
+  font-size:.64rem;
+  color:var(--muted);
+}
+
+.dwj-meta-enhanced{
+  font-weight:700;
+}
+
+@media(max-width:1024px){
+  .dwj-floating-share{
+    display:none;
+  }
+  .dwj-popular-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:680px){
+  .dwj-popular-grid{
+    grid-template-columns:1fr;
+  }
+  .dwj-breadcrumbs{
+    margin-top:calc(var(--nav-h) + 18px);
+  }
+}
+
+  
+/* ==========================
+   DUPLICATE SIDEBAR FIX
+   Prevents old smart sidebar from appearing after footer.
+========================== */
+body > #dwjSmartSidebar,
+footer + #dwjSmartSidebar,
+.dwj-footer + #dwjSmartSidebar{
+  display:none !important;
+}
+
+  
+/* ==========================
+   PHASE 7 RESOURCE PAGE SYSTEM
+   Use these classes inside Blogger Pages.
+   Page content stays clean; theme handles styling.
+========================== */
+
+.dwj-resource-page{
+  --rp-ink:var(--ink,#0a0a0a);
+  --rp-mid:var(--mid,#525250);
+  --rp-muted:var(--muted,#888884);
+  --rp-off:var(--off,#f8f8f6);
+  --rp-border:var(--border,#e6e6e3);
+  --rp-accent:var(--accent,#1a1aff);
+  width:100%;
+}
+
+.dwj-rp-wrap{
+  width:100%;
+  max-width:1160px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+.dwj-rp-hero{
+  padding:76px 0 52px;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(26,26,255,.08),transparent 32%),
+    radial-gradient(circle at 88% 76%,rgba(255,58,45,.06),transparent 32%),
+    #fff;
+  border-bottom:1px solid var(--rp-border);
+}
+
+.dwj-rp-kicker{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--rp-muted);
+  margin-bottom:10px;
+}
+
+.dwj-rp-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.3rem,6vw,4.8rem);
+  line-height:1.02;
+  letter-spacing:-.04em;
+  color:var(--rp-ink);
+  margin:0;
+}
+
+.dwj-rp-title span{
+  color:var(--rp-accent);
+}
+
+.dwj-rp-desc{
+  max-width:760px;
+  margin:18px 0 0;
+  color:var(--rp-mid);
+  font-size:1.05rem;
+  line-height:1.8;
+}
+
+.dwj-rp-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+.dwj-rp-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 22px;
+  border-radius:9px;
+  font-weight:850;
+  font-size:.9rem;
+  text-decoration:none!important;
+}
+
+.dwj-rp-btn-dark{
+  background:var(--rp-ink);
+  color:#fff!important;
+}
+
+.dwj-rp-btn-light{
+  border:1px solid var(--rp-border);
+  color:var(--rp-mid)!important;
+  background:#fff;
+}
+
+.dwj-rp-section{
+  padding:64px 0;
+}
+
+.dwj-rp-section.off{
+  background:var(--rp-off);
+  border-top:1px solid var(--rp-border);
+  border-bottom:1px solid var(--rp-border);
+}
+
+.dwj-rp-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+}
+
+.dwj-rp-heading{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.8rem,3vw,2.7rem);
+  line-height:1.08;
+  letter-spacing:-.03em;
+  color:var(--rp-ink);
+  margin:0;
+}
+
+.dwj-rp-sub{
+  color:var(--rp-mid);
+  margin:8px 0 0;
+  max-width:650px;
+  line-height:1.7;
+}
+
+.dwj-rp-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.dwj-rp-grid.two{
+  grid-template-columns:repeat(2,1fr);
+}
+
+.dwj-rp-grid.four{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.dwj-rp-card{
+  background:#fff;
+  border:1px solid var(--rp-border);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  transition:.22s;
+  display:flex;
+  flex-direction:column;
+  min-height:230px;
+}
+
+.dwj-rp-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 44px rgba(0,0,0,.09);
+}
+
+.dwj-rp-icon{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--rp-off);
+  font-size:1.5rem;
+  margin-bottom:14px;
+}
+
+.dwj-rp-card h3{
+  font-family:'Fraunces',serif;
+  font-size:1.2rem;
+  color:var(--rp-ink);
+  margin:0 0 8px;
+}
+
+.dwj-rp-tag{
+  display:inline-flex;
+  width:max-content;
+  font-family:'Space Mono',monospace;
+  font-size:.62rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--rp-accent);
+  margin-bottom:10px;
+}
+
+.dwj-rp-card p{
+  color:var(--rp-mid);
+  font-size:.9rem;
+  line-height:1.65;
+  margin:0 0 14px;
+}
+
+.dwj-rp-meta{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:auto;
+  margin-bottom:16px;
+}
+
+.dwj-rp-meta span{
+  font-family:'Space Mono',monospace;
+  font-size:.62rem;
+  color:var(--rp-muted);
+  border:1px solid var(--rp-border);
+  border-radius:999px;
+  padding:4px 8px;
+}
+
+.dwj-rp-link{
+  display:inline-flex;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:8px;
+  background:var(--rp-ink);
+  color:#fff!important;
+  font-weight:850;
+  font-size:.84rem;
+  text-decoration:none!important;
+}
+
+.dwj-rp-link.light{
+  background:#fff;
+  border:1px solid var(--rp-border);
+  color:var(--rp-ink)!important;
+}
+
+.dwj-rp-directory{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.dwj-rp-dir-card{
+  background:#fff;
+  border:1px solid var(--rp-border);
+  border-radius:16px;
+  padding:18px;
+  min-height:150px;
+  display:block;
+  transition:.2s;
+}
+
+.dwj-rp-dir-card:hover{
+  transform:translateY(-3px);
+  background:var(--rp-off);
+}
+
+.dwj-rp-dir-card strong{
+  display:block;
+  font-family:'Fraunces',serif;
+  font-size:1.05rem;
+  color:var(--rp-ink);
+  margin:8px 0 6px;
+}
+
+.dwj-rp-dir-card p{
+  color:var(--rp-mid);
+  font-size:.84rem;
+  line-height:1.55;
+  margin:0;
+}
+
+.dwj-rp-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  border:1px solid var(--rp-border);
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.dwj-rp-table th,
+.dwj-rp-table td{
+  border-bottom:1px solid var(--rp-border);
+  padding:14px;
+  text-align:left;
+  font-size:.9rem;
+}
+
+.dwj-rp-table th{
+  background:var(--rp-off);
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  text-transform:uppercase;
+  color:var(--rp-muted);
+}
+
+.dwj-rp-table tr:last-child td{
+  border-bottom:0;
+}
+
+.dwj-rp-cta{
+  background:var(--rp-ink);
+  color:#fff;
+  border-radius:24px;
+  padding:42px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+  align-items:center;
+}
+
+.dwj-rp-cta h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  line-height:1.08;
+  color:#fff;
+  margin:0 0 10px;
+}
+
+.dwj-rp-cta p{
+  color:rgba(255,255,255,.7);
+  margin:0;
+  line-height:1.7;
+}
+
+.dwj-rp-cta a{
+  justify-self:end;
+  background:#fff;
+  color:var(--rp-ink)!important;
+  padding:13px 22px;
+  border-radius:9px;
+  font-weight:900;
+  text-decoration:none!important;
+}
+
+.dwj-rp-note{
+  color:var(--rp-muted);
+  font-size:.78rem;
+  line-height:1.6;
+  margin-top:22px;
+}
+
+@media(max-width:1024px){
+  .dwj-rp-grid,
+  .dwj-rp-grid.two,
+  .dwj-rp-grid.four{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .dwj-rp-directory{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .dwj-rp-grid,
+  .dwj-rp-grid.two,
+  .dwj-rp-grid.four,
+  .dwj-rp-directory{
+    grid-template-columns:1fr;
+  }
+  .dwj-rp-cta{
+    grid-template-columns:1fr;
+  }
+  .dwj-rp-cta a{
+    justify-self:start;
+  }
+  .dwj-rp-table{
+    display:block;
+    overflow-x:auto;
+  }
+}
+
+  
+/* ==========================
+   STATIC PAGE FIX
+   Normal Blogger Pages now show their own content.
+========================== */
+.dwj-static-page-wrap{
+  max-width:100%;
+}
+.dwj-static-page-wrap .dwj-post-title{
+  display:none;
+}
+.dwj-static-page-wrap .dwj-post-body{
+  padding:0;
+}
+.dwj-static-page-wrap .dwj-post-body > .dwj-resource-page{
+  margin-top:calc(var(--nav-h) * -1);
+}
+
+  
+/* ==========================
+   ARCHIVE FEED OVERRIDE FIX
+   /search and label pages now load up to 50 posts from feed.
+========================== */
+.dwj-archive-feed-note{
+  grid-column:1/-1;
+  text-align:center;
+  padding:34px 20px;
+  color:var(--muted);
+  font-family:'Space Mono',monospace;
+  font-size:.78rem;
+}
+
+  
+/* ==========================
+   ARCHIVE CARD DESIGN FIX
+   Full-width thumbnails like premium blog cards.
+========================== */
+
+.dwj-posts-grid,
+#latest .dwj-posts-grid{
+  align-items:stretch;
+}
+
+.dwj-card{
+  overflow:hidden !important;
+  padding:0 !important;
+  border-radius:18px !important;
+  background:#fff !important;
+  border:1px solid var(--border) !important;
+  box-shadow:0 10px 32px rgba(0,0,0,.05) !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+
+.dwj-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 44px rgba(0,0,0,.09) !important;
+}
+
+.dwj-card-media{
+  width:100% !important;
+  aspect-ratio:16/9 !important;
+  min-height:0 !important;
+  height:auto !important;
+  background:linear-gradient(135deg,#eef2ff,#f8f8f6) !important;
+  overflow:hidden !important;
+  display:block !important;
+  border-radius:0 !important;
+}
+
+.dwj-card-media img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  display:block !important;
+  border-radius:0 !important;
+  margin:0 !important;
+}
+
+.dwj-card-ph{
+  width:100%;
+  height:100%;
+  min-height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.4rem;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(26,26,255,.10),transparent 35%),
+    radial-gradient(circle at 80% 70%,rgba(255,58,45,.08),transparent 35%),
+    #f0f2f7;
+}
+
+.dwj-card-body{
+  padding:24px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  flex:1 !important;
+}
+
+.dwj-card-title{
+  font-size:1.35rem !important;
+  line-height:1.28 !important;
+  margin:0 0 12px !important;
+}
+
+.dwj-card-snip{
+  font-size:.98rem !important;
+  line-height:1.65 !important;
+  color:var(--mid) !important;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  margin-bottom:18px !important;
+}
+
+.dwj-card-date{
+  margin-top:auto !important;
+}
+
+/* force images inside feed-rendered archive cards not to become tiny */
+.dwj-posts-grid .dwj-card img,
+#latest .dwj-card img{
+  max-width:none !important;
+}
+
+/* responsive */
+@media(max-width:760px){
+  .dwj-card-body{
+    padding:20px !important;
+  }
+  .dwj-card-title{
+    font-size:1.2rem !important;
+  }
+}
+
+  
+/* ==========================
+   FINAL CLEANUP PATCH
+   Light mode only + old dark mode neutralized
+========================== */
+.dwj-theme-toggle,
+#dwjThemeToggle{
+  display:none!important;
+}
+
+body.dwj-dark,
+body.dark-mode{
+  background:var(--white)!important;
+  color:var(--ink)!important;
+}
+
+body.dwj-dark *,
+body.dark-mode *{
+  color:inherit;
+}
+
+  
+/* ==========================
+   BLANK IN-ARTICLE AD FIX
+   Hide empty ad box until real ad/banner code is added.
+========================== */
+.dwj-ad-inarticle:empty{
+  display:none !important;
+  min-height:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+}
+
+.dwj-ad-inarticle{
+  display:none !important;
+}
+
+.dwj-ad-inarticle.has-ad,
+.dwj-ad-inarticle:has(ins),
+.dwj-ad-inarticle:has(iframe),
+.dwj-ad-inarticle:has(img),
+.dwj-ad-inarticle:has(script){
+  display:flex !important;
+}
+
+  
+/* ==========================
+   FORCE REMOVE IN-ARTICLE AD BOX
+   Ads are disabled until you manually add AdSense later.
+========================== */
+.dwj-ad-inarticle,
+.dwj-ad-inarticle *,
+div[class*="dwj-ad-inarticle"],
+section[class*="dwj-ad-inarticle"]{
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  min-height:0 !important;
+  max-height:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  overflow:hidden !important;
+}
+
+  
+/* Keep Jai Jain signature visible inside posts */
+.dwj-post-body a[href*="jaijain"],
+.dwj-post-body a[href*="Jai"],
+.dwj-post-body strong,
+.dwj-post-body b{
+  visibility:visible !important;
+}
+
+  
+/* ==========================
+   DECODE WITH JAI v1.0 FINAL PATCH
+   Final nav/footer/legal links + light-only cleanup.
+========================== */
+
+.dwj-theme-toggle,
+#dwjThemeToggle{
+  display:none!important;
+}
+
+body.dwj-dark,
+body.dark-mode{
+  background:var(--white)!important;
+  color:var(--ink)!important;
+}
+
+.dwj-ad-inarticle,
+div[class*="dwj-ad-inarticle"],
+section[class*="dwj-ad-inarticle"]{
+  display:none!important;
+  height:0!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  overflow:hidden!important;
+}
+
+.dwj-footer-grid{
+  grid-template-columns:1.25fr 1fr 1fr 1fr;
+}
+
+.dwj-footer-ul li{
+  list-style:none;
+}
+
+.dwj-footer-ul a{
+  display:inline-block;
+}
+
+@media(max-width:900px){
+  .dwj-footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:560px){
+  .dwj-footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+  
+/* ==========================
+   LIVE FIX: POPULAR + CARD IMAGES RESTORE
+   Restores premium archive cards and branded default thumbnails.
+========================== */
+
+.dwj-theme-toggle,
+#dwjThemeToggle{
+  display:none!important;
+}
+
+.dwj-ad-inarticle,
+div[class*="dwj-ad-inarticle"],
+section[class*="dwj-ad-inarticle"]{
+  display:none!important;
+  height:0!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  overflow:hidden!important;
+}
+
+.dwj-default-thumb{
+  width:100%;
+  height:100%;
+  min-height:220px;
+  aspect-ratio:16/9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(139,92,246,.38), transparent 30%),
+    radial-gradient(circle at 85% 78%, rgba(59,130,246,.34), transparent 34%),
+    linear-gradient(135deg,#08142B 0%,#0f172a 55%,#1e1b4b 100%);
+}
+
+.dwj-default-thumb::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size:34px 34px;
+  opacity:.42;
+}
+
+.dwj-default-thumb-inner{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:22px;
+  color:#fff;
+}
+
+.dwj-default-thumb-logo{
+  width:58px;
+  height:58px;
+  margin:0 auto 14px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:2rem;
+  color:#fff;
+  box-shadow:0 18px 45px rgba(0,0,0,.22);
+}
+
+.dwj-default-thumb-title{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:clamp(1.35rem,2.2vw,2.15rem);
+  line-height:1;
+  letter-spacing:-.03em;
+  color:#fff;
+  margin-bottom:10px;
+}
+
+.dwj-default-thumb-sub{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.72);
+}
+
+.dwj-card{
+  overflow:hidden!important;
+  padding:0!important;
+  border-radius:18px!important;
+  background:#fff!important;
+  border:1px solid var(--border)!important;
+  box-shadow:0 10px 32px rgba(0,0,0,.05)!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+
+.dwj-card-media,
+.dwj-card-thumb,
+.dwj-popular-thumb,
+.dwj-related-thumb,
+.dwj-pro-related-thumb{
+  width:100%!important;
+  aspect-ratio:16/9!important;
+  min-height:0!important;
+  height:auto!important;
+  background:#08142B!important;
+  overflow:hidden!important;
+  display:block!important;
+  border-radius:0!important;
+}
+
+.dwj-card-media img,
+.dwj-card-thumb img,
+.dwj-popular-thumb img,
+.dwj-related-thumb img,
+.dwj-pro-related-thumb img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  display:block!important;
+  border-radius:0!important;
+  margin:0!important;
+}
+
+.dwj-card-ph{
+  width:100%!important;
+  aspect-ratio:16/9!important;
+  background:none!important;
+  font-size:0!important;
+  display:block!important;
+}
+
+.dwj-card-body{
+  padding:24px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  flex:1!important;
+}
+
+.dwj-card-title{
+  font-size:1.35rem!important;
+  line-height:1.28!important;
+  margin:0 0 12px!important;
+}
+
+.dwj-card-snip{
+  font-size:.98rem!important;
+  line-height:1.65!important;
+  color:var(--mid)!important;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  margin-bottom:18px!important;
+}
+
+.dwj-card-date{
+  margin-top:auto!important;
+}
+
+.dwj-popular-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:18px!important;
+}
+
+.dwj-popular-card{
+  display:block!important;
+  border:1px solid var(--border)!important;
+  border-radius:18px!important;
+  background:#fff!important;
+  overflow:hidden!important;
+  box-shadow:0 10px 30px rgba(0,0,0,.05)!important;
+  transition:.22s!important;
+}
+
+.dwj-popular-card:hover{
+  transform:translateY(-4px)!important;
+  box-shadow:0 18px 44px rgba(0,0,0,.09)!important;
+}
+
+.dwj-popular-body{
+  padding:18px!important;
+}
+
+.dwj-popular-cat{
+  font-family:'Space Mono',monospace!important;
+  font-size:.62rem!important;
+  color:var(--accent)!important;
+  text-transform:uppercase!important;
+  letter-spacing:.08em!important;
+  margin-bottom:7px!important;
+}
+
+.dwj-popular-card h3{
+  font-family:'Fraunces',serif!important;
+  font-size:1.1rem!important;
+  line-height:1.35!important;
+  color:var(--ink)!important;
+  margin:0 0 10px!important;
+}
+
+.dwj-popular-meta{
+  font-family:'Space Mono',monospace!important;
+  font-size:.64rem!important;
+  color:var(--muted)!important;
+}
+
+@media(max-width:1024px){
+  .dwj-popular-grid{
+    grid-template-columns:repeat(2,1fr)!important;
+  }
+}
+
+@media(max-width:680px){
+  .dwj-popular-grid{
+    grid-template-columns:1fr!important;
+  }
+  .dwj-card-body{
+    padding:20px!important;
+  }
+  .dwj-card-title{
+    font-size:1.2rem!important;
+  }
+}
+
+  ]]></b:skin>
+
+  <!-- FINAL SCHEMA PATCH: live domain -->
+  <script type='application/ld+json'>
+  //<![CDATA[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Decode With Jai",
+    "url": "https://www.decodewithjai.in",
+    "logo": "https://i.pinimg.com/736x/0e/a8/ca/0ea8ca65f885d54ce6253e6b76f9d9ce.jpg",
+    "sameAs": [
+      "https://www.linkedin.com/company/decode-with-jai/",
+      "https://jaijain.in"
+    ]
+  }
+  //]]>
+  </script>
+
+
+  <!-- DECODE WITH JAI v1.0 FINAL SCHEMA -->
+  <script type='application/ld+json'>
+  //<![CDATA[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Decode With Jai",
+    "url": "https://www.decodewithjai.in",
+    "logo": "https://i.pinimg.com/736x/0e/a8/ca/0ea8ca65f885d54ce6253e6b76f9d9ce.jpg",
+    "sameAs": [
+      "https://www.linkedin.com/company/decode-with-jai/",
+      "https://jaijain.in"
+    ]
+  }
+  //]]>
+  </script>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav aria-label='Main navigation' class='dwj-nav' role='navigation'>
+    <div class='dwj-nav-inner'>
+      <a aria-label='Decode With Jai - Home' class='dwj-logo' expr:href='data:blog.homepageUrl'>
+        <span class='dwj-logo-dot'/>Decode With Jai
+      </a>
+      <ul class='dwj-nav-links' role='list'>
+        <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'>AI</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'>SEO</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'>Google Ads</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'>Web Dev</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search&quot;'>All Posts</a></li>
+      </ul>
+      
+      <button aria-expanded='false' aria-label='Open menu' class='dwj-ham' id='dwjHam' type='button'>
+        <span/><span/><span/>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div aria-label='Mobile navigation' class='dwj-mob' id='dwjMob' role='navigation'>
+    <a expr:href='data:blog.homepageUrl'>Home</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'>AI</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'>SEO</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'>Google Ads</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/Meta%20Ads&quot;'>Meta Ads</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'>Web Development</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search&quot;'>All Posts</a>
+  </div>
+
+<!-- LAYOUT EDITABLE: Header Banner -->
+<b:section class='layout-edit-zone' id='layout-header-banner' maxwidgets='3' name='Header Banner / Top Ad' showaddelement='yes'>
+  <b:widget id='HTML10' locked='false' title='Header Banner' type='HTML' version='2' visible='false'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[<div class="dwj-layout-banner dwj-banner-wide">
+  <a href="https://example.com" target="_blank" rel="nofollow sponsored">
+    <img src="https://via.placeholder.com/1200x250.png?text=Header+Banner+1200x250" alt="Header Banner"/>
+  </a>
+</div>]]></b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'><b:include name='widget-title'/><div class='widget-content'><data:content/></div></b:includable>
+  </b:widget>
+</b:section>
+
+  <b:section class='main' id='main' showaddelement='yes'>
+    <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
+      <b:widget-settings>
+        <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+        <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+        <b:widget-setting name='showCommentLink'>false</b:widget-setting>
+        <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='showAuthor'>false</b:widget-setting>
+        <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+        <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='reactionsLabel'/>
+        <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+        <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+        <b:widget-setting name='showLabels'>true</b:widget-setting>
+        <b:widget-setting name='showLocation'>false</b:widget-setting>
+        <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+        <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+        <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+        <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+        <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+        <b:widget-setting name='showReactions'>false</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main' var='top'>
+
+        <!-- ============================================================
+        VIEW ROUTING LOGIC &#8212; HOW BLOGGER DECIDES WHAT TO SHOW:
+
+        data:view.isHomepage    = true on the main blog URL only
+        data:view.isMultipleItems = true on homepage AND label pages (/search/label/X)
+        data:view.isSingleItem  = true on individual post pages
+        data:view.isPage        = true on static Pages (/p/page-slug.html)
+
+        IMPORTANT: data:view.isPage fires for ALL static pages including all-posts.
+        If all-posts shows "Nothing here", it means isPage is NOT firing &#8212; this
+        happens when the Blog widget is not set to show on Pages in Blogger layout.
+        Go to: Blogger Layout &#8594; Blog Posts widget &#8594; Edit &#8594; check "Show on Pages" is ON.
+
+        LABEL PAGE BUG (blank posts): If /search/label/SEO shows no posts, it means
+        your posts in Blogger do NOT have a label named exactly "SEO" (case-sensitive).
+        Go to each post &#8594; Labels &#8594; check the exact spelling matches the URL.
+
+        HOME PAGE POSTS COUNT: Controlled by TWO things:
+        1. Blogger Settings &#8594; Posts &#8594; "Show at most X posts" (server sends this many)
+        2. Template b:if cond data:i lt 10 (template shows max this many of what server sent)
+        Both must be set. If Blogger sends 3, template can never show more than 3.
+        ============================================================ -->
+
+        <b:if cond='data:view.isPage'>
+
+          <!-- STATIC BLOGGER PAGE RENDERER -->
+          <!-- This shows normal Blogger Page content such as /p/ai-tools.html, /p/seo-tools.html etc. -->
+          <b:loop values='data:posts' var='post'>
+            <article class='dwj-post-wrap dwj-static-page-wrap'>
+              <h1 class='dwj-post-title'><data:post.title/></h1>
+              <div class='dwj-post-body' itemprop='articleBody'><data:post.body/></div>
+            </article>
+          </b:loop>
+
+        <b:elseif cond='data:view.isSingleItem'/>
+
+          <!-- SINGLE POST PAGE -->
+          <b:loop values='data:posts' var='post'>
+            <script type='application/ld+json'>
+            //<![CDATA[
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": "<data:post.title.jsonEscape/>",
+              "description": "<data:post.snippet.jsonEscape/>",
+              "datePublished": "<data:post.date.iso8601/>",
+              "dateModified": "<data:post.lastUpdated.iso8601/>",
+              "url": "<data:post.url/>",
+              "image": {"@type":"ImageObject","url":"<b:if cond='data:post.featuredImage'><data:post.featuredImage/><b:else/>https://jaijain.in/og-image.jpg</b:if>"},
+              "author": {"@type":"Person","name":"Jai Jain","url":"https://jaijain.in"},
+              "publisher": {"@type":"Organization","name":"Decode With Jai","url":"https://www.decodewithjai.in","logo":{"@type":"ImageObject","url":"https://jaijain.in/og-image.jpg"}},
+              "mainEntityOfPage": {"@type":"WebPage","@id":"<data:post.url/>"}
+            }
+            //]]>
+            </script>
+
+            <article class='dwj-post-wrap' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+              <a class='dwj-post-back' expr:href='data:blog.homepageUrl'>&#8592; Back to Home</a>
+              <b:if cond='data:post.labels'>
+                <span class='dwj-post-cat' itemprop='articleSection'><data:post.labels.first.name/></span>
+              </b:if>
+              <h1 class='dwj-post-title' itemprop='headline'><data:post.title/></h1>
+              <div class='dwj-post-meta'>
+                <span>By <span itemprop='name'>Jai Jain</span></span>
+                <span>&#183;</span>
+                <time expr:datetime='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></time>
+                <b:if cond='data:post.labels'><span>&#183;</span><span><data:post.labels.first.name/></span></b:if>
+              </div>
+              <div class='dwj-post-body' itemprop='articleBody'><data:post.body/></div>
+<div class='dwj-post-share'>
+                <span class='dwj-share-lbl'>SHARE:</span>
+                <a class='dwj-share-btn' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' rel='nofollow noopener' target='_blank'>X / Twitter</a>
+                <a class='dwj-share-btn' expr:href='&quot;https://www.linkedin.com/shareArticle?mini=true&amp;url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' rel='nofollow noopener' target='_blank'>LinkedIn</a>
+                <a class='dwj-share-btn' expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; &quot; + data:post.url' rel='nofollow noopener' target='_blank'>WhatsApp</a>
+              </div>
+
+<!-- PHASE 3 ARTICLE EXTRAS -->
+<div class='dwj-article-tools' id='dwjArticleTools'>
+  <span class='dwj-article-tools-label'>Share:</span>
+  <a class='dwj-mini-share' id='dwjShareX' rel='nofollow noopener' target='_blank'>X</a>
+  <a class='dwj-mini-share' id='dwjShareLinkedIn' rel='nofollow noopener' target='_blank'>LinkedIn</a>
+  <a class='dwj-mini-share' id='dwjShareWhatsApp' rel='nofollow noopener' target='_blank'>WhatsApp</a>
+  <button class='dwj-copy-link' id='dwjCopyLink' type='button'>Copy Link</button>
+</div>
+
+<div class='dwj-author-box'>
+  <div class='dwj-author-avatar'>J</div>
+  <div>
+    <div class='dwj-author-name'>Jai Jain</div>
+    <div class='dwj-author-role'>Data Scientist &#8226; Web Developer &#8226; Digital Marketer</div>
+    <p class='dwj-author-bio'>I write practical guides on AI tools, SEO systems, Google Ads, Meta Ads, web development and digital growth experiments.</p>
+    <div class='dwj-author-tags'>
+      <span>AI</span>
+      <span>SEO</span>
+      <span>Ads</span>
+      <span>Web Dev</span>
+      <span>Growth</span>
+    </div>
+  </div>
+</div>
+
+<div class='dwj-related-box' id='dwjRelatedBox'>
+  <div class='dwj-related-head'>
+    <div>
+      <div class='dwj-kicker'>Keep Reading</div>
+      <h2 class='dwj-related-title'>Related Articles</h2>
+    </div>
+  </div>
+  <div class='dwj-related-grid' id='dwjRelatedGrid'>
+    <div class='dwj-related-empty'>Loading related articles...</div>
+  </div>
+</div>
+
+            </article>
+          </b:loop>
+
+        <b:elseif cond='data:view.isMultipleItems'/>
+
+          <b:if cond='data:view.isHomepage'>
+            <!-- HERO -->
+            <section aria-label='Introduction' class='dwj-hero' id='hero'>
+              <div class='dwj-hero-inner'>
+                <div>
+                  <div class='dwj-hero-badge'>
+                    <span class='gdot'/>AI &#8226; SEO &#8226; Ads &#8226; Web Development
+                  </div>
+                  <h1 class='dwj-hero-title'>
+                    Decode<br/>
+                    <em>Smarter</em><br/>
+                    <span class='t-red'>Technology.</span>
+                  </h1>
+                  <p class='dwj-hero-desc'>
+                    Practical tutorials, tool guides, SEO playbooks, ad strategies and web development notes for creators, marketers and founders.
+                  </p>
+                  <div class='dwj-hero-chips'>
+                    <span class='dwj-chip'>AI</span>
+                    <span class='dwj-chip'>SEO</span>
+                    <span class='dwj-chip'>Google Ads</span>
+                    <span class='dwj-chip'>Meta Ads</span>
+                    <span class='dwj-chip'>Tools</span>
+                    <span class='dwj-chip'>Web Dev</span>
+                  </div>
+                  <div class='dwj-hero-btns'>
+                    <a class='dwj-btn dwj-btn-primary' href='#latest'>Read Articles &#8595;</a>
+                    <a class='dwj-btn dwj-btn-outline' expr:href='data:blog.homepageUrl + &quot;search&quot;'>Explore Library &#8594;</a>
+                  </div>
+                </div>
+
+                <div aria-label='Author profile' class='dwj-profile' role='complementary'>
+                  <div class='dwj-profile-top'>
+                    <div aria-hidden='true' class='dwj-avatar'>J</div>
+                    <div>
+                      <div class='dwj-pname'>Jai Jain</div>
+                      <div class='dwj-prole'>Tech Blog &#8226; AI &#8226; SEO &#8226; Ads</div>
+                    </div>
+                  </div>
+                  <p class='dwj-pbio'>A practical knowledge hub for AI tools, SEO systems, paid ads, web development and digital growth experiments.</p>
+                  <div class='dwj-pstats'>
+                    <div class='dwj-pstat'><div class='dwj-pstat-n'>AI</div><div class='dwj-pstat-l'>Tools</div></div>
+                    <div class='dwj-pstat'><div class='dwj-pstat-n'>SEO</div><div class='dwj-pstat-l'>Growth</div></div>
+                    <div class='dwj-pstat'><div class='dwj-pstat-n'>Ads</div><div class='dwj-pstat-l'>Strategy</div></div>
+                    <div class='dwj-pstat'><div class='dwj-pstat-n'>Web</div><div class='dwj-pstat-l'>Dev</div></div>
+                  </div>
+                  <div class='dwj-plinks'>
+                    <a class='dwj-plink' expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'><span>🤖</span><span class='dwj-plink-label'>AI Guides</span><span class='dwj-plink-arr'>&#8594;</span></a>
+                    <a class='dwj-plink' expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'><span>🔍</span><span class='dwj-plink-label'>SEO Playbooks</span><span class='dwj-plink-arr'>&#8594;</span></a>
+                    <a class='dwj-plink' expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'><span>📈</span><span class='dwj-plink-label'>Ad Strategy</span><span class='dwj-plink-arr'>&#8594;</span></a>
+                    <a class='dwj-plink' expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'><span>💻</span><span class='dwj-plink-label'>Web Development</span><span class='dwj-plink-arr'>&#8594;</span></a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class='dwj-statsbar'>
+              <div class='dwj-statsbar-item'><div class='dwj-sn'>AI</div><div class='dwj-sl'>Tools &amp; Guides</div></div>
+              <div class='dwj-statsbar-item'><div class='dwj-sn'>SEO</div><div class='dwj-sl'>Search Growth</div></div>
+              <div class='dwj-statsbar-item'><div class='dwj-sn'>Ads</div><div class='dwj-sl'>Google &amp; Meta</div></div>
+              <div class='dwj-statsbar-item'><div class='dwj-sn'>Web</div><div class='dwj-sl'>Development</div></div>
+            </div>
+
+            <!-- ============================================================
+                 FIX 1 (AdSense): Replace ca-pub-XXXXXXXXXXXXXXXX with your
+                 real publisher ID and XXXXXXXXXX with your real ad slot ID.
+                 Example: ca-pub-1234567890123456 / data-ad-slot='9876543210'
+                 ============================================================ -->
+            <div class='dwj-ad-banner'>
+              <ins class='adsbygoogle' data-ad-client='ca-pub-XXXXXXXXXXXXXXXX' data-ad-format='auto' data-ad-slot='XXXXXXXXXX' data-full-width-responsive='true' style='display:block'/>
+              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <section class='dwj-section dwj-section-off' id='dwj-topics'>
+              <div class='dwj-wrap'>
+                <div style='margin-bottom:28px;'><div class='dwj-kicker'>Browse by Topic</div><h2 class='dwj-title'>Explore Tech Topics</h2></div>
+                <div class='dwj-topics-grid'>
+                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'><div class='dwj-topic-icon'>🤖</div><div class='dwj-topic-name'>AI</div></a>
+                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'><div class='dwj-topic-icon'>🔍</div><div class='dwj-topic-name'>SEO</div></a>
+                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'><div class='dwj-topic-icon'>🎯</div><div class='dwj-topic-name'>Google Ads</div></a>
+                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/Meta%20Ads&quot;'><div class='dwj-topic-icon'>📱</div><div class='dwj-topic-name'>Meta Ads</div></a>
+                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Dev&quot;'><div class='dwj-topic-icon'>💻</div><div class='dwj-topic-name'>Web Dev</div></a>
+                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/Growth&quot;'><div class='dwj-topic-icon'>📈</div><div class='dwj-topic-name'>Growth</div></a>
+                </div>
+              </div>
+            </section>
+          </b:if>
+
+          
+<!-- PHASE 2A: Featured Article + Topic Hubs + Newsletter -->
+<b:if cond='data:view.isHomepage'>
+
+  <section class='dwj-phase2-section off' id='featured-article'>
+    <div class='dwj-phase2-wrap'>
+      <div class='dwj-phase2-head'>
+        <div>
+          <div class='dwj-phase2-kicker'>Editor&#39;s Pick</div>
+          <h2 class='dwj-phase2-title'>Featured Article</h2>
+          <p class='dwj-phase2-desc'>Highlight your most important guide using the <strong>Featured</strong> label.</p>
+        </div>
+        <a class='dwj-phase2-link' expr:href='data:blog.homepageUrl + &quot;search/label/Featured&quot;'>View Featured &#8594;</a>
+      </div>
+
+      <div id='dwjFeaturedBox'>
+        <div class='dwj-featured-loading'>Loading featured article...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class='dwj-phase2-section' id='topic-hubs'>
+    <div class='dwj-phase2-wrap'>
+      <div class='dwj-phase2-head'>
+        <div>
+          <div class='dwj-phase2-kicker'>Topic Hubs</div>
+          <h2 class='dwj-phase2-title'>Explore Decode With Jai</h2>
+          <p class='dwj-phase2-desc'>Choose a category and start learning practical tech, growth and marketing skills.</p>
+        </div>
+      </div>
+
+      <div class='dwj-topic-hubs-grid'>
+        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'>
+          <div class='dwj-hub-icon'>🤖</div>
+          <div class='dwj-hub-name'>AI</div>
+          <p class='dwj-hub-desc'>AI tools, prompts, automation and practical workflows.</p>
+          <span class='dwj-hub-link'>Explore AI &#8594;</span>
+        </a>
+
+        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'>
+          <div class='dwj-hub-icon'>📈</div>
+          <div class='dwj-hub-name'>SEO</div>
+          <p class='dwj-hub-desc'>Rankings, indexing, technical SEO and organic growth.</p>
+          <span class='dwj-hub-link'>Explore SEO &#8594;</span>
+        </a>
+
+        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'>
+          <div class='dwj-hub-icon'>💰</div>
+          <div class='dwj-hub-name'>Google Ads</div>
+          <p class='dwj-hub-desc'>Search ads, PMax, tracking, keywords and ROAS.</p>
+          <span class='dwj-hub-link'>Explore Ads &#8594;</span>
+        </a>
+
+        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/Meta%20Ads&quot;'>
+          <div class='dwj-hub-icon'>📱</div>
+          <div class='dwj-hub-name'>Meta Ads</div>
+          <p class='dwj-hub-desc'>Facebook, Instagram, creatives, targeting and scaling.</p>
+          <span class='dwj-hub-link'>Explore Meta &#8594;</span>
+        </a>
+
+        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'>
+          <div class='dwj-hub-icon'>💻</div>
+          <div class='dwj-hub-name'>Web Dev</div>
+          <p class='dwj-hub-desc'>Frontend, Blogger, WordPress, speed and UI guides.</p>
+          <span class='dwj-hub-link'>Explore Web &#8594;</span>
+        </a>
+
+        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;p/tools.html&quot;'>
+          <div class='dwj-hub-icon'>🛠&#65039;</div>
+          <div class='dwj-hub-name'>Tools</div>
+          <p class='dwj-hub-desc'>Free tools, calculators, resources and recommendations.</p>
+          <span class='dwj-hub-link'>Explore Tools &#8594;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- PHASE 4 RESOURCE CENTER -->
+<b:if cond='data:view.isHomepage'>
+  <section class='dwj-resource-section' id='recommended-resources'>
+    <div class='dwj-phase2-wrap'>
+      <div class='dwj-phase2-head'>
+        <div>
+          <div class='dwj-phase2-kicker'>Resources</div>
+          <h2 class='dwj-phase2-title'>Recommended Tools &amp; Resources</h2>
+          <p class='dwj-phase2-desc'>Useful tools and resource pages for AI, SEO, ads, hosting and web growth.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class='dwj-resource-grid'>
+      <a class='dwj-resource-card' href='/p/ai-tools.html'>
+        <div class='dwj-resource-icon'>🧠</div>
+        <h3>AI Tools</h3>
+        <p>Explore AI writing, research, design and automation tools.</p>
+        <span>View Tools &#8594;</span>
+      </a>
+
+      <a class='dwj-resource-card' href='/p/seo-tools.html'>
+        <div class='dwj-resource-icon'>🔎</div>
+        <h3>SEO Tools</h3>
+        <p>Keyword research, audits, rank tracking and technical SEO tools.</p>
+        <span>View Tools &#8594;</span>
+      </a>
+
+      <a class='dwj-resource-card' href='/p/recommended-hosting.html'>
+        <div class='dwj-resource-icon'>🌐</div>
+        <h3>Hosting</h3>
+        <p>Recommended hosting options for blogs, websites and landing pages.</p>
+        <span>View Hosting &#8594;</span>
+      </a>
+
+      <a class='dwj-resource-card' href='/p/tools.html'>
+        <div class='dwj-resource-icon'>🛠&#65039;</div>
+        <h3>Free Tools</h3>
+        <p>Calculators, generators and free utilities for creators and marketers.</p>
+        <span>Open Tools &#8594;</span>
+      </a>
+    </div>
+  </section>
+</b:if>
+
+
+<!-- PHASE 4 VISIBLE HOMEPAGE SECTION -->
+<b:if cond='data:view.isHomepage'>
+  <section class='dwj-phase4-visible' id='phase4-resources-sidebar'>
+    <div class='dwj-phase2-wrap'>
+      <div class='dwj-phase2-head'>
+        <div>
+          <div class='dwj-phase2-kicker'>Resources &amp; Discovery</div>
+          <h2 class='dwj-phase2-title'>Explore Tools, Guides &amp; Growth Resources</h2>
+          <p class='dwj-phase2-desc'>Quick access to important categories, tools and resource pages for Decode With Jai readers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class='dwj-phase4-layout'>
+      <div class='dwj-phase4-main'>
+        <div class='dwj-phase4-card'>
+          <div class='dwj-phase4-icon'>🧠</div>
+          <h3>AI Tools</h3>
+          <p>Explore AI writing, research, automation and design tools for creators and marketers.</p>
+          <a href='/p/ai-tools.html'>View AI Tools &#8594;</a>
+        </div>
+
+        <div class='dwj-phase4-card'>
+          <div class='dwj-phase4-icon'>🔎</div>
+          <h3>SEO Tools</h3>
+          <p>Keyword research, indexing, technical SEO and organic growth resources.</p>
+          <a href='/p/seo-tools.html'>View SEO Tools &#8594;</a>
+        </div>
+
+        <div class='dwj-phase4-card'>
+          <div class='dwj-phase4-icon'>🌐</div>
+          <h3>Recommended Hosting</h3>
+          <p>Hosting and website setup resources for blogs, landing pages and business websites.</p>
+          <a href='/p/recommended-hosting.html'>View Hosting &#8594;</a>
+        </div>
+
+        <div class='dwj-phase4-card'>
+          <div class='dwj-phase4-icon'>🛠&#65039;</div>
+          <h3>Free Tools</h3>
+          <p>Calculators, generators and free utilities for SEO, ads and web growth.</p>
+          <a href='/p/tools.html'>Open Tools &#8594;</a>
+        </div>
+      </div>
+
+      <aside class='dwj-phase4-sidebar'>
+        <div class='dwj-phase4-sidebox'>
+          <h3>Search Decode</h3>
+          <form class='dwj-phase4-search' onsubmit='event.preventDefault(); var q=this.querySelector(&quot;input&quot;).value.trim(); if(q){location.href=&quot;/search?q=&quot;+encodeURIComponent(q);}'>
+            <input placeholder='Search articles...' type='search'/>
+            <button type='submit'>Go</button>
+          </form>
+        </div>
+
+        <div class='dwj-phase4-sidebox'>
+          <h3>Quick Topics</h3>
+          <div class='dwj-phase4-links'>
+            <a href='/search/label/AI'><span>🤖 AI</span><span>&#8594;</span></a>
+            <a href='/search/label/SEO'><span>📈 SEO</span><span>&#8594;</span></a>
+            <a href='/search/label/Google%20Ads'><span>💰 Google Ads</span><span>&#8594;</span></a>
+            <a href='/search/label/Meta%20Ads'><span>📱 Meta Ads</span><span>&#8594;</span></a>
+            <a href='/search/label/Web%20Development'><span>💻 Web Dev</span><span>&#8594;</span></a>
+          </div>
+        </div>
+
+        <div class='dwj-phase4-newsletter'>
+          <h3>Decode Weekly</h3>
+          <p>Get AI, SEO, Ads and Web Dev insights in your inbox.</p>
+          <form onsubmit='event.preventDefault(); alert(&quot;Connect this form with your email tool later.&quot;);'>
+            <input placeholder='your@email.com' type='email'/>
+            <button type='submit'>Subscribe</button>
+          </form>
+        </div>
+
+        <div class='dwj-phase4-ad'>
+          Ad / Affiliate Banner<br/>300 &#215; 250
+        </div>
+      </aside>
+    </div>
+  </section>
+</b:if>
+
+
+<!-- PHASE 6 POPULAR ARTICLES -->
+<b:if cond='data:view.isHomepage'>
+  <section class='dwj-popular-section' id='popular-articles'>
+    <div class='dwj-popular-wrap'>
+      <div class='dwj-phase2-head'>
+        <div>
+          <div class='dwj-phase2-kicker'>Trending</div>
+          <h2 class='dwj-phase2-title'>Popular Articles</h2>
+          <p class='dwj-phase2-desc'>A quick reading list for visitors who want the best content first.</p>
+        </div>
+        <a class='dwj-phase2-link' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All &#8594;</a>
+      </div>
+
+      <div class='dwj-popular-grid' id='dwjPopularGrid'>
+        <div class='dwj-featured-loading'>Loading popular articles...</div>
+      </div>
+    </div>
+  </section>
+</b:if>
+
+<section class='dwj-phase2-section off' id='decode-newsletter'>
+    <div class='dwj-phase2-wrap'>
+      <div class='dwj-phase2-newsletter'>
+        <div class='dwj-phase2-kicker'>Decode Weekly</div>
+        <h2>Get AI, SEO &amp; Ads insights weekly.</h2>
+        <p>Short, practical updates on AI tools, SEO wins, ad strategies and web development ideas.</p>
+        <form class='dwj-phase2-form' onsubmit='event.preventDefault(); alert(&quot;Connect this form with your email tool later.&quot;);'>
+          <input aria-label='Email address' placeholder='Enter your email' type='email'/>
+          <button type='submit'>Subscribe</button>
+        </form>
+        <p class='dwj-phase2-note'>No spam. Only useful growth notes.</p>
+      </div>
+    </div>
+  </section>
+
+</b:if>
+
+<section class='dwj-section' id='latest'>
+            <div class='dwj-wrap'>
+              <div class='dwj-section-hrow'>
+                <div>
+                  <div class='dwj-kicker'><b:if cond='data:view.isHomepage'>Fresh Content<b:else/>Articles</b:if></div>
+                  <!-- FIX: On label pages, data:view.title returns the LABEL NAME (e.g. "SEO").
+                       On homepage it is overridden to "Latest Articles".
+                       If posts list is empty on a label page, Blogger may show blog title instead &#8212;
+                       that means no posts have that exact label spelling assigned in Blogger. -->
+                  <h2 class='dwj-title'><b:if cond='data:view.isHomepage'>Latest Articles<b:else/><data:view.title/></b:if></h2>
+                </div>
+                <b:if cond='data:view.isHomepage'>
+                  <a class='dwj-viewall' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All Posts &#8594;</a>
+                </b:if>
+              </div>
+
+              <div class='dwj-posts-grid'>
+                <b:loop index='i' values='data:posts' var='post'>
+                  <b:if cond='data:view.isHomepage'>
+                    <b:if cond='data:i &lt; 9'><b:include data='post' name='dwj-card'/></b:if>
+                  <b:else/>
+                    <b:include data='post' name='dwj-card'/>
+                  </b:if>
+                </b:loop>
+              </div>
+
+              <!-- FIX: Show empty state when label page has no posts.
+                   This happens when: posts don't have the label assigned,
+                   or label spelling in URL doesn't match exactly (case-sensitive). -->
+              <b:if cond='data:posts.size == 0 and !data:view.isHomepage'>
+                <div style='text-align:center;padding:60px 20px;'>
+                  <div style='font-size:2.5rem;margin-bottom:12px;'>📭</div>
+                  <p style='color:var(--mid);font-size:.96rem;margin-bottom:8px;'>No posts found in this category yet.</p>
+                  <p style='color:var(--muted);font-size:.82rem;font-family:Space Mono,monospace;'>
+                    Make sure your posts in Blogger have a label that matches exactly: <strong><data:view.title/></strong>
+                  </p>
+                  <a class='dwj-btn dwj-btn-primary' expr:href='data:blog.homepageUrl' style='display:inline-block;margin-top:20px;'>&#8592; Go Home</a>
+                </div>
+              </b:if>
+
+              <!-- Pagination for label/search pages -->
+              <b:if cond='data:view.isHomepage'>
+                <div style='text-align:center;margin-top:44px;'>
+                  <a class='dwj-btn dwj-btn-primary' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All Articles &#8594;</a>
+                </div>
+              <b:else/>
+                <div class='dwj-pagination'>
+                  <b:include name='previousPageLink'/>
+                  <b:include name='nextPageLink'/>
+                </div>
+              </b:if>
+            </div>
+          </section>
+
+          <b:if cond='data:view.isHomepage'>
+            <section class='dwj-section dwj-section-off' id='dwj-about'>
+              <div class='dwj-wrap'>
+                <div class='dwj-about-grid'>
+                  <div>
+                    <div class='dwj-kicker'>About This Blog</div>
+                    <h2 class='dwj-title'>Built for Practical Tech Learning</h2>
+                    <p class='dwj-about-desc'>Decode With Jai is a practical tech blog for learning AI tools, SEO systems, paid ads, web development, analytics and growth workflows without unnecessary fluff.</p>
+                    <div class='dwj-about-tags'>
+                      <span class='dwj-atag'>Google Ads</span><span class='dwj-atag'>Meta Ads</span><span class='dwj-atag'>SEO</span><span class='dwj-atag'>Web Dev</span><span class='dwj-atag'>AI Tools</span><span class='dwj-atag'>Analytics</span><span class='dwj-atag'>Growth</span>
+                    </div>
+                    <div class='dwj-about-btns'>
+                      <a class='dwj-btn dwj-btn-primary' expr:href='data:blog.homepageUrl + &quot;search&quot;'>Read Articles &#8594;</a>
+                      <a class='dwj-btn dwj-btn-outline' href='mailto:jai.jain.officials@gmail.com'>Email Me</a>
+                    </div>
+                  </div>
+                  <div class='dwj-info-list'>
+                    <div class='dwj-info-row'><span class='dwj-info-icon'>📍</span><div><div class='dwj-info-lbl'>Location</div><div class='dwj-info-val'>Meerut, Uttar Pradesh, India</div></div></div>
+                    <div class='dwj-info-row'><span class='dwj-info-icon'>💼</span><div><div class='dwj-info-lbl'>Current Role</div><div class='dwj-info-val'>Intern Affiliate Executive @ GreenRootz Media</div></div></div>
+                    <div class='dwj-info-row'><span class='dwj-info-icon'>🎓</span><div><div class='dwj-info-lbl'>Education</div><div class='dwj-info-val'>BCA &#8212; Beacon Institute of Technology</div></div></div>
+                    <div class='dwj-info-row'><span class='dwj-info-icon'>&#9993;</span><div><div class='dwj-info-lbl'>Email</div><div class='dwj-info-val'>jai.jain.officials@gmail.com</div></div></div>
+                    <div class='dwj-info-row'><span class='dwj-info-icon'>🌐</span><div><div class='dwj-info-lbl'>Portfolio</div><div class='dwj-info-val'>jaijain.in</div></div></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class='dwj-section' id='dwj-connect'>
+              <div class='dwj-wrap'>
+                <div style='margin-bottom:28px;'><div class='dwj-kicker'>Find Me Online</div><h2 class='dwj-title'>Let&#8217;s Connect</h2></div>
+                <div class='dwj-social-grid'>
+                  <a class='dwj-social' href='https://jaijain.in' rel='dofollow' style='--sc:#0a0a0a;' target='_blank'><div class='dwj-social-icon'>📁</div><div class='dwj-social-name'>Portfolio</div><div class='dwj-social-handle'>jaijain.in</div><div class='dwj-social-act'>Visit &#8599;</div></a>
+                  <a class='dwj-social' href='https://www.https://www.linkedin.com/company/decode-with-jai/' rel='nofollow noopener' style='--sc:#0077b5;' target='_blank'><div class='dwj-social-icon'>💼</div><div class='dwj-social-name'>LinkedIn</div><div class='dwj-social-handle'>Connect professionally</div><div class='dwj-social-act'>Connect &#8599;</div></a>
+                  <a class='dwj-social' href='https://x.com/Jai_Jain_' rel='nofollow noopener' style='--sc:#141414;' target='_blank'><div class='dwj-social-icon'>X</div><div class='dwj-social-name'>X / Twitter</div><div class='dwj-social-handle'>@Jai_Jain_</div><div class='dwj-social-act'>Follow &#8599;</div></a>
+                  <a class='dwj-social' href='https://www.youtube.com/@JaiJainDecode' rel='nofollow noopener' style='--sc:#ff0000;' target='_blank'><div class='dwj-social-icon'>&#9654;</div><div class='dwj-social-name'>YouTube</div><div class='dwj-social-handle'>@JaiJainDecode</div><div class='dwj-social-act'>Subscribe &#8599;</div></a>
+                </div>
+              </div>
+            </section>
+          </b:if>
+
+        <b:else/>
+          <!-- Fallback: search results page or unknown view type -->
+          <div style='text-align:center;padding:130px 20px 80px;'>
+            <div style='font-size:3rem;margin-bottom:16px;'>🔍</div>
+            <h1 style='font-family:Fraunces,serif;font-size:2rem;margin-bottom:12px;'>Nothing here</h1>
+            <p style='color:var(--mid);margin-bottom:28px;'>Try searching or go back home.</p>
+            <a class='dwj-btn dwj-btn-primary' expr:href='data:blog.homepageUrl'>&#8592; Go Home</a>
+          </div>
+
+        </b:if>
+
+      </b:includable>
+      <b:includable id='aboutPostAuthor'/>
+      <b:includable id='addComments'/>
+      <b:includable id='blogThisShare'/>
+      <b:includable id='bylineByName' var='byline'/>
+      <b:includable id='bylineRegion' var='regionItems'/>
+      <b:includable id='commentAuthorAvatar'/>
+      <b:includable id='commentDeleteIcon' var='comment'/>
+      <b:includable id='commentForm' var='post'/>
+      <b:includable id='commentFormIframeSrc' var='post'/>
+      <b:includable id='commentItem' var='comment'/>
+      <b:includable id='commentList' var='comments'/>
+      <b:includable id='commentPicker' var='post'/>
+      <b:includable id='comments' var='post'/>
+      <b:includable id='commentsLink'/>
+      <b:includable id='commentsLinkIframe'/>
+      <b:includable id='commentsTitle'/>
+      <b:includable id='defaultAdUnit'/>
+      <b:includable id='dwj-card' var='post'>
+        <a class='dwj-card' expr:href='data:post.url' role='listitem'>
+          <div class='dwj-card-thumb'>
+            <b:if cond='data:post.featuredImage'>
+              <img expr:alt='data:post.title' expr:src='data:post.featuredImage' height='338' loading='lazy' width='600'/>
+            <b:elseif cond='data:post.thumbnailUrl and data:post.thumbnailUrl != &quot;&quot;'/>
+              <img expr:alt='data:post.title' expr:src='data:post.thumbnailUrl' height='338' loading='lazy' width='600'/>
+            <b:else/>
+              <div class='dwj-card-ph'>📝</div>
+            </b:if>
+          </div>
+          <div class='dwj-card-body'>
+            <div class='dwj-card-cat'><b:if cond='data:post.labels'><data:post.labels.first.name/><b:else/>Article</b:if></div>
+            <h3 class='dwj-card-title'><data:post.title/></h3>
+            <p class='dwj-card-snip'><data:post.snippet/></p>
+            <div class='dwj-card-foot'>
+              <span class='dwj-card-date'><data:post.date/></span>
+              <span class='dwj-card-read'>READ &#8594;</span>
+            </div>
+          </div>
+        </a>
+      </b:includable>
+      <b:includable id='emailPostIcon'/>
+      <b:includable id='facebookShare'/>
+      <b:includable id='feedLinks'/>
+      <b:includable id='feedLinksBody' var='links'/>
+      <b:includable id='footerBylines'/>
+      <b:includable id='googlePlusShare'/>
+      <b:includable id='headerByline'/>
+      <b:includable id='homePageLink'/>
+      <b:includable id='iframeComments' var='post'/>
+      <b:includable id='inlineAd' var='post'/>
+      <b:includable id='linkShare'/>
+      <b:includable id='nextPageLink'>
+        <b:if cond='data:blog.newerPageUrl'>
+          <a class='dwj-btn dwj-btn-outline' expr:href='data:blog.newerPageUrl'>&#8592; Newer Posts</a>
+        </b:if>
+      </b:includable>
+      <b:includable id='otherSharingButton'/>
+      <b:includable id='platformShare'/>
+      <b:includable id='post' var='post'/>
+      <b:includable id='postAuthor'/>
+      <b:includable id='postBody' var='post'/>
+      <b:includable id='postBodySnippet' var='post'/>
+      <b:includable id='postCommentsAndAd' var='post'/>
+      <b:includable id='postCommentsLink'/>
+      <b:includable id='postFooter' var='post'/>
+      <b:includable id='postFooterAuthorProfile' var='post'/>
+      <b:includable id='postHeader' var='post'/>
+      <b:includable id='postJumpLink' var='post'/>
+      <b:includable id='postLabels'/>
+      <b:includable id='postLocation'/>
+      <b:includable id='postMeta' var='post'/>
+      <b:includable id='postMetadataJSONImage'/>
+      <b:includable id='postMetadataJSONPublisher'/>
+      <b:includable id='postPagination'/>
+      <b:includable id='postReactions'/>
+      <b:includable id='postShareButtons'/>
+      <b:includable id='postTimestamp'/>
+      <b:includable id='postTitle' var='post'/>
+      <b:includable id='previousPageLink'>
+        <b:if cond='data:blog.olderPageUrl'>
+          <a class='dwj-btn dwj-btn-outline' expr:href='data:blog.olderPageUrl'>Older Posts &#8594;</a>
+        </b:if>
+      </b:includable>
+      <b:includable id='sharingButton'/>
+      <b:includable id='sharingButtonContent'/>
+      <b:includable id='sharingButtons'/>
+      <b:includable id='sharingButtonsMenu'/>
+      <b:includable id='sharingPlatformIcon'/>
+      <b:includable id='threadedCommentForm' var='post'/>
+      <b:includable id='threadedCommentJs' var='post'/>
+      <b:includable id='threadedComments' var='post'/>
+      <b:includable id='tooltipCss'/>
+    </b:widget>
+  </b:section>
+
+  <!-- ============================================================
+       FIX 2: Newsletter now posts to Google Sheets via Apps Script.
+       HOW TO SET UP:
+       1. Go to https://script.google.com &#8594; New Project
+       2. Paste this code:
+          function doPost(e) {
+            var sheet = SpreadsheetApp.openById('YOUR_SHEET_ID').getActiveSheet();
+            var data = JSON.parse(e.postData.contents);
+            sheet.appendRow([new Date(), data.email]);
+            return ContentService.createTextOutput(JSON.stringify({status:'ok'}))
+              .setMimeType(ContentService.MimeType.JSON);
+          }
+       3. Deploy &#8594; New Deployment &#8594; Web App &#8594; Anyone &#8594; Deploy
+       4. Copy the Web App URL and replace YOUR_APPS_SCRIPT_URL below
+       ============================================================ -->
+  <section class='dwj-nl' id='newsletter'>
+    <div class='dwj-nl-inner'>
+      <div class='dwj-kicker'>Stay Ahead</div>
+      <h2 class='dwj-title'>Get Decode Weekly</h2>
+      <p class='dwj-desc'>Every Sunday &#8212; AI tools, SEO wins, ad strategies and growth hacks. No fluff, only signal.</p>
+      <div class='dwj-nl-form'>
+        <label class='sr-only' for='dwjEmail'>Your email</label>
+        <input autocomplete='email' class='dwj-nl-input' id='dwjEmail' placeholder='your@email.com' type='email'/>
+        <button class='dwj-nl-btn' id='dwjNlBtn' type='button'>Subscribe &#8594;</button>
+      </div>
+      <p class='dwj-nl-note'>No spam. Unsubscribe anytime.</p>
+      <p id='dwjNlMsg' style='margin-top:10px;font-size:.82rem;min-height:1.2em;'/>
+    </div>
+  </section>
+
+  
+<!-- LAYOUT EDITABLE: Homepage Custom Zones -->
+<b:if cond='data:view.isHomepage'>
+  <b:section class='layout-edit-zone' id='layout-home-banner-1' maxwidgets='4' name='Homepage Banner 1 / After Hero' showaddelement='yes'>
+    <b:widget id='HTML11' locked='false' title='Homepage Banner 1' type='HTML' version='2' visible='false'>
+      <b:widget-settings>
+        <b:widget-setting name='content'><![CDATA[<div class="dwj-layout-cta">
+  <div>
+    <span class="dwj-layout-badge">Featured Resource</span>
+    <h3>Discover the Best AI Tools for Creators</h3>
+    <p>Replace this text, button link and image from Blogger Layout whenever needed.</p>
+  </div>
+  <a href="/p/ai-tools.html">Explore Now →</a>
+</div>]]></b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'><b:include name='widget-title'/><div class='widget-content'><data:content/></div></b:includable>
+    </b:widget>
+  </b:section>
+
+  <b:section class='layout-edit-zone' id='layout-home-banner-2' maxwidgets='4' name='Homepage Banner 2 / Before Newsletter' showaddelement='yes'>
+    <b:widget id='HTML12' locked='false' title='Homepage Banner 2' type='HTML' version='2' visible='false'>
+      <b:widget-settings>
+        <b:widget-setting name='content'><![CDATA[<div class="dwj-layout-banner dwj-banner-wide">
+  <a href="https://example.com" target="_blank" rel="nofollow sponsored">
+    <img src="https://via.placeholder.com/1200x300.png?text=Homepage+Banner+1200x300" alt="Homepage Banner"/>
+  </a>
+</div>]]></b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'><b:include name='widget-title'/><div class='widget-content'><data:content/></div></b:includable>
+    </b:widget>
+  </b:section>
+</b:if>
+
+
+<!-- LAYOUT EDITABLE: Single Post Banner Zone Outside Blog1 -->
+<b:if cond='data:view.isSingleItem'>
+  <b:section class='layout-edit-zone' id='layout-post-banner' maxwidgets='4' name='Single Post Banner / CTA' showaddelement='yes'>
+    <b:widget id='HTML13' locked='false' title='Single Post Banner' type='HTML' version='2' visible='false'>
+      <b:widget-settings>
+        <b:widget-setting name='content'><![CDATA[<div class="dwj-layout-cta">
+  <div>
+    <span class="dwj-layout-badge">Recommended</span>
+    <h3>Need help with SEO, Ads or Website Growth?</h3>
+    <p>Update this CTA from Blogger Layout and add your own service/resource link.</p>
+  </div>
+  <a href="https://jaijain.in" target="_blank" rel="noopener">Visit Portfolio →</a>
+</div>]]></b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'><b:include name='widget-title'/><div class='widget-content'><data:content/></div></b:includable>
+    </b:widget>
+  </b:section>
+</b:if>
+
+
+
+<footer class='dwj-footer'>
+  <div class='dwj-footer-grid'>
+    <div>
+      <a class='dwj-footer-brand' expr:href='data:blog.homepageUrl'>Decode With Jai</a>
+      <p class='dwj-footer-desc'>Practical guides on AI, SEO, Google Ads, Meta Ads, Web Development, tools and digital growth by Jai Jain.</p>
+    </div>
+
+    <div>
+      <h3 class='dwj-footer-head'>Resources</h3>
+      <ul class='dwj-footer-ul'>
+        <li><a href='/p/ai-tools.html'>AI Tools</a></li>
+        <li><a href='/p/seo-tools.html'>SEO Tools</a></li>
+        <li><a href='/p/google-ads-tools.html'>Google Ads Tools</a></li>
+        <li><a href='/p/meta-ads-tools.html'>Meta Ads Tools</a></li>
+        <li><a href='/p/recommended-hosting.html'>Hosting</a></li>
+        <li><a href='/p/tools.html'>Free Tools</a></li>
+        <li><a href='/p/resources.html'>Resources Hub</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class='dwj-footer-head'>Company</h3>
+      <ul class='dwj-footer-ul'>
+        <li><a href='/p/about.html'>About</a></li>
+        <li><a href='/p/contact.html'>Contact</a></li>
+        <li><a href='/p/start-here.html'>Start Here</a></li>
+        <li><a href='/search'>All Articles</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class='dwj-footer-head'>Legal &amp; Follow</h3>
+      <ul class='dwj-footer-ul'>
+        <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
+        <li><a href='/p/disclaimer.html'>Disclaimer</a></li>
+        <li><a href='/p/terms-and-conditions.html'>Terms &amp; Conditions</a></li>
+        <li><a href='https://www.linkedin.com/company/decode-with-jai/' rel='noopener' target='_blank'>LinkedIn</a></li>
+        <li><a href='https://jaijain.in' rel='noopener' target='_blank'>Portfolio</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class='dwj-footer-bottom'>
+    <span>&#169; <data:blog.title/>. All rights reserved.</span>
+    <span>Built for AI, SEO, Ads &amp; Web Development learning.</span>
+  </div>
+</footer>
+
+
+
+  <button aria-label='Back to top' id='dwj-btt' type='button'>&#8593;</button>
+
+  <script type='text/javascript'>
+  //<![CDATA[
+  /* Dark mode removed: light mode only */
+
+  /* Back to top */
+  var btt=document.getElementById('dwj-btt');
+  if(btt){
+    window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>400);},{passive:true});
+    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+
+  /* Mobile hamburger menu */
+  var ham=document.getElementById('dwjHam'),mob=document.getElementById('dwjMob');
+  if(ham&&mob){
+    ham.addEventListener('click',function(){
+      var o=mob.classList.toggle('open');
+      ham.classList.toggle('open',o);
+      ham.setAttribute('aria-label',o?'Close menu':'Open menu');
+      ham.setAttribute('aria-expanded',String(o));
+    });
+    mob.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        mob.classList.remove('open');
+        ham.classList.remove('open');
+        ham.setAttribute('aria-label','Open menu');
+        ham.setAttribute('aria-expanded','false');
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!ham.contains(e.target)&&!mob.contains(e.target)){
+        mob.classList.remove('open');
+        ham.classList.remove('open');
+        ham.setAttribute('aria-label','Open menu');
+        ham.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* ============================================================
+     FIX 2: Newsletter — real form submission to Google Apps Script
+     Replace YOUR_APPS_SCRIPT_URL with your deployed Web App URL.
+     See setup instructions in the HTML comment above the newsletter section.
+     ============================================================ */
+  var APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+
+  var nlBtn=document.getElementById('dwjNlBtn');
+  var nlMsg=document.getElementById('dwjNlMsg');
+
+  if(nlBtn){
+    nlBtn.addEventListener('click',function(){
+      var input=document.getElementById('dwjEmail');
+      if(!input||!input.value||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)){
+        if(nlMsg){nlMsg.textContent='Please enter a valid email.';nlMsg.style.color='#ff3a2d';}
+        return;
+      }
+
+      nlBtn.disabled=true;
+      nlBtn.textContent='Subscribing...';
+
+      fetch(APPS_SCRIPT_URL,{
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:input.value})
+      })
+      .then(function(){
+        if(nlMsg){nlMsg.textContent='\u2713 You\'re in! Check your inbox.';nlMsg.style.color='#00c48c';}
+        input.value='';
+        nlBtn.textContent='Subscribed \u2713';
+      })
+      .catch(function(){
+        if(nlMsg){nlMsg.textContent='Something went wrong. Try again.';nlMsg.style.color='#ff3a2d';}
+        nlBtn.disabled=false;
+        nlBtn.textContent='Subscribe \u2192';
+      });
+    });
+  }
+
+  //]]>
+  </script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+/* LIGHT MODE ONLY FORCE */
+(function(){
+  try{
+    document.body.classList.remove('dark-mode');
+    document.body.classList.remove('dark');
+    localStorage.removeItem('dwjTheme');
+    localStorage.removeItem('theme');
+  }catch(e){}
+})();
+//]]>
+</script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  var box = document.getElementById('dwjFeaturedBox');
+  if(!box) return;
+
+  var BLOG = '<data:blog.homepageUrl/>'.replace(/\/$/,'');
+
+  function esc(s){
+    return String(s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function getUrl(e){
+    if(!e.link) return '#';
+    for(var i=0;i<e.link.length;i++){
+      if(e.link[i].rel === 'alternate') return e.link[i].href;
+    }
+    return '#';
+  }
+
+  function getThumb(e){
+    if(e.content && e.content.$t){
+      var match = e.content.$t.match(/<img[^>]+src=["']([^"']+)["']/i);
+      if(match) return match[1].replace(/\/s\d+(-c)?\//, '/s1600/');
+    }
+    if(e.media$thumbnail && e.media$thumbnail.url){
+      return e.media$thumbnail.url.replace(/\/s\d+(-c)?\//, '/s1600/');
+    }
+    return '';
+  }
+
+  function getSnippet(e){
+    var raw = '';
+    if(e.summary && e.summary.$t) raw = e.summary.$t;
+    else if(e.content && e.content.$t){
+      var d = document.createElement('div');
+      d.innerHTML = e.content.$t;
+      raw = d.textContent || d.innerText || '';
+    }
+    raw = raw.replace(/\s+/g,' ').trim();
+    return raw.slice(0,180) + (raw.length > 180 ? '...' : '');
+  }
+
+  function getCat(e){
+    return (e.category && e.category[0]) ? e.category[0].term : 'Featured';
+  }
+
+  window.dwjFeaturedFeed = function(data){
+    var entries = data && data.feed && data.feed.entry ? data.feed.entry : [];
+    if(!entries.length){
+      box.innerHTML = '<div class="dwj-featured-empty">No Featured post found. Add label <strong>Featured</strong> to one post.</div>';
+      return;
+    }
+
+    var e = entries[0];
+    var title = e.title && e.title.$t ? e.title.$t : 'Decode With Jai';
+    var url = getUrl(e);
+    var thumb = getThumb(e);
+    var snip = getSnippet(e);
+    var cat = getCat(e);
+
+    box.innerHTML =
+      '<article class="dwj-featured-box">' +
+        '<a class="dwj-featured-media" href="'+esc(url)+'">' +
+          (thumb ? '<img alt="'+esc(title)+'" loading="lazy" src="'+esc(thumb)+'"/>' : '<div class="dwj-featured-placeholder">⭐</div>') +
+        '</a>' +
+        '<div class="dwj-featured-content">' +
+          '<div class="dwj-featured-badge">⭐ Featured Guide</div>' +
+          '<div class="dwj-featured-cat">'+esc(cat)+'</div>' +
+          '<h3 class="dwj-featured-title"><a href="'+esc(url)+'">'+esc(title)+'</a></h3>' +
+          '<p class="dwj-featured-snip">'+esc(snip)+'</p>' +
+          '<a class="dwj-featured-btn" href="'+esc(url)+'">Read Full Guide →</a>' +
+        '</div>' +
+      '</article>';
+  };
+
+  var script = document.createElement('script');
+  script.src = BLOG + '/feeds/posts/summary/-/Featured?alt=json-in-script&max-results=1&callback=dwjFeaturedFeed';
+  script.onerror = function(){
+    box.innerHTML = '<div class="dwj-featured-empty">Featured article could not load. Check blog feed settings.</div>';
+  };
+  document.head.appendChild(script);
+})();
+//]]>
+</script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  var tries = 0;
+  function checkFeatured(){
+    var box = document.getElementById('dwjFeaturedBox');
+    if(!box) return;
+
+    var text = (box.textContent || '').trim().toLowerCase();
+    if(text.indexOf('loading featured article') === -1) return;
+
+    tries++;
+    if(tries < 6){
+      setTimeout(checkFeatured, 1000);
+      return;
+    }
+
+    box.innerHTML = '<div class="dwj-featured-empty">Featured post not loading from feed yet. Make sure:<br/><br/>1. Post label is exactly <strong>Featured</strong><br/>2. Blogger Settings → Site feed → Allow blog feed = <strong>Full</strong><br/>3. Wait 1-2 minutes after adding the label, then refresh.</div>';
+  }
+  setTimeout(checkFeatured, 1500);
+})();
+//]]>
+</script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  function ready(fn){
+    if(document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+  ready(function(){
+    var box = document.getElementById('dwjFeaturedBox');
+    if(!box) return;
+
+    function clean(s){
+      return String(s || '').replace(/\s+/g,' ').trim();
+    }
+
+    function makeFeaturedFromCard(card){
+      if(!card) return false;
+
+      var linkEl = card.matches('a') ? card : card.querySelector('a[href]');
+      var url = linkEl ? linkEl.href : '/search/label/Featured';
+
+      var titleEl = card.querySelector('.dwj-card-title, h3, .post-title, h2, a');
+      var title = clean(titleEl ? titleEl.textContent : 'Featured Article');
+
+      var imgEl = card.querySelector('img');
+      var img = imgEl ? imgEl.src : '';
+
+      var snipEl = card.querySelector('.dwj-card-snip, .snippet, .post-snippet, p');
+      var snip = clean(snipEl ? snipEl.textContent : 'Read this featured guide from Decode With Jai.');
+
+      var catEl = card.querySelector('.dwj-card-cat, .post-cat');
+      var cat = clean(catEl ? catEl.textContent : 'Featured');
+
+      box.innerHTML =
+        '<article class="dwj-featured-box">' +
+          '<a class="dwj-featured-media" href="'+url+'">' +
+            (img ? '<img alt="'+title.replace(/"/g,'&quot;')+'" loading="lazy" src="'+img+'"/>' : '<div class="dwj-featured-placeholder">⭐</div>') +
+          '</a>' +
+          '<div class="dwj-featured-content">' +
+            '<div class="dwj-featured-badge">⭐ Featured Guide</div>' +
+            '<div class="dwj-featured-cat">'+cat+'</div>' +
+            '<h3 class="dwj-featured-title"><a href="'+url+'">'+title+'</a></h3>' +
+            '<p class="dwj-featured-snip">'+snip+'</p>' +
+            '<a class="dwj-featured-btn" href="'+url+'">Read Full Guide →</a>' +
+          '</div>' +
+        '</article>';
+      return true;
+    }
+
+    function loadFromFeaturedLabelPage(){
+      var url = '/search/label/Featured';
+      fetch(url, {credentials:'same-origin'})
+        .then(function(r){ return r.text(); })
+        .then(function(html){
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+
+          var card =
+            doc.querySelector('.dwj-card') ||
+            doc.querySelector('.post') ||
+            doc.querySelector('article') ||
+            doc.querySelector('.post-outer');
+
+          if(!makeFeaturedFromCard(card)){
+            box.innerHTML = '<div class="dwj-featured-empty">No Featured post found. Add label <strong>Featured</strong> to one published post.</div>';
+          }
+        })
+        .catch(function(){
+          box.innerHTML = '<div class="dwj-featured-empty">Featured post could not load automatically. Use the View Featured link or check that the post label is exactly <strong>Featured</strong>.</div>';
+        });
+    }
+
+    // Wait a moment. If old feed loader succeeds, don't touch it.
+    setTimeout(function(){
+      var txt = clean(box.textContent).toLowerCase();
+      if(
+        txt.indexOf('loading featured article') > -1 ||
+        txt.indexOf('featured article could not load') > -1 ||
+        txt.indexOf('featured post not loading') > -1 ||
+        txt.indexOf('no featured post found') > -1
+      ){
+        loadFromFeaturedLabelPage();
+      }
+    }, 1800);
+  });
+})();
+//]]>
+</script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  // Reading progress
+  var bar = document.getElementById('dwjReadingProgress');
+  if(!bar){
+    bar = document.createElement('div');
+    bar.id = 'dwjReadingProgress';
+    document.body.appendChild(bar);
+  }
+
+  window.addEventListener('scroll', function(){
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max ? (doc.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  });
+
+  // Reading time
+  var body = document.querySelector('.dwj-post-body');
+  var meta = document.querySelector('.dwj-post-meta');
+  if(body && meta && !document.getElementById('dwjReadTime')){
+    var text = body.innerText || '';
+    var words = text.trim().split(/\s+/).filter(Boolean).length;
+    var mins = Math.max(1, Math.ceil(words / 220));
+    var sep = document.createElement('span');
+    sep.innerHTML = '&#183;';
+    var rt = document.createElement('span');
+    rt.className = 'dwj-read-time';
+    rt.id = 'dwjReadTime';
+    rt.textContent = mins + ' min read';
+    meta.appendChild(sep);
+    meta.appendChild(rt);
+  }
+
+  // Share links
+  var title = document.title || 'Decode With Jai';
+  var url = location.href;
+  var x = document.getElementById('dwjShareX');
+  var li = document.getElementById('dwjShareLinkedIn');
+  var wa = document.getElementById('dwjShareWhatsApp');
+  if(x) x.href = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title);
+  if(li) li.href = 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title);
+  if(wa) wa.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(title + ' ' + url);
+
+  var copy = document.getElementById('dwjCopyLink');
+  if(copy){
+    copy.addEventListener('click', function(){
+      navigator.clipboard.writeText(url).then(function(){
+        copy.textContent = 'Copied!';
+        setTimeout(function(){ copy.textContent = 'Copy Link'; }, 1600);
+      }).catch(function(){
+        copy.textContent = 'Copy URL Manually';
+      });
+    });
+  }
+
+  // Related posts from current category label page
+  var grid = document.getElementById('dwjRelatedGrid');
+  if(!grid || !body) return;
+
+  function clean(s){ return String(s || '').replace(/\s+/g,' ').trim(); }
+
+  var catEl = document.querySelector('.dwj-post-cat');
+  var label = catEl ? clean(catEl.textContent) : '';
+  if(!label){
+    grid.innerHTML = '<div class="dwj-related-empty">No category found for related articles.</div>';
+    return;
+  }
+
+  function makeCard(card){
+    if(!card) return '';
+    var linkEl = card.matches && card.matches('a') ? card : card.querySelector('a[href]');
+    var href = linkEl ? linkEl.href : '#';
+    if(href === location.href) return '';
+
+    var titleEl = card.querySelector('.dwj-card-title, h3, .post-title, h2, a');
+    var t = clean(titleEl ? titleEl.textContent : 'Related Article');
+    if(!t) return '';
+
+    var imgEl = card.querySelector('img');
+    var img = imgEl ? imgEl.src : '';
+
+    var catCardEl = card.querySelector('.dwj-card-cat, .post-cat');
+    var c = clean(catCardEl ? catCardEl.textContent : label);
+
+    return '<a class="dwj-related-card" href="'+href+'">' +
+      '<div class="dwj-related-thumb">' + (img ? '<img alt="'+t.replace(/"/g,'&quot;')+'" loading="lazy" src="'+img+'"/>' : '📘') + '</div>' +
+      '<div class="dwj-related-body">' +
+        '<div class="dwj-related-cat">'+c+'</div>' +
+        '<h3>'+t+'</h3>' +
+      '</div>' +
+    '</a>';
+  }
+
+  fetch('/search/label/' + encodeURIComponent(label), {credentials:'same-origin'})
+    .then(function(r){ return r.text(); })
+    .then(function(html){
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var cards = Array.prototype.slice.call(doc.querySelectorAll('.dwj-card, article, .post, .post-outer'));
+      var out = '';
+      for(var i=0; i<cards.length && out.split('dwj-related-card').length <= 3; i++){
+        out += makeCard(cards[i]);
+      }
+      grid.innerHTML = out || '<div class="dwj-related-empty">No related articles found yet.</div>';
+    })
+    .catch(function(){
+      grid.innerHTML = '<div class="dwj-related-empty">Related articles could not load.</div>';
+    });
+})();
+//]]>
+</script>
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  function clean(s){ return String(s || '').replace(/\s+/g,' ').trim(); }
+
+  /* Breadcrumbs */
+  var postWrap = document.querySelector('.dwj-post-wrap');
+  var postTitle = document.querySelector('.dwj-post-title');
+  if(postWrap && postTitle && !document.querySelector('.dwj-breadcrumbs')){
+    var catEl = document.querySelector('.dwj-post-cat');
+    var cat = catEl ? clean(catEl.textContent) : 'Article';
+
+    var crumbs = document.createElement('nav');
+    crumbs.className = 'dwj-breadcrumbs';
+    crumbs.setAttribute('aria-label','Breadcrumbs');
+    crumbs.innerHTML =
+      '<a href="/">Home</a><span>›</span>' +
+      '<a href="/search/label/'+encodeURIComponent(cat)+'">'+cat+'</a><span>›</span>' +
+      '<span>'+clean(postTitle.textContent).slice(0,70)+'</span>';
+
+    postWrap.parentNode.insertBefore(crumbs, postWrap);
+  }
+
+  /* TOC */
+  var body = document.querySelector('.dwj-post-body');
+  if(body && !document.querySelector('.dwj-toc-box')){
+    var heads = body.querySelectorAll('h2,h3,h4');
+    if(heads.length >= 2){
+      var toc = document.createElement('div');
+      toc.className = 'dwj-toc-box';
+
+      var list = document.createElement('div');
+      list.className = 'dwj-toc-list';
+
+      Array.prototype.forEach.call(heads, function(h, i){
+        var id = h.id || 'dwj-section-' + (i+1);
+        h.id = id;
+
+        var a = document.createElement('a');
+        a.href = '#' + id;
+        a.textContent = clean(h.textContent);
+        a.className = 'level-' + h.tagName.replace('H','');
+        list.appendChild(a);
+      });
+
+      toc.innerHTML =
+        '<div class="dwj-toc-head">' +
+          '<div class="dwj-toc-title">Contents</div>' +
+          '<button class="dwj-toc-toggle" type="button" aria-label="Toggle contents">−</button>' +
+        '</div>';
+
+      toc.appendChild(list);
+
+      var firstPara = body.querySelector('p');
+      if(firstPara){
+        firstPara.after(toc);
+      }else{
+        body.prepend(toc);
+      }
+
+      var btn = toc.querySelector('.dwj-toc-toggle');
+      btn.addEventListener('click', function(){
+        list.classList.toggle('hidden');
+        btn.textContent = list.classList.contains('hidden') ? '+' : '−';
+      });
+    }
+  }
+
+  /* Floating Share */
+  if(postWrap && !document.querySelector('.dwj-floating-share')){
+    var url = encodeURIComponent(location.href);
+    var title = encodeURIComponent(document.title);
+    var fs = document.createElement('div');
+    fs.className = 'dwj-floating-share';
+    fs.innerHTML =
+      '<a href="https://twitter.com/intent/tweet?url='+url+'&text='+title+'" target="_blank" rel="nofollow noopener">X</a>' +
+      '<a href="https://www.linkedin.com/shareArticle?mini=true&url='+url+'&title='+title+'" target="_blank" rel="nofollow noopener">in</a>' +
+      '<a href="https://api.whatsapp.com/send?text='+title+'%20'+url+'" target="_blank" rel="nofollow noopener">WA</a>' +
+      '<button type="button" id="dwjFloatCopy">⛓</button>';
+    document.body.appendChild(fs);
+
+    var copy = document.getElementById('dwjFloatCopy');
+    if(copy){
+      copy.addEventListener('click', function(){
+        navigator.clipboard.writeText(location.href).then(function(){
+          copy.textContent = '✓';
+          setTimeout(function(){copy.textContent='⛓';}, 1300);
+        });
+      });
+    }
+  }
+
+  /* Enhanced meta label */
+  var meta = document.querySelector('.dwj-post-meta');
+  if(meta && !meta.classList.contains('dwj-meta-enhanced')){
+    meta.classList.add('dwj-meta-enhanced');
+  }
+
+  /* Popular articles on homepage: clone latest visible post cards where possible */
+  var grid = document.getElementById('dwjPopularGrid');
+  if(grid){
+    function makeCard(card){
+      var linkEl = card.matches && card.matches('a') ? card : card.querySelector('a[href]');
+      var href = linkEl ? linkEl.href : '#';
+
+      var titleEl = card.querySelector('.dwj-card-title, h3, .post-title, h2, a');
+      var title = clean(titleEl ? titleEl.textContent : 'Decode With Jai');
+
+      var imgEl = card.querySelector('img');
+      var img = imgEl ? imgEl.src : '';
+
+      var catEl = card.querySelector('.dwj-card-cat, .post-cat');
+      var cat = clean(catEl ? catEl.textContent : 'Article');
+
+      return '<a class="dwj-popular-card" href="'+href+'">' +
+        '<div class="dwj-popular-thumb">'+(img ? '<img alt="'+title.replace(/"/g,'&quot;')+'" loading="lazy" src="'+img+'"/>' : '🔥')+'</div>' +
+        '<div class="dwj-popular-body">' +
+          '<div class="dwj-popular-cat">'+cat+'</div>' +
+          '<h3>'+title+'</h3>' +
+          '<div class="dwj-popular-meta">Popular Read →</div>' +
+        '</div>' +
+      '</a>';
+    }
+
+    setTimeout(function(){
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.dwj-card, .post, article'));
+      cards = cards.filter(function(c){
+        return !c.closest('#popular-articles') && !c.closest('#dwjFeaturedBox') && c.querySelector('a[href]');
+      }).slice(0,6);
+
+      if(cards.length){
+        grid.innerHTML = cards.map(makeCard).join('');
+      }else{
+        grid.innerHTML = '<div class="dwj-featured-empty">Popular articles will appear after posts load.</div>';
+      }
+    }, 1200);
+  }
+})();
+//]]>
+</script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  function esc(s){
+    return String(s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function clean(s){
+    return String(s || '').replace(/\s+/g,' ').trim();
+  }
+  function getUrl(e){
+    if(!e.link) return '#';
+    for(var i=0;i<e.link.length;i++){
+      if(e.link[i].rel === 'alternate') return e.link[i].href;
+    }
+    return '#';
+  }
+  function getThumb(e){
+    function up(u){
+      return String(u || '')
+        .replace(/\/s72-c\//, '/s1200/')
+        .replace(/\/s\d+(-c)?\//, '/s1200/')
+        .replace(/=s\d+(-c)?/g, '=s1200')
+        .replace(/=w\d+-h\d+(-p-k-no-nu)?/g, '=w1200-h675-p-k-no-nu');
+    }
+    if(e.content && e.content.$t){
+      var m = e.content.$t.match(/<img[^>]+src=["']([^"']+)["']/i);
+      if(m) return up(m[1]);
+    }
+    if(e.media$thumbnail && e.media$thumbnail.url){
+      return up(e.media$thumbnail.url);
+    }
+    return '';
+  }
+  function getCat(e){
+    return (e.category && e.category[0]) ? e.category[0].term : 'Article';
+  }
+  function getSnippet(e){
+    var raw = '';
+    if(e.summary && e.summary.$t) raw = e.summary.$t;
+    else if(e.content && e.content.$t){
+      var div = document.createElement('div');
+      div.innerHTML = e.content.$t;
+      raw = div.textContent || div.innerText || '';
+    }
+    raw = clean(raw);
+    return raw.slice(0,150) + (raw.length > 150 ? '...' : '');
+  }
+  function cardHTML(e){
+    var title = e.title && e.title.$t ? e.title.$t : 'Decode With Jai';
+    var url = getUrl(e);
+    var img = getThumb(e);
+    var cat = getCat(e);
+    var snip = getSnippet(e);
+    return '<article class="dwj-card">' +
+      '<a class="dwj-card-media" href="'+esc(url)+'">' +
+        (img ? '<img alt="'+esc(title)+'" loading="lazy" src="'+esc(img)+'"/>' : '<div class="dwj-card-ph">📝</div>') +
+      '</a>' +
+      '<div class="dwj-card-body">' +
+        '<div class="dwj-card-cat">'+esc(cat)+'</div>' +
+        '<h3 class="dwj-card-title"><a href="'+esc(url)+'">'+esc(title)+'</a></h3>' +
+        '<p class="dwj-card-snip">'+esc(snip)+'</p>' +
+        '<div class="dwj-card-date">Read Article →</div>' +
+      '</div>' +
+    '</article>';
+  }
+
+  /* Fix /search and /search/label pages */
+  window.dwjArchiveFeedOverride = function(data){
+    var grid = document.querySelector('.dwj-posts-grid');
+    if(!grid) return;
+
+    var entries = data && data.feed && data.feed.entry ? data.feed.entry : [];
+    if(!entries.length){
+      grid.innerHTML = '<div class="dwj-archive-feed-note">No posts found in this archive.</div>';
+      return;
+    }
+
+    grid.innerHTML = entries.map(cardHTML).join('');
+
+    var title = document.querySelector('#latest .dwj-title');
+    if(title && location.pathname === '/search'){
+      title.textContent = 'All Articles';
+    }
+
+    var pagination = document.querySelector('.dwj-pagination');
+    if(pagination) pagination.style.display = 'none';
+  };
+
+  function loadArchiveIfNeeded(){
+    var isSearch = location.pathname.indexOf('/search') === 0;
+    if(!isSearch) return;
+
+    var grid = document.querySelector('.dwj-posts-grid');
+    if(!grid) return;
+
+    grid.innerHTML = '<div class="dwj-archive-feed-note">Loading all articles...</div>';
+
+    var feed = '/feeds/posts/summary';
+    var labelMatch = location.pathname.match(/\/search\/label\/([^\/?#]+)/);
+    if(labelMatch && labelMatch[1]){
+      var label = decodeURIComponent(labelMatch[1]);
+      feed = '/feeds/posts/summary/-/' + encodeURIComponent(label);
+    }
+
+    var s = document.createElement('script');
+    s.src = feed + '?alt=json-in-script&max-results=50&callback=dwjArchiveFeedOverride';
+    s.onerror = function(){
+      grid.innerHTML = '<div class="dwj-archive-feed-note">Could not load archive feed.</div>';
+    };
+    document.head.appendChild(s);
+  }
+
+  /* Fix homepage Popular Articles */
+  window.dwjPopularFeedOverride = function(data){
+    var grid = document.getElementById('dwjPopularGrid');
+    if(!grid) return;
+
+    var entries = data && data.feed && data.feed.entry ? data.feed.entry : [];
+    if(!entries.length){
+      grid.innerHTML = '<div class="dwj-featured-empty">No posts found yet.</div>';
+      return;
+    }
+
+    grid.innerHTML = entries.slice(0,6).map(function(e){
+      var title = e.title && e.title.$t ? e.title.$t : 'Decode With Jai';
+      var url = getUrl(e);
+      var img = getThumb(e);
+      var cat = getCat(e);
+      return '<a class="dwj-popular-card" href="'+esc(url)+'">' +
+        '<div class="dwj-popular-thumb">'+(img ? '<img alt="'+esc(title)+'" loading="lazy" src="'+esc(img)+'"/>' : '🔥')+'</div>' +
+        '<div class="dwj-popular-body">' +
+          '<div class="dwj-popular-cat">'+esc(cat)+'</div>' +
+          '<h3>'+esc(title)+'</h3>' +
+          '<div class="dwj-popular-meta">Popular / Latest →</div>' +
+        '</div>' +
+      '</a>';
+    }).join('');
+  };
+
+  function loadPopularIfNeeded(){
+    var grid = document.getElementById('dwjPopularGrid');
+    if(!grid) return;
+    grid.innerHTML = '<div class="dwj-featured-loading">Loading popular articles...</div>';
+
+    var s = document.createElement('script');
+    s.src = '/feeds/posts/summary?alt=json-in-script&max-results=6&callback=dwjPopularFeedOverride';
+    s.onerror = function(){
+      grid.innerHTML = '<div class="dwj-featured-empty">Popular articles could not load.</div>';
+    };
+    document.head.appendChild(s);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){
+      loadArchiveIfNeeded();
+      loadPopularIfNeeded();
+    });
+  }else{
+    loadArchiveIfNeeded();
+    loadPopularIfNeeded();
+  }
+})();
+//]]>
+</script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  // Upgrade Blogger image URLs to larger sizes for archive cards
+  function bigImg(url){
+    if(!url) return '';
+    return String(url)
+      .replace(/\/s72-c\//, '/s1200/')
+      .replace(/\/s1600\//, '/s1200/')
+      .replace(/\/s\d+(-c)?\//, '/s1200/')
+      .replace(/=s\d+(-c)?/g, '=s1200')
+      .replace(/=w\d+-h\d+(-p-k-no-nu)?/g, '=w1200-h675-p-k-no-nu');
+  }
+
+  function fixCardImages(){
+    var cards = document.querySelectorAll('.dwj-card');
+    cards.forEach(function(card){
+      var media = card.querySelector('.dwj-card-media');
+      if(!media) return;
+
+      var img = media.querySelector('img');
+      if(img){
+        var src = img.getAttribute('src') || img.getAttribute('data-src') || '';
+        img.src = bigImg(src);
+        img.removeAttribute('width');
+        img.removeAttribute('height');
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'cover';
+        img.style.objectPosition = 'center';
+        return;
+      }
+
+      // If no image exists, try to find an image from snippet/body text if available
+      var bodyImg = card.querySelector('.dwj-card-body img');
+      if(bodyImg && bodyImg.src){
+        media.innerHTML = '<img loading="lazy" src="'+bigImg(bodyImg.src)+'" alt="Decode With Jai"/>';
+      }
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', fixCardImages);
+  }else{
+    fixCardImages();
+  }
+
+  setTimeout(fixCardImages, 1000);
+  setTimeout(fixCardImages, 2500);
+})();
+//]]>
+</script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  function fixEmptyAds(){
+    document.querySelectorAll('.dwj-ad-inarticle').forEach(function(ad){
+      var hasRealContent = ad.querySelector('ins, iframe, img, script') || ad.textContent.trim().length > 5;
+      if(hasRealContent){
+        ad.classList.add('has-ad');
+      }else{
+        ad.style.display = 'none';
+        ad.style.minHeight = '0';
+        ad.style.padding = '0';
+        ad.style.margin = '0';
+        ad.style.border = '0';
+      }
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixEmptyAds);
+  else fixEmptyAds();
+  setTimeout(fixEmptyAds, 1200);
+})();
+//]]>
+</script>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+(function(){
+  function esc(s){
+    return String(s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function clean(s){
+    return String(s || '').replace(/\s+/g,' ').trim();
+  }
+  function upImg(u){
+    return String(u || '')
+      .replace(/\/s72-c\//, '/s1200/')
+      .replace(/\/s\d+(-c)?\//, '/s1200/')
+      .replace(/=s\d+(-c)?/g, '=s1200')
+      .replace(/=w\d+-h\d+(-p-k-no-nu)?/g, '=w1200-h675-p-k-no-nu');
+  }
+  function defaultThumbHTML(){
+    return '<div class="dwj-default-thumb">' +
+      '<div class="dwj-default-thumb-inner">' +
+        '<div class="dwj-default-thumb-logo">J</div>' +
+        '<div class="dwj-default-thumb-title">Decode With Jai</div>' +
+        '<div class="dwj-default-thumb-sub">AI • SEO • ADS • WEB DEV</div>' +
+      '</div>' +
+    '</div>';
+  }
+  function getUrl(e){
+    if(!e.link) return '#';
+    for(var i=0;i<e.link.length;i++){
+      if(e.link[i].rel === 'alternate') return e.link[i].href;
+    }
+    return '#';
+  }
+  function getThumb(e){
+    if(e.content && e.content.$t){
+      var m = e.content.$t.match(/<img[^>]+src=["']([^"']+)["']/i);
+      if(m) return upImg(m[1]);
+    }
+    if(e.media$thumbnail && e.media$thumbnail.url) return upImg(e.media$thumbnail.url);
+    return '';
+  }
+  function getCat(e){
+    return (e.category && e.category[0]) ? e.category[0].term : 'Article';
+  }
+  function getSnippet(e){
+    var raw = '';
+    if(e.summary && e.summary.$t) raw = e.summary.$t;
+    else if(e.content && e.content.$t){
+      var div = document.createElement('div');
+      div.innerHTML = e.content.$t;
+      raw = div.textContent || div.innerText || '';
+    }
+    raw = clean(raw);
+    return raw.slice(0,150) + (raw.length > 150 ? '...' : '');
+  }
+
+  window.dwjPopularFinalFeed = function(data){
+    var grid = document.getElementById('dwjPopularGrid');
+    if(!grid) return;
+
+    var entries = data && data.feed && data.feed.entry ? data.feed.entry : [];
+    if(!entries.length){
+      grid.innerHTML = '<div class="dwj-featured-empty">No posts found yet.</div>';
+      return;
+    }
+
+    grid.innerHTML = entries.slice(0,6).map(function(e){
+      var title = e.title && e.title.$t ? e.title.$t : 'Decode With Jai';
+      var url = getUrl(e);
+      var img = getThumb(e);
+      var cat = getCat(e);
+
+      return '<a class="dwj-popular-card" href="'+esc(url)+'">' +
+        '<div class="dwj-popular-thumb">'+(img ? '<img alt="'+esc(title)+'" loading="lazy" src="'+esc(img)+'"/>' : defaultThumbHTML())+'</div>' +
+        '<div class="dwj-popular-body">' +
+          '<div class="dwj-popular-cat">'+esc(cat)+'</div>' +
+          '<h3>'+esc(title)+'</h3>' +
+          '<div class="dwj-popular-meta">Popular / Latest →</div>' +
+        '</div>' +
+      '</a>';
+    }).join('');
+  };
+
+  function loadPopular(){
+    var grid = document.getElementById('dwjPopularGrid');
+    if(!grid || grid.getAttribute('data-dwj-loaded') === 'yes') return;
+    grid.setAttribute('data-dwj-loaded','yes');
+    grid.innerHTML = '<div class="dwj-featured-loading">Loading popular articles...</div>';
+
+    var s = document.createElement('script');
+    s.src = '/feeds/posts/default?alt=json-in-script&max-results=6&callback=dwjPopularFinalFeed';
+    s.onerror = function(){
+      grid.innerHTML = '<div class="dwj-featured-empty">Popular articles could not load.</div>';
+    };
+    document.head.appendChild(s);
+  }
+
+  window.dwjArchiveFinalFeed = function(data){
+    var grid = document.querySelector('.dwj-posts-grid');
+    if(!grid) return;
+
+    var entries = data && data.feed && data.feed.entry ? data.feed.entry : [];
+    if(!entries.length) return;
+
+    grid.innerHTML = entries.map(function(e){
+      var title = e.title && e.title.$t ? e.title.$t : 'Decode With Jai';
+      var url = getUrl(e);
+      var img = getThumb(e);
+      var cat = getCat(e);
+      var snip = getSnippet(e);
+
+      return '<article class="dwj-card">' +
+        '<a class="dwj-card-media" href="'+esc(url)+'">' +
+          (img ? '<img alt="'+esc(title)+'" loading="lazy" src="'+esc(img)+'"/>' : defaultThumbHTML()) +
+        '</a>' +
+        '<div class="dwj-card-body">' +
+          '<div class="dwj-card-cat">'+esc(cat)+'</div>' +
+          '<h3 class="dwj-card-title"><a href="'+esc(url)+'">'+esc(title)+'</a></h3>' +
+          '<p class="dwj-card-snip">'+esc(snip)+'</p>' +
+          '<div class="dwj-card-date">Read Article →</div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+
+    var pagination = document.querySelector('.dwj-pagination');
+    if(pagination) pagination.style.display = 'none';
+  };
+
+  function loadArchiveIfSearch(){
+    if(location.pathname.indexOf('/search') !== 0) return;
+    var grid = document.querySelector('.dwj-posts-grid');
+    if(!grid || grid.getAttribute('data-dwj-loaded') === 'yes') return;
+    grid.setAttribute('data-dwj-loaded','yes');
+
+    var feed = '/feeds/posts/default';
+    var labelMatch = location.pathname.match(/\/search\/label\/([^\/?#]+)/);
+    if(labelMatch && labelMatch[1]){
+      feed = '/feeds/posts/default/-/' + encodeURIComponent(decodeURIComponent(labelMatch[1]));
+    }
+
+    var s = document.createElement('script');
+    s.src = feed + '?alt=json-in-script&max-results=50&callback=dwjArchiveFinalFeed';
+    document.head.appendChild(s);
+  }
+
+  function fixExistingThumbs(){
+    document.querySelectorAll('.dwj-card-media,.dwj-card-thumb,.dwj-popular-thumb,.dwj-related-thumb,.dwj-pro-related-thumb').forEach(function(box){
+      var img = box.querySelector('img');
+      if(img && img.src){
+        img.src = upImg(img.src);
+      }else if(!box.querySelector('.dwj-default-thumb')){
+        box.innerHTML = defaultThumbHTML();
+      }
+    });
+
+    document.querySelectorAll('.dwj-card-ph').forEach(function(ph){
+      if(!ph.querySelector('.dwj-default-thumb')) ph.innerHTML = defaultThumbHTML();
+    });
+  }
+
+  function run(){
+    loadPopular();
+    loadArchiveIfSearch();
+    fixExistingThumbs();
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+
+  setTimeout(run, 800);
+  setTimeout(run, 1800);
+  setTimeout(fixExistingThumbs, 3000);
+})();
+//]]>
+</script>
+
+</body>
+</html>
