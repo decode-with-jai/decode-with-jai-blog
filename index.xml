@@ -3414,7 +3414,7 @@ section[class*="dwj-ad-inarticle"]{
       <ul class='dwj-nav-links' role='list'>
         <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
         <li><a expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'>AI</a></li>
-        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'>SEO</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/seo&quot;'>SEO</a></li>
         <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'>Google Ads</a></li>
         <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'>Web Dev</a></li>
         <li><a expr:href='data:blog.homepageUrl + &quot;search&quot;'>All Posts</a></li>
@@ -3430,7 +3430,7 @@ section[class*="dwj-ad-inarticle"]{
   <div aria-label='Mobile navigation' class='dwj-mob' id='dwjMob' role='navigation'>
     <a expr:href='data:blog.homepageUrl'>Home</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'>AI</a>
-    <a expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'>SEO</a>
+    <a expr:href='data:blog.homepageUrl + &quot;search/label/seo&quot;'>SEO</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'>Google Ads</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/Meta%20Ads&quot;'>Meta Ads</a>
     <a expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'>Web Development</a>
