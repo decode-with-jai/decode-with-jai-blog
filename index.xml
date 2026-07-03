@@ -3,10 +3,14 @@
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
+  
   <meta charset='utf-8'/>
   <meta content='width=device-width,initial-scale=1.0' name='viewport'/>
   <b:include data='blog' name='all-head-content'/>
   <!-- Favicon managed from Blogger Settings -->
+  
+  <!-- Google ADS Setup -->
+  <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX'/>
 <!-- GA4 -->
   <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-H5GXKCS04S'/>
   <script type='text/javascript'>
@@ -52,6 +56,15 @@
     <meta expr:content='data:view.title.escape + &quot; — Decode With Jai: AI, SEO, Ads &amp; Web Development.&quot;' property='og:description'/>
     <meta content='https://jaijain.in/og-image.jpg' property='og:image'/>
   </b:if>
+  
+	<meta content='yes' name='apple-mobile-web-app-capable'/>
+<meta expr:content='data:blog.title' name='apple-mobile-web-app-title'/>
+<meta content='default' name='apple-mobile-web-app-status-bar-style'/>
+<meta content='yes' name='mobile-web-app-capable'/>
+<meta expr:content='data:blog.title' name='application-name'/>
+      
+      
+    
 
   <!-- OPEN GRAPH + TWITTER (shared tags) -->
   <meta expr:content='data:view.title.escape' property='og:title'/>
@@ -60,6 +73,12 @@
   <meta content='summary_large_image' name='twitter:card'/>
   <meta content='@Jai_Jain_' name='twitter:site'/>
   <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
+  
+  
+  
+  <users>
+<user>2CF68214D6A55F7DEED35263E5D1247F</user>
+</users>
 
   <!-- SCHEMA.ORG WebSite -->
   <script type='application/ld+json'>
@@ -3364,6 +3383,66 @@ section[class*="dwj-ad-inarticle"]{
   }
 }
 
+
+/* ============================================================
+   DECODE WITH JAI V2 MASTER PATCH — CONTENT-FIRST PUBLICATION
+   Goal: articles in center, Jai in sidebar/end, AdSense-ready slots
+   ============================================================ */
+.dwj-hero.dwj-v2-hero{
+  min-height:auto;
+  padding:calc(var(--nav-h) + 42px) 20px 38px;
+  border-bottom:1px solid var(--border);
+}
+.dwj-v2-hero .dwj-hero-inner{display:block;max-width:1160px;}
+.dwj-v2-hero .dwj-hero-title{font-size:clamp(2.25rem,5vw,4.2rem);max-width:840px;}
+.dwj-v2-hero .dwj-hero-desc{max-width:720px;font-size:1.02rem;}
+.dwj-v2-hero .dwj-hero-chips{margin-top:18px;}
+.dwj-v2-hero .dwj-hero-btns{margin-top:24px;}
+.dwj-v2-topline{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:14px;
+}
+.dwj-v2-live-dot{width:7px;height:7px;border-radius:999px;background:var(--green);box-shadow:0 0 0 5px rgba(16,185,129,.12);}
+.dwj-v2-featured{padding:34px 20px;background:var(--white);}
+.dwj-v2-featured-wrap{max-width:1160px;margin:0 auto;}
+.dwj-v2-featured-card{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:0;overflow:hidden;
+  border:1px solid var(--border);border-radius:22px;background:var(--white);
+  box-shadow:var(--shadow);
+}
+.dwj-v2-featured-media{aspect-ratio:16/9;background:var(--off);overflow:hidden;min-height:310px;}
+.dwj-v2-featured-media img{width:100%;height:100%;object-fit:cover;}
+.dwj-v2-featured-body{padding:34px;display:flex;flex-direction:column;justify-content:center;}
+.dwj-v2-badge{font-family:'Space Mono',monospace;font-size:.66rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+.dwj-v2-featured-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.08;letter-spacing:-.03em;margin-bottom:14px;color:var(--ink);}
+.dwj-v2-featured-title a{color:inherit;}
+.dwj-v2-featured-snip{color:var(--mid);line-height:1.75;margin-bottom:22px;font-size:.96rem;}
+.dwj-v2-read-btn{width:max-content;display:inline-flex;padding:11px 18px;border-radius:10px;background:var(--ink);color:#fff!important;font-weight:700;font-size:.86rem;transition:.2s;}
+.dwj-v2-read-btn:hover{background:var(--accent);transform:translateY(-2px);}
+.dwj-v2-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start;}
+.dwj-v2-main{min-width:0;}
+.dwj-v2-sidebar{display:flex;flex-direction:column;gap:16px;position:sticky;top:calc(var(--nav-h) + 18px);}
+.dwj-v2-sidebox{border:1px solid var(--border);background:var(--white);border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(15,23,42,.04);}
+.dwj-v2-side-title{font-family:'Fraunces',serif;font-weight:900;font-size:1rem;margin-bottom:10px;color:var(--ink);}
+.dwj-v2-side-text{color:var(--mid);font-size:.86rem;line-height:1.65;margin-bottom:12px;}
+.dwj-v2-author{display:flex;gap:12px;align-items:flex-start;}
+.dwj-v2-author-avatar{width:46px;height:46px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--red));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;flex:0 0 auto;}
+.dwj-v2-link-list{display:flex;flex-direction:column;gap:8px;}
+.dwj-v2-link-list a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border:1px solid var(--border);border-radius:10px;color:var(--mid);font-size:.82rem;font-weight:600;transition:.2s;}
+.dwj-v2-link-list a:hover{border-color:var(--accent);color:var(--accent);background:var(--off);}
+.dwj-v2-newsletter-mini input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--white);color:var(--ink);margin-bottom:8px;}
+.dwj-v2-newsletter-mini button{width:100%;padding:10px 12px;border:0;border-radius:10px;background:var(--ink);color:#fff;font-weight:800;}
+.dwj-v2-section-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px;}
+.dwj-v2-category-card{border:1px solid var(--border);border-radius:16px;background:var(--white);padding:18px;color:var(--ink);transition:.2s;}
+.dwj-v2-category-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent);}
+.dwj-v2-category-card b{display:block;font-family:'Fraunces',serif;margin-bottom:6px;}
+.dwj-v2-category-card span{color:var(--mid);font-size:.82rem;line-height:1.45;}
+.dwj-v2-about-bottom{background:var(--off);border-top:1px solid var(--border);}
+body.dark-mode .dwj-v2-sidebox,body.dark-mode .dwj-v2-featured-card,body.dark-mode .dwj-v2-category-card{background:#111827!important;border-color:#334155!important;}
+@media(max-width:1024px){.dwj-v2-layout{grid-template-columns:1fr}.dwj-v2-sidebar{position:static;display:grid;grid-template-columns:repeat(2,1fr)}.dwj-v2-featured-card{grid-template-columns:1fr}.dwj-v2-section-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.dwj-v2-featured{padding:22px 14px}.dwj-v2-featured-body{padding:22px}.dwj-v2-featured-media{min-height:auto}.dwj-v2-sidebar{display:flex}.dwj-v2-section-grid{grid-template-columns:1fr}}
+
   ]]></b:skin>
 
   <!-- FINAL SCHEMA PATCH: live domain -->
@@ -3438,12 +3517,12 @@ section[class*="dwj-ad-inarticle"]{
   </div>
 
 <!-- LAYOUT EDITABLE: Header Banner -->
-<b:section class='layout-edit-zone' id='layout-header-banner' maxwidgets='3' name='Header Banner / Top Ad' showaddelement='yes'>
-  <b:widget id='HTML10' locked='false' title='Header Banner' type='HTML' version='2' visible='false'>
+<b:section class='layout-edit-zone' id='layout-header-banner' maxwidgets='3' name='Header Custom Banner / CTA' showaddelement='yes'>
+  <b:widget id='HTML10' locked='false' title='Header Custom Banner' type='HTML' version='2' visible='false'>
     <b:widget-settings>
       <b:widget-setting name='content'><![CDATA[<div class="dwj-layout-banner dwj-banner-wide">
   <a href="https://example.com" target="_blank" rel="nofollow sponsored">
-    <img src="https://via.placeholder.com/1200x250.png?text=Header+Banner+1200x250" alt="Header Banner"/>
+    <img src="https://via.placeholder.com/1200x250.png?text=Header+Custom+Banner+1200x250" alt="Header Custom Banner"/>
   </a>
 </div>]]></b:widget-setting>
     </b:widget-settings>
@@ -3595,392 +3674,157 @@ section[class*="dwj-ad-inarticle"]{
 
         <b:elseif cond='data:view.isMultipleItems'/>
 
-          <b:if cond='data:view.isHomepage'>
-            <!-- HERO -->
-            <section aria-label='Introduction' class='dwj-hero' id='hero'>
-              <div class='dwj-hero-inner'>
-                <div>
-                  <div class='dwj-hero-badge'>
-                    <span class='gdot'/>AI &#8226; SEO &#8226; Ads &#8226; Web Development
-                  </div>
-                  <h1 class='dwj-hero-title'>
-                    Decode<br/>
-                    <em>Smarter</em><br/>
-                    <span class='t-red'>Technology.</span>
-                  </h1>
-                  <p class='dwj-hero-desc'>
-                    Practical tutorials, tool guides, SEO playbooks, ad strategies and web development notes for creators, marketers and founders.
-                  </p>
+          <!-- V2 CONTENT-FIRST HOMEPAGE: compact hero + featured article + layout-customizable sections -->
+            <b:if cond='data:view.isHomepage'>
+              <section aria-label='Decode With Jai introduction' class='dwj-hero dwj-v2-hero' id='hero'>
+                <div class='dwj-hero-inner'>
+                  <div class='dwj-v2-topline'><span class='dwj-v2-live-dot'/>Fresh AI, SEO, Ads &amp; Web Development Articles</div>
+                  <h1 class='dwj-hero-title'>Your daily source for AI, SEO, Web Development, Digital Marketing &amp; emerging technology.</h1>
+                  <p class='dwj-hero-desc'>Decode With Jai helps readers stay updated with practical articles on AI tools, SEO, Google Ads, Meta Ads, web development, hosting, digital marketing and upcoming technologies.</p>
                   <div class='dwj-hero-chips'>
-                    <span class='dwj-chip'>AI</span>
-                    <span class='dwj-chip'>SEO</span>
-                    <span class='dwj-chip'>Google Ads</span>
-                    <span class='dwj-chip'>Meta Ads</span>
-                    <span class='dwj-chip'>Tools</span>
-                    <span class='dwj-chip'>Web Dev</span>
+                    <a class='dwj-chip' expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'>AI</a>
+                    <a class='dwj-chip' expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'>SEO</a>
+                    <a class='dwj-chip' expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'>Google Ads</a>
+                    <a class='dwj-chip' expr:href='data:blog.homepageUrl + &quot;search/label/Meta%20Ads&quot;'>Meta Ads</a>
+                    <a class='dwj-chip' expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'>Web Dev</a>
+                    <a class='dwj-chip' expr:href='data:blog.homepageUrl + &quot;search/label/Hosting&quot;'>Hosting</a>
                   </div>
                   <div class='dwj-hero-btns'>
-                    <a class='dwj-btn dwj-btn-primary' href='#latest'>Read Articles &#8595;</a>
-                    <a class='dwj-btn dwj-btn-outline' expr:href='data:blog.homepageUrl + &quot;search&quot;'>Explore Library &#8594;</a>
+                    <a class='dwj-btn dwj-btn-primary' href='#latest'>Read Latest Articles &#8595;</a>
+                    <a class='dwj-btn dwj-btn-outline' expr:href='data:blog.homepageUrl + &quot;search&quot;'>Explore All Posts &#8594;</a>
                   </div>
                 </div>
+              </section>
 
-                <div aria-label='Author profile' class='dwj-profile' role='complementary'>
-                  <div class='dwj-profile-top'>
-                    <div aria-hidden='true' class='dwj-avatar'>J</div>
+              <section class='dwj-v2-featured' id='featured-article'>
+                <div class='dwj-v2-featured-wrap'>
+                  <div class='dwj-section-hrow'>
                     <div>
-                      <div class='dwj-pname'>Jai Jain</div>
-                      <div class='dwj-prole'>Tech Blog &#8226; AI &#8226; SEO &#8226; Ads</div>
+                      <div class='dwj-kicker'>Start Here</div>
+                      <h2 class='dwj-title'>Featured Article</h2>
                     </div>
+                    <a class='dwj-viewall' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All Articles &#8594;</a>
                   </div>
-                  <p class='dwj-pbio'>A practical knowledge hub for AI tools, SEO systems, paid ads, web development and digital growth experiments.</p>
-                  <div class='dwj-pstats'>
-                    <div class='dwj-pstat'><div class='dwj-pstat-n'>AI</div><div class='dwj-pstat-l'>Tools</div></div>
-                    <div class='dwj-pstat'><div class='dwj-pstat-n'>SEO</div><div class='dwj-pstat-l'>Growth</div></div>
-                    <div class='dwj-pstat'><div class='dwj-pstat-n'>Ads</div><div class='dwj-pstat-l'>Strategy</div></div>
-                    <div class='dwj-pstat'><div class='dwj-pstat-n'>Web</div><div class='dwj-pstat-l'>Dev</div></div>
-                  </div>
-                  <div class='dwj-plinks'>
-                    <a class='dwj-plink' expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'><span>🤖</span><span class='dwj-plink-label'>AI Guides</span><span class='dwj-plink-arr'>&#8594;</span></a>
-                    <a class='dwj-plink' expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'><span>🔍</span><span class='dwj-plink-label'>SEO Playbooks</span><span class='dwj-plink-arr'>&#8594;</span></a>
-                    <a class='dwj-plink' expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'><span>📈</span><span class='dwj-plink-label'>Ad Strategy</span><span class='dwj-plink-arr'>&#8594;</span></a>
-                    <a class='dwj-plink' expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'><span>💻</span><span class='dwj-plink-label'>Web Development</span><span class='dwj-plink-arr'>&#8594;</span></a>
-                  </div>
+                  <b:loop index='f' values='data:posts' var='post'>
+                    <b:if cond='data:f == 0'>
+                      <article class='dwj-v2-featured-card'>
+                        <a class='dwj-v2-featured-media' expr:href='data:post.url'>
+                          <b:if cond='data:post.featuredImage'>
+                            <img expr:alt='data:post.title' expr:src='data:post.featuredImage' height='420' loading='eager' width='746'/>
+                          <b:else/>
+                            <div class='dwj-featured-placeholder'>📝</div>
+                          </b:if>
+                        </a>
+                        <div class='dwj-v2-featured-body'>
+                          <div class='dwj-v2-badge'><b:if cond='data:post.labels'><data:post.labels.first.name/><b:else/>Featured</b:if></div>
+                          <h2 class='dwj-v2-featured-title'><a expr:href='data:post.url'><data:post.title/></a></h2>
+                          <p class='dwj-v2-featured-snip'><data:post.snippet/></p>
+                          <a class='dwj-v2-read-btn' expr:href='data:post.url'>Read Article &#8594;</a>
+                        </div>
+                      </article>
+                    </b:if>
+                  </b:loop>
                 </div>
-              </div>
-            </section>
-
-            <div class='dwj-statsbar'>
-              <div class='dwj-statsbar-item'><div class='dwj-sn'>AI</div><div class='dwj-sl'>Tools &amp; Guides</div></div>
-              <div class='dwj-statsbar-item'><div class='dwj-sn'>SEO</div><div class='dwj-sl'>Search Growth</div></div>
-              <div class='dwj-statsbar-item'><div class='dwj-sn'>Ads</div><div class='dwj-sl'>Google &amp; Meta</div></div>
-              <div class='dwj-statsbar-item'><div class='dwj-sn'>Web</div><div class='dwj-sl'>Development</div></div>
-            </div>
-
-            <!-- ============================================================
-                 FIX 1 (AdSense): Replace ca-pub-XXXXXXXXXXXXXXXX with your
-                 real publisher ID and XXXXXXXXXX with your real ad slot ID.
-                 Example: ca-pub-1234567890123456 / data-ad-slot='9876543210'
-                 ============================================================ -->
-            <div class='dwj-ad-banner'>
-              <ins class='adsbygoogle' data-ad-client='ca-pub-XXXXXXXXXXXXXXXX' data-ad-format='auto' data-ad-slot='XXXXXXXXXX' data-full-width-responsive='true' style='display:block'/>
-              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-
-            <section class='dwj-section dwj-section-off' id='dwj-topics'>
-              <div class='dwj-wrap'>
-                <div style='margin-bottom:28px;'><div class='dwj-kicker'>Browse by Topic</div><h2 class='dwj-title'>Explore Tech Topics</h2></div>
-                <div class='dwj-topics-grid'>
-                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'><div class='dwj-topic-icon'>🤖</div><div class='dwj-topic-name'>AI</div></a>
-                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'><div class='dwj-topic-icon'>🔍</div><div class='dwj-topic-name'>SEO</div></a>
-                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'><div class='dwj-topic-icon'>🎯</div><div class='dwj-topic-name'>Google Ads</div></a>
-                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/Meta%20Ads&quot;'><div class='dwj-topic-icon'>📱</div><div class='dwj-topic-name'>Meta Ads</div></a>
-                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Dev&quot;'><div class='dwj-topic-icon'>💻</div><div class='dwj-topic-name'>Web Dev</div></a>
-                  <a class='dwj-topic' expr:href='data:blog.homepageUrl + &quot;search/label/Growth&quot;'><div class='dwj-topic-icon'>📈</div><div class='dwj-topic-name'>Growth</div></a>
-                </div>
-              </div>
-            </section>
-          </b:if>
-
-          
-<!-- PHASE 2A: Featured Article + Topic Hubs + Newsletter -->
-<b:if cond='data:view.isHomepage'>
-
-  <section class='dwj-phase2-section off' id='featured-article'>
-    <div class='dwj-phase2-wrap'>
-      <div class='dwj-phase2-head'>
-        <div>
-          <div class='dwj-phase2-kicker'>Editor&#39;s Pick</div>
-          <h2 class='dwj-phase2-title'>Featured Article</h2>
-          <p class='dwj-phase2-desc'>Highlight your most important guide using the <strong>Featured</strong> label.</p>
-        </div>
-        <a class='dwj-phase2-link' expr:href='data:blog.homepageUrl + &quot;search/label/Featured&quot;'>View Featured &#8594;</a>
-      </div>
-
-      <div id='dwjFeaturedBox'>
-        <div class='dwj-featured-loading'>Loading featured article...</div>
-      </div>
-    </div>
-  </section>
-
-  <section class='dwj-phase2-section' id='topic-hubs'>
-    <div class='dwj-phase2-wrap'>
-      <div class='dwj-phase2-head'>
-        <div>
-          <div class='dwj-phase2-kicker'>Topic Hubs</div>
-          <h2 class='dwj-phase2-title'>Explore Decode With Jai</h2>
-          <p class='dwj-phase2-desc'>Choose a category and start learning practical tech, growth and marketing skills.</p>
-        </div>
-      </div>
-
-      <div class='dwj-topic-hubs-grid'>
-        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'>
-          <div class='dwj-hub-icon'>🤖</div>
-          <div class='dwj-hub-name'>AI</div>
-          <p class='dwj-hub-desc'>AI tools, prompts, automation and practical workflows.</p>
-          <span class='dwj-hub-link'>Explore AI &#8594;</span>
-        </a>
-
-        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'>
-          <div class='dwj-hub-icon'>📈</div>
-          <div class='dwj-hub-name'>SEO</div>
-          <p class='dwj-hub-desc'>Rankings, indexing, technical SEO and organic growth.</p>
-          <span class='dwj-hub-link'>Explore SEO &#8594;</span>
-        </a>
-
-        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'>
-          <div class='dwj-hub-icon'>💰</div>
-          <div class='dwj-hub-name'>Google Ads</div>
-          <p class='dwj-hub-desc'>Search ads, PMax, tracking, keywords and ROAS.</p>
-          <span class='dwj-hub-link'>Explore Ads &#8594;</span>
-        </a>
-
-        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/Meta%20Ads&quot;'>
-          <div class='dwj-hub-icon'>📱</div>
-          <div class='dwj-hub-name'>Meta Ads</div>
-          <p class='dwj-hub-desc'>Facebook, Instagram, creatives, targeting and scaling.</p>
-          <span class='dwj-hub-link'>Explore Meta &#8594;</span>
-        </a>
-
-        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'>
-          <div class='dwj-hub-icon'>💻</div>
-          <div class='dwj-hub-name'>Web Dev</div>
-          <p class='dwj-hub-desc'>Frontend, Blogger, WordPress, speed and UI guides.</p>
-          <span class='dwj-hub-link'>Explore Web &#8594;</span>
-        </a>
-
-        <a class='dwj-hub-card' expr:href='data:blog.homepageUrl + &quot;p/tools.html&quot;'>
-          <div class='dwj-hub-icon'>🛠&#65039;</div>
-          <div class='dwj-hub-name'>Tools</div>
-          <p class='dwj-hub-desc'>Free tools, calculators, resources and recommendations.</p>
-          <span class='dwj-hub-link'>Explore Tools &#8594;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  
-<!-- PHASE 4 RESOURCE CENTER -->
-<b:if cond='data:view.isHomepage'>
-  <section class='dwj-resource-section' id='recommended-resources'>
-    <div class='dwj-phase2-wrap'>
-      <div class='dwj-phase2-head'>
-        <div>
-          <div class='dwj-phase2-kicker'>Resources</div>
-          <h2 class='dwj-phase2-title'>Recommended Tools &amp; Resources</h2>
-          <p class='dwj-phase2-desc'>Useful tools and resource pages for AI, SEO, ads, hosting and web growth.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class='dwj-resource-grid'>
-      <a class='dwj-resource-card' href='/p/ai-tools.html'>
-        <div class='dwj-resource-icon'>🧠</div>
-        <h3>AI Tools</h3>
-        <p>Explore AI writing, research, design and automation tools.</p>
-        <span>View Tools &#8594;</span>
-      </a>
-
-      <a class='dwj-resource-card' href='/p/seo-tools.html'>
-        <div class='dwj-resource-icon'>🔎</div>
-        <h3>SEO Tools</h3>
-        <p>Keyword research, audits, rank tracking and technical SEO tools.</p>
-        <span>View Tools &#8594;</span>
-      </a>
-
-      <a class='dwj-resource-card' href='/p/recommended-hosting.html'>
-        <div class='dwj-resource-icon'>🌐</div>
-        <h3>Hosting</h3>
-        <p>Recommended hosting options for blogs, websites and landing pages.</p>
-        <span>View Hosting &#8594;</span>
-      </a>
-
-      <a class='dwj-resource-card' href='/p/tools.html'>
-        <div class='dwj-resource-icon'>🛠&#65039;</div>
-        <h3>Free Tools</h3>
-        <p>Calculators, generators and free utilities for creators and marketers.</p>
-        <span>Open Tools &#8594;</span>
-      </a>
-    </div>
-  </section>
-</b:if>
-
-
-<!-- PHASE 4 VISIBLE HOMEPAGE SECTION -->
-<b:if cond='data:view.isHomepage'>
-  <section class='dwj-phase4-visible' id='phase4-resources-sidebar'>
-    <div class='dwj-phase2-wrap'>
-      <div class='dwj-phase2-head'>
-        <div>
-          <div class='dwj-phase2-kicker'>Resources &amp; Discovery</div>
-          <h2 class='dwj-phase2-title'>Explore Tools, Guides &amp; Growth Resources</h2>
-          <p class='dwj-phase2-desc'>Quick access to important categories, tools and resource pages for Decode With Jai readers.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class='dwj-phase4-layout'>
-      <div class='dwj-phase4-main'>
-        <div class='dwj-phase4-card'>
-          <div class='dwj-phase4-icon'>🧠</div>
-          <h3>AI Tools</h3>
-          <p>Explore AI writing, research, automation and design tools for creators and marketers.</p>
-          <a href='/p/ai-tools.html'>View AI Tools &#8594;</a>
-        </div>
-
-        <div class='dwj-phase4-card'>
-          <div class='dwj-phase4-icon'>🔎</div>
-          <h3>SEO Tools</h3>
-          <p>Keyword research, indexing, technical SEO and organic growth resources.</p>
-          <a href='/p/seo-tools.html'>View SEO Tools &#8594;</a>
-        </div>
-
-        <div class='dwj-phase4-card'>
-          <div class='dwj-phase4-icon'>🌐</div>
-          <h3>Recommended Hosting</h3>
-          <p>Hosting and website setup resources for blogs, landing pages and business websites.</p>
-          <a href='/p/recommended-hosting.html'>View Hosting &#8594;</a>
-        </div>
-
-        <div class='dwj-phase4-card'>
-          <div class='dwj-phase4-icon'>🛠&#65039;</div>
-          <h3>Free Tools</h3>
-          <p>Calculators, generators and free utilities for SEO, ads and web growth.</p>
-          <a href='/p/tools.html'>Open Tools &#8594;</a>
-        </div>
-      </div>
-
-      <aside class='dwj-phase4-sidebar'>
-        <div class='dwj-phase4-sidebox'>
-          <h3>Search Decode</h3>
-          <form class='dwj-phase4-search' onsubmit='event.preventDefault(); var q=this.querySelector(&quot;input&quot;).value.trim(); if(q){location.href=&quot;/search?q=&quot;+encodeURIComponent(q);}'>
-            <input placeholder='Search articles...' type='search'/>
-            <button type='submit'>Go</button>
-          </form>
-        </div>
-
-        <div class='dwj-phase4-sidebox'>
-          <h3>Quick Topics</h3>
-          <div class='dwj-phase4-links'>
-            <a href='/search/label/AI'><span>🤖 AI</span><span>&#8594;</span></a>
-            <a href='/search/label/SEO'><span>📈 SEO</span><span>&#8594;</span></a>
-            <a href='/search/label/Google%20Ads'><span>💰 Google Ads</span><span>&#8594;</span></a>
-            <a href='/search/label/Meta%20Ads'><span>📱 Meta Ads</span><span>&#8594;</span></a>
-            <a href='/search/label/Web%20Development'><span>💻 Web Dev</span><span>&#8594;</span></a>
-          </div>
-        </div>
-
-        <div class='dwj-phase4-newsletter'>
-          <h3>Decode Weekly</h3>
-          <p>Get AI, SEO, Ads and Web Dev insights in your inbox.</p>
-          <form onsubmit='event.preventDefault(); alert(&quot;Connect this form with your email tool later.&quot;);'>
-            <input placeholder='your@email.com' type='email'/>
-            <button type='submit'>Subscribe</button>
-          </form>
-        </div>
-
-        <div class='dwj-phase4-ad'>
-          Ad / Affiliate Banner<br/>300 &#215; 250
-        </div>
-      </aside>
-    </div>
-  </section>
-</b:if>
-
-
-<!-- PHASE 6 POPULAR ARTICLES -->
-<b:if cond='data:view.isHomepage'>
-  <section class='dwj-popular-section' id='popular-articles'>
-    <div class='dwj-popular-wrap'>
-      <div class='dwj-phase2-head'>
-        <div>
-          <div class='dwj-phase2-kicker'>Trending</div>
-          <h2 class='dwj-phase2-title'>Popular Articles</h2>
-          <p class='dwj-phase2-desc'>A quick reading list for visitors who want the best content first.</p>
-        </div>
-        <a class='dwj-phase2-link' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All &#8594;</a>
-      </div>
-
-      <div class='dwj-popular-grid' id='dwjPopularGrid'>
-        <div class='dwj-featured-loading'>Loading popular articles...</div>
-      </div>
-    </div>
-  </section>
-</b:if>
-
-<section class='dwj-phase2-section off' id='decode-newsletter'>
-    <div class='dwj-phase2-wrap'>
-      <div class='dwj-phase2-newsletter'>
-        <div class='dwj-phase2-kicker'>Decode Weekly</div>
-        <h2>Get AI, SEO &amp; Ads insights weekly.</h2>
-        <p>Short, practical updates on AI tools, SEO wins, ad strategies and web development ideas.</p>
-        <form class='dwj-phase2-form' onsubmit='event.preventDefault(); alert(&quot;Connect this form with your email tool later.&quot;);'>
-          <input aria-label='Email address' placeholder='Enter your email' type='email'/>
-          <button type='submit'>Subscribe</button>
-        </form>
-        <p class='dwj-phase2-note'>No spam. Only useful growth notes.</p>
-      </div>
-    </div>
-  </section>
-
-</b:if>
+              </section>
+            </b:if>
 
 <section class='dwj-section' id='latest'>
             <div class='dwj-wrap'>
-              <div class='dwj-section-hrow'>
-                <div>
-                  <div class='dwj-kicker'><b:if cond='data:view.isHomepage'>Fresh Content<b:else/>Articles</b:if></div>
-                  <!-- FIX: On label pages, data:view.title returns the LABEL NAME (e.g. "SEO").
-                       On homepage it is overridden to "Latest Articles".
-                       If posts list is empty on a label page, Blogger may show blog title instead &#8212;
-                       that means no posts have that exact label spelling assigned in Blogger. -->
-                  <h2 class='dwj-title'><b:if cond='data:view.isHomepage'>Latest Articles<b:else/><data:view.title/></b:if></h2>
-                </div>
-                <b:if cond='data:view.isHomepage'>
-                  <a class='dwj-viewall' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All Posts &#8594;</a>
-                </b:if>
-              </div>
+              <div class='dwj-v2-layout'>
+                <main class='dwj-v2-main'>
+                  <div class='dwj-section-hrow'>
+                    <div>
+                      <div class='dwj-kicker'><b:if cond='data:view.isHomepage'>Fresh Content<b:else/>Articles</b:if></div>
+                      <h2 class='dwj-title'><b:if cond='data:view.isHomepage'>Latest Articles<b:else/><data:view.title/></b:if></h2>
+                      <p class='dwj-desc'><b:if cond='data:view.isHomepage'>Read the newest practical guides and updates published on Decode With Jai.<b:else/>Browse articles from this section.</b:if></p>
+                    </div>
+                    <b:if cond='data:view.isHomepage'>
+                      <a class='dwj-viewall' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All Posts &#8594;</a>
+                    </b:if>
+                  </div>
 
-              <div class='dwj-posts-grid'>
-                <b:loop index='i' values='data:posts' var='post'>
-                  <b:if cond='data:view.isHomepage'>
-                    <b:if cond='data:i &lt; 9'><b:include data='post' name='dwj-card'/></b:if>
-                  <b:else/>
-                    <b:include data='post' name='dwj-card'/>
+                  <div class='dwj-posts-grid'>
+                    <b:loop index='i' values='data:posts' var='post'>
+                      <b:if cond='data:view.isHomepage'>
+                        <b:if cond='data:i &gt; 0 and data:i &lt; 10'><b:include data='post' name='dwj-card'/></b:if>
+                      <b:else/>
+                        <b:include data='post' name='dwj-card'/>
+                      </b:if>
+                    </b:loop>
+                  </div>
+
+                  <b:if cond='data:posts.size == 0 and !data:view.isHomepage'>
+                    <div style='text-align:center;padding:60px 20px;'>
+                      <div style='font-size:2.5rem;margin-bottom:12px;'>📭</div>
+                      <p style='color:var(--mid);font-size:.96rem;margin-bottom:8px;'>No posts found in this category yet.</p>
+                      <p style='color:var(--muted);font-size:.82rem;font-family:Space Mono,monospace;'>Make sure your posts in Blogger have a label that matches exactly: <strong><data:view.title/></strong></p>
+                      <a class='dwj-btn dwj-btn-primary' expr:href='data:blog.homepageUrl' style='display:inline-block;margin-top:20px;'>&#8592; Go Home</a>
+                    </div>
                   </b:if>
-                </b:loop>
+
+                  <b:if cond='data:view.isHomepage'>
+                    <div class='dwj-section-hrow' style='margin-top:42px;'>
+                      <div>
+                        <div class='dwj-kicker'>Browse Topics</div>
+                        <h2 class='dwj-title'>Explore by Category</h2>
+                      </div>
+                    </div>
+                    <div class='dwj-v2-section-grid'>
+                      <a class='dwj-v2-category-card' expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'><b>🤖 AI</b><span>AI tools, prompts, automation and new AI updates.</span></a>
+                      <a class='dwj-v2-category-card' expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'><b>📈 SEO</b><span>Technical SEO, keyword research and ranking systems.</span></a>
+                      <a class='dwj-v2-category-card' expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'><b>🎯 Google Ads</b><span>Campaign setup, keyword strategy and conversion tracking.</span></a>
+                      <a class='dwj-v2-category-card' expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'><b>💻 Web Dev</b><span>Frontend, Blogger, WordPress and website performance.</span></a>
+                    </div>
+
+                    <div style='text-align:center;margin-top:44px;'>
+                      <a class='dwj-btn dwj-btn-primary' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All Articles &#8594;</a>
+                    </div>
+                  <b:else/>
+                    <div class='dwj-pagination'>
+                      <b:include name='previousPageLink'/>
+                      <b:include name='nextPageLink'/>
+                    </div>
+                  </b:if>
+                </main>
+
+                <aside aria-label='Homepage sidebar' class='dwj-v2-sidebar'>
+                  <div class='dwj-v2-sidebox'>
+                    <div class='dwj-v2-author'>
+                      <div class='dwj-v2-author-avatar'>J</div>
+                      <div>
+                        <div class='dwj-v2-side-title'>Jai Jain</div>
+                        <p class='dwj-v2-side-text'>I write practical articles on AI, SEO, Google Ads, Meta Ads, web development and digital growth.</p>
+                        <a class='dwj-viewall' href='https://jaijain.in' rel='noopener' target='_blank'>View Portfolio &#8594;</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class='dwj-v2-sidebox'>
+                    <div class='dwj-v2-side-title'>Popular Topics</div>
+                    <div class='dwj-v2-link-list'>
+                      <a expr:href='data:blog.homepageUrl + &quot;search/label/AI&quot;'><span>🤖 AI Guides</span><span>&#8594;</span></a>
+                      <a expr:href='data:blog.homepageUrl + &quot;search/label/SEO&quot;'><span>📈 SEO Guides</span><span>&#8594;</span></a>
+                      <a expr:href='data:blog.homepageUrl + &quot;search/label/Google%20Ads&quot;'><span>🎯 Google Ads</span><span>&#8594;</span></a>
+                      <a expr:href='data:blog.homepageUrl + &quot;search/label/Web%20Development&quot;'><span>💻 Web Development</span><span>&#8594;</span></a>
+                    </div>
+                  </div>
+
+                  <div class='dwj-v2-sidebox dwj-v2-newsletter-mini'>
+                    <div class='dwj-v2-side-title'>Decode Weekly</div>
+                    <p class='dwj-v2-side-text'>Get useful AI, SEO and web growth updates.</p>
+                    <form onsubmit='event.preventDefault(); alert(&quot;Connect this form with your email tool later.&quot;);'>
+                      <input aria-label='Email address' placeholder='your@email.com' type='email'/>
+                      <button type='submit'>Subscribe</button>
+                    </form>
+                  </div>
+
+                </aside>
               </div>
-
-              <!-- FIX: Show empty state when label page has no posts.
-                   This happens when: posts don't have the label assigned,
-                   or label spelling in URL doesn't match exactly (case-sensitive). -->
-              <b:if cond='data:posts.size == 0 and !data:view.isHomepage'>
-                <div style='text-align:center;padding:60px 20px;'>
-                  <div style='font-size:2.5rem;margin-bottom:12px;'>📭</div>
-                  <p style='color:var(--mid);font-size:.96rem;margin-bottom:8px;'>No posts found in this category yet.</p>
-                  <p style='color:var(--muted);font-size:.82rem;font-family:Space Mono,monospace;'>
-                    Make sure your posts in Blogger have a label that matches exactly: <strong><data:view.title/></strong>
-                  </p>
-                  <a class='dwj-btn dwj-btn-primary' expr:href='data:blog.homepageUrl' style='display:inline-block;margin-top:20px;'>&#8592; Go Home</a>
-                </div>
-              </b:if>
-
-              <!-- Pagination for label/search pages -->
-              <b:if cond='data:view.isHomepage'>
-                <div style='text-align:center;margin-top:44px;'>
-                  <a class='dwj-btn dwj-btn-primary' expr:href='data:blog.homepageUrl + &quot;search&quot;'>View All Articles &#8594;</a>
-                </div>
-              <b:else/>
-                <div class='dwj-pagination'>
-                  <b:include name='previousPageLink'/>
-                  <b:include name='nextPageLink'/>
-                </div>
-              </b:if>
             </div>
           </section>
 
           <b:if cond='data:view.isHomepage'>
-            <section class='dwj-section dwj-section-off' id='dwj-about'>
+            <section class='dwj-section dwj-section-off dwj-v2-about-bottom' id='dwj-about'>
               <div class='dwj-wrap'>
                 <div class='dwj-about-grid'>
                   <div>
@@ -3997,7 +3841,7 @@ section[class*="dwj-ad-inarticle"]{
                   </div>
                   <div class='dwj-info-list'>
                     <div class='dwj-info-row'><span class='dwj-info-icon'>📍</span><div><div class='dwj-info-lbl'>Location</div><div class='dwj-info-val'>Meerut, Uttar Pradesh, India</div></div></div>
-                    <div class='dwj-info-row'><span class='dwj-info-icon'>💼</span><div><div class='dwj-info-lbl'>Current Role</div><div class='dwj-info-val'>Intern Affiliate Executive @ GreenRootz Media</div></div></div>
+                    <div class='dwj-info-row'><span class='dwj-info-icon'>💼</span><div><div class='dwj-info-lbl'>Current Role</div><div class='dwj-info-val'>Affiliate Executive @ GreenRootz Media</div></div></div>
                     <div class='dwj-info-row'><span class='dwj-info-icon'>🎓</span><div><div class='dwj-info-lbl'>Education</div><div class='dwj-info-val'>BCA &#8212; Beacon Institute of Technology</div></div></div>
                     <div class='dwj-info-row'><span class='dwj-info-icon'>&#9993;</span><div><div class='dwj-info-lbl'>Email</div><div class='dwj-info-val'>jai.jain.officials@gmail.com</div></div></div>
                     <div class='dwj-info-row'><span class='dwj-info-icon'>🌐</span><div><div class='dwj-info-lbl'>Portfolio</div><div class='dwj-info-val'>jaijain.in</div></div></div>
@@ -4011,7 +3855,7 @@ section[class*="dwj-ad-inarticle"]{
                 <div style='margin-bottom:28px;'><div class='dwj-kicker'>Find Me Online</div><h2 class='dwj-title'>Let&#8217;s Connect</h2></div>
                 <div class='dwj-social-grid'>
                   <a class='dwj-social' href='https://jaijain.in' rel='dofollow' style='--sc:#0a0a0a;' target='_blank'><div class='dwj-social-icon'>📁</div><div class='dwj-social-name'>Portfolio</div><div class='dwj-social-handle'>jaijain.in</div><div class='dwj-social-act'>Visit &#8599;</div></a>
-                  <a class='dwj-social' href='https://www.https://www.linkedin.com/company/decode-with-jai/' rel='nofollow noopener' style='--sc:#0077b5;' target='_blank'><div class='dwj-social-icon'>💼</div><div class='dwj-social-name'>LinkedIn</div><div class='dwj-social-handle'>Connect professionally</div><div class='dwj-social-act'>Connect &#8599;</div></a>
+                  <a class='dwj-social' href='https://www.linkedin.com/company/decode-with-jai/' rel='nofollow noopener' style='--sc:#0077b5;' target='_blank'><div class='dwj-social-icon'>💼</div><div class='dwj-social-name'>LinkedIn</div><div class='dwj-social-handle'>Connect professionally</div><div class='dwj-social-act'>Connect &#8599;</div></a>
                   <a class='dwj-social' href='https://x.com/Jai_Jain_' rel='nofollow noopener' style='--sc:#141414;' target='_blank'><div class='dwj-social-icon'>X</div><div class='dwj-social-name'>X / Twitter</div><div class='dwj-social-handle'>@Jai_Jain_</div><div class='dwj-social-act'>Follow &#8599;</div></a>
                   <a class='dwj-social' href='https://www.youtube.com/@JaiJainDecode' rel='nofollow noopener' style='--sc:#ff0000;' target='_blank'><div class='dwj-social-icon'>&#9654;</div><div class='dwj-social-name'>YouTube</div><div class='dwj-social-handle'>@JaiJainDecode</div><div class='dwj-social-act'>Subscribe &#8599;</div></a>
                 </div>
@@ -4052,9 +3896,9 @@ section[class*="dwj-ad-inarticle"]{
         <a class='dwj-card' expr:href='data:post.url' role='listitem'>
           <div class='dwj-card-thumb'>
             <b:if cond='data:post.featuredImage'>
-              <img expr:alt='data:post.title' expr:src='data:post.featuredImage' height='338' loading='lazy' width='600'/>
+              <img expr:alt='data:post.title' expr:src='data:post.featuredImage' height='338' loading='eager' onerror='this.parentNode.innerHTML=&quot;&lt;div class=&apos;dwj-card-ph&apos;&gt;📝&lt;/div&gt;&quot;' width='600'/>
             <b:elseif cond='data:post.thumbnailUrl and data:post.thumbnailUrl != &quot;&quot;'/>
-              <img expr:alt='data:post.title' expr:src='data:post.thumbnailUrl' height='338' loading='lazy' width='600'/>
+              <img expr:alt='data:post.title' expr:src='data:post.featuredImage' height='338' loading='eager' onerror='this.parentNode.innerHTML=&quot;&lt;div class=&apos;dwj-card-ph&apos;&gt;📝&lt;/div&gt;&quot;' width='600'/>
             <b:else/>
               <div class='dwj-card-ph'>📝</div>
             </b:if>
@@ -4158,7 +4002,7 @@ section[class*="dwj-ad-inarticle"]{
   
 <!-- LAYOUT EDITABLE: Homepage Custom Zones -->
 <b:if cond='data:view.isHomepage'>
-  <b:section class='layout-edit-zone' id='layout-home-banner-1' maxwidgets='4' name='Homepage Banner 1 / After Hero' showaddelement='yes'>
+  <b:section class='layout-edit-zone' id='layout-home-banner-1' maxwidgets='4' name='Homepage Custom Section 1 / After Hero' showaddelement='yes'>
     <b:widget id='HTML11' locked='false' title='Homepage Banner 1' type='HTML' version='2' visible='false'>
       <b:widget-settings>
         <b:widget-setting name='content'><![CDATA[<div class="dwj-layout-cta">
@@ -4174,12 +4018,12 @@ section[class*="dwj-ad-inarticle"]{
     </b:widget>
   </b:section>
 
-  <b:section class='layout-edit-zone' id='layout-home-banner-2' maxwidgets='4' name='Homepage Banner 2 / Before Newsletter' showaddelement='yes'>
+  <b:section class='layout-edit-zone' id='layout-home-banner-2' maxwidgets='4' name='Homepage Custom Section 2 / Before Newsletter' showaddelement='yes'>
     <b:widget id='HTML12' locked='false' title='Homepage Banner 2' type='HTML' version='2' visible='false'>
       <b:widget-settings>
         <b:widget-setting name='content'><![CDATA[<div class="dwj-layout-banner dwj-banner-wide">
   <a href="https://example.com" target="_blank" rel="nofollow sponsored">
-    <img src="https://via.placeholder.com/1200x300.png?text=Homepage+Banner+1200x300" alt="Homepage Banner"/>
+    <img src="https://via.placeholder.com/1200x300.png?text=Homepage+Custom+Banner+1200x300" alt="Homepage Custom Banner"/>
   </a>
 </div>]]></b:widget-setting>
       </b:widget-settings>
@@ -4191,7 +4035,7 @@ section[class*="dwj-ad-inarticle"]{
 
 <!-- LAYOUT EDITABLE: Single Post Banner Zone Outside Blog1 -->
 <b:if cond='data:view.isSingleItem'>
-  <b:section class='layout-edit-zone' id='layout-post-banner' maxwidgets='4' name='Single Post Banner / CTA' showaddelement='yes'>
+  <b:section class='layout-edit-zone' id='layout-post-banner' maxwidgets='4' name='Single Post Custom Section / CTA' showaddelement='yes'>
     <b:widget id='HTML13' locked='false' title='Single Post Banner' type='HTML' version='2' visible='false'>
       <b:widget-settings>
         <b:widget-setting name='content'><![CDATA[<div class="dwj-layout-cta">
